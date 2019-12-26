@@ -13,14 +13,20 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(data) { r in
-                RideRow(ride: r)
+                NavigationLink(destination: RideDetail(ride: r)){
+                    RideRow(ride: r)
+                }
             }
         }
+        .navigationBarTitle("Rides")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(data: tempRides)
+        NavigationView{
+            ContentView(data: tempRides)
+        }
+
     }
 }

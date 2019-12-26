@@ -18,6 +18,7 @@
 		B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DDC23B446F700CAAEA5 /* Ride.swift */; };
 		B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */; };
 		B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE023B451D100CAAEA5 /* RideRow.swift */; };
+		B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		B77D1DDC23B446F700CAAEA5 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		B77D1DE023B451D100CAAEA5 /* RideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRow.swift; sourceTree = "<group>"; };
+		B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				B77D1DDC23B446F700CAAEA5 /* Ride.swift */,
 				B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */,
 				B77D1DAE23B420B500CAAEA5 /* ContentView.swift */,
+				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
 				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
@@ -348,6 +351,7 @@
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
+				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* ContentView.swift in Sources */,
 			);
