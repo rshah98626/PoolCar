@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    var data: [Ride]
     var body: some View {
-        Text("Hello, World!")
+        List {
+            ForEach(data) { r in
+                RideRow(ride: r)
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(data: tempRides)
     }
 }
