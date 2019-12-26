@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		B77D1DB723B420B600CAAEA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */; };
 		B77D1DC223B420B600CAAEA5 /* PoolCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DC123B420B600CAAEA5 /* PoolCarTests.swift */; };
 		B77D1DCD23B420B600CAAEA5 /* PoolCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DCC23B420B600CAAEA5 /* PoolCarUITests.swift */; };
+		B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DDC23B446F700CAAEA5 /* Ride.swift */; };
+		B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */; };
+		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
+		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B77D1DA723B420B500CAAEA5 /* PoolCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoolCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		B77D1DC823B420B600CAAEA5 /* PoolCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoolCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77D1DCC23B420B600CAAEA5 /* PoolCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCarUITests.swift; sourceTree = "<group>"; };
 		B77D1DCE23B420B600CAAEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B77D1DDC23B446F700CAAEA5 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3036789D07AB2734C760AB17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */,
+				530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7AD07E4F1E183A762AF414D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B77D1D9E23B420B500CAAEA5 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +109,8 @@
 				B77D1DC023B420B600CAAEA5 /* PoolCarTests */,
 				B77D1DCB23B420B600CAAEA5 /* PoolCarUITests */,
 				B77D1DA823B420B500CAAEA5 /* Products */,
+				3036789D07AB2734C760AB17 /* Pods */,
+				7AD07E4F1E183A762AF414D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +129,8 @@
 			children = (
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
+				B77D1DDC23B446F700CAAEA5 /* Ride.swift */,
+				B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */,
 				B77D1DAE23B420B500CAAEA5 /* ContentView.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
@@ -143,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77D1DD123B420B600CAAEA5 /* Build configuration list for PBXNativeTarget "PoolCar" */;
 			buildPhases = (
+				F3C8EF7571443234819A1086 /* [CP] Check Pods Manifest.lock */,
 				B77D1DA323B420B500CAAEA5 /* Sources */,
 				B77D1DA423B420B500CAAEA5 /* Frameworks */,
 				B77D1DA523B420B500CAAEA5 /* Resources */,
+				F478CC32E0D8D9B42846B2F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,12 +294,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F3C8EF7571443234819A1086 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoolCar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F478CC32E0D8D9B42846B2F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B77D1DA323B420B500CAAEA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
+				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* ContentView.swift in Sources */,
 			);
@@ -432,6 +508,7 @@
 		};
 		B77D1DD223B420B600CAAEA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +529,7 @@
 		};
 		B77D1DD323B420B600CAAEA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
