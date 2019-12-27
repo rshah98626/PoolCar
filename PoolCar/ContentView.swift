@@ -10,6 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var data: [Ride]
+    @State var isModal: Bool = false
+
+    var addRideButton: some View {
+        HStack {
+            Button(action: {
+                self.isModal.toggle()
+            }) {
+                Image(systemName: "car.fill")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
+    }
 
     var body: some View {
         NavigationView {
@@ -19,7 +32,10 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Rides", displayMode: .inline)
-            .navigationBarItems(trailing: AddRideButton())
+            .navigationBarItems(trailing: addRideButton)
+            .sheet(isPresented: $isModal) {
+                Deets()
+            }
         }
     }
 
@@ -40,15 +56,9 @@ struct ContentView: View {
     }
 }
 
-struct AddRideButton: View {
+struct Deets: View {
     var body: some View {
-        HStack {
-            Button(action: {}) {
-                Image(systemName: "car.fill")
-                    .font(.largeTitle)
-            }
-            .foregroundColor(.blue)
-        }
+        Text("hi")
     }
 }
 
