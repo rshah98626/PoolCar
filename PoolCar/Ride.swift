@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct Ride: Hashable, Codable, Identifiable {
-    var id: Int
+    // swiftlint:disable:next identifier_name
+    var id = UUID()
     var origin: String
     var destination: String
 }

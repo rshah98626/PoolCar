@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    var data: [Ride]
-    @State var isModal: Bool = false
+    @EnvironmentObject var database: Database
+    //var data: [Ride]
+    @State private var showAddRideModal: Bool = false
 
     var addRideButton: some View {
         HStack {
             Button(action: {
-                self.isModal.toggle()
+                self.showAddRideModal.toggle()
             }) {
                 Image(systemName: "car.fill")
                     .font(.largeTitle)
@@ -26,20 +27,21 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List(data) { ride in
+            List(database.rides) { ride in
                 NavigationLink(destination: RideDetail(ride: ride)) {
                     RideRow(ride: ride)
                 }
             }
             .navigationBarTitle("Rides", displayMode: .inline)
             .navigationBarItems(trailing: addRideButton)
-            .sheet(isPresented: $isModal) {
-                Deets()
+            .sheet(isPresented: $showAddRideModal) {
+                AddRide(isShowing: self.$showAddRideModal)
+                    .environmentObject(self.database)
             }
         }
     }
 
-    init(data: [Ride]) {
+    init() {
         // navigation bar color
         UINavigationBar.appearance().backgroundColor = .green
 
@@ -51,19 +53,11 @@ struct ContentView: View {
         // for displayMode .inline
         UINavigationBar.appearance().titleTextAttributes = [
             .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
-
-        self.data = data
-    }
-}
-
-struct Deets: View {
-    var body: some View {
-        Text("hi")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(data: tempRides)
+        ContentView().environmentObject(Database())
     }
 }
