@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-let r1 = Ride(id: 0, origin: "Naperville", destination: "Champaign")
-let r2 = Ride(id: 1, origin: "Mount Prospect", destination: "Champaign")
+let ride1 = Ride(id: 0, origin: "Naperville", destination: "Champaign")
+let ride2 = Ride(id: 1, origin: "Mount Prospect", destination: "Champaign")
 
-let tempRides: [Ride] = [r1, r2]
+let tempRides: [Ride] = [ride1, ride2]

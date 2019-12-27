@@ -10,23 +10,50 @@ import SwiftUI
 
 struct ContentView: View {
     var data: [Ride]
+
     var body: some View {
-        List {
-            ForEach(data) { r in
-                NavigationLink(destination: RideDetail(ride: r)){
-                    RideRow(ride: r)
+        NavigationView {
+            List(data) { ride in
+                NavigationLink(destination: RideDetail(ride: ride)) {
+                    RideRow(ride: ride)
                 }
             }
+            .navigationBarTitle("Rides", displayMode: .inline)
+            .navigationBarItems(trailing: AddRideButton())
         }
-        .navigationBarTitle("Rides")
+    }
+
+    init(data: [Ride]) {
+        // navigation bar color
+        UINavigationBar.appearance().backgroundColor = .green
+
+        // for displayMode .large
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.darkGray,
+            .font: UIFont(name: "Papyrus", size: 40)!]
+
+        // for displayMode .inline
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
+
+        self.data = data
+    }
+}
+
+struct AddRideButton: View {
+    var body: some View {
+        HStack {
+            Button(action: {}) {
+                Image(systemName: "car.fill")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            ContentView(data: tempRides)
-        }
-
+        ContentView(data: tempRides)
     }
 }
