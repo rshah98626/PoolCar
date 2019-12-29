@@ -10,11 +10,15 @@ import UIKit
 import GooglePlaces
 import GoogleMaps
 
+let apiKey = "AIzaSyDFl55AH4SCMf3dCMNzOQwxQOqaIY3EKLk"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Enable Google Maps and Google Places
+        GMSServices.provideAPIKey(apiKey)
+        GMSPlacesClient.provideAPIKey(apiKey)
         return true
     }
 
