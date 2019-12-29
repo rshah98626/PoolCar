@@ -8,9 +8,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RideTable: View {
     @EnvironmentObject var database: Database
-    //var data: [Ride]
     @State private var showAddRideModal: Bool = false
 
     var addRideButton: some View {
@@ -56,8 +55,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RideTable_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(Database())
+        RideTable().environmentObject(Database())
     }
 }
