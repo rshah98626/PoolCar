@@ -10,6 +10,7 @@ import SwiftUI
 import GooglePlaces
 
 struct GMSSearchPlaceController: UIViewControllerRepresentable {
+    // MARK: Bindings
     @Binding var gmsShowing: Bool
     @Binding var selectedLocation: GMSPlace?
 
@@ -17,12 +18,13 @@ struct GMSSearchPlaceController: UIViewControllerRepresentable {
         Coordinator(self)
     }
 
+    /// Initialize the Google Places  searching controller
     func makeUIViewController(context: Context) -> GMSAutocompleteViewController {
         // Setup GMS Place controller
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = context.coordinator as GMSAutocompleteViewControllerDelegate
 
-        // Specify a filter.
+        // Specify a filter
         let filter = GMSAutocompleteFilter()
         filter.country = "US"
         autocompleteController.autocompleteFilter = filter
@@ -30,8 +32,10 @@ struct GMSSearchPlaceController: UIViewControllerRepresentable {
         return autocompleteController
     }
 
+    // Delegate handles upadte of controller
     func updateUIViewController(_ addRideController: GMSAutocompleteViewController, context: Context) {}
 
+    // MARK: Coordinator
     class Coordinator: NSObject, GMSAutocompleteViewControllerDelegate {
         var parent: GMSSearchPlaceController
 
@@ -39,6 +43,7 @@ struct GMSSearchPlaceController: UIViewControllerRepresentable {
             self.parent = addRideController
         }
 
+        /// Function called when place is selected
         func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
             // Return selected place to parent controller
             self.parent.selectedLocation = place
@@ -46,12 +51,15 @@ struct GMSSearchPlaceController: UIViewControllerRepresentable {
             self.parent.gmsShowing = false
         }
 
+        /// Error handler
+        // TODO: Handle errors better
         func viewController(_ viewController: GMSAutocompleteViewController,
                             didFailAutocompleteWithError error: Error) {
             // Dismiss controller
             self.parent.gmsShowing = false
         }
 
+        /// User hits cancel
         func wasCancelled(_ viewController: GMSAutocompleteViewController) {
             // Dismiss controller
             self.parent.gmsShowing = false

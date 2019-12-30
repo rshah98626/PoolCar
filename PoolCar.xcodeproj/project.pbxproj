@@ -24,6 +24,7 @@
 		B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */; };
 		B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1923B93680001D297B /* InputOptions.swift */; };
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
+		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSSearchPlaceController.swift; sourceTree = "<group>"; };
 		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
+		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */,
 				B7A47B1923B93680001D297B /* InputOptions.swift */,
 				B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */,
+				B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */,
 			);
 			path = "Adding Ride";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
+				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,

@@ -10,14 +10,16 @@ import SwiftUI
 import GooglePlaces
 
 struct InputOptions: View {
+    // MARK: State Variables
     @Binding var timing: Date
     @Binding var fromLocation: GMSPlace?
     @Binding var toLocation: GMSPlace?
 
-    // MARK: State Variables
+    // Handles showing of GMSPlaceController
     @Binding var showingGMSTo: Bool
     @Binding var showingGMSFrom: Bool
 
+    // MARK: Body
     var body: some View {
         VStack {
             fromLabel
@@ -31,15 +33,18 @@ struct InputOptions: View {
         HStack {
             Text("From:")
             Spacer()
+            // Changes button label text
             Button(self.fromLocation?.name ?? "Tap to select an origin!") {
                 self.showingGMSFrom.toggle()
             }
+            // Show modal and call GMSPlaceController
             .sheet(isPresented: $showingGMSFrom) {
                 GMSSearchPlaceController(gmsShowing: self.$showingGMSFrom, selectedLocation: self.$fromLocation)
             }
         }
     }
 
+    // Look at comments above
     var toLabel: some View {
         HStack {
             Text("To:")
@@ -55,6 +60,7 @@ struct InputOptions: View {
     }
 
     var dateTimeView: some View {
+        // in param makes sure you can only select a date in the future
         DatePicker("Depature Time", selection: $timing, in: Date()...)
             .labelsHidden()
     }

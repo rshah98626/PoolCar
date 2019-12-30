@@ -12,17 +12,20 @@ import GooglePlaces
 import os
 
 struct AddRide: View {
-    // MARK: Global Variables
-    @Binding var isShowing: Bool
+    // MARK: State Variables
     @EnvironmentObject var database: Database
+    @Binding var isShowing: Bool  // Bool for showing add ride controller
 
-    // MARK: New State Variables
+    // Input variables
     @State private var timing = Date()
     @State private var fromLocation: GMSPlace?
     @State private var toLocation: GMSPlace?
+
+    // Handles showing modal of GMSPlaceController
     @State private var showingGMSTo = false
     @State private var showingGMSFrom = false
 
+    // MARK: Body
     var body: some View {
         VStack {
             topButtonBar
@@ -49,18 +52,19 @@ struct AddRide: View {
         var originTown = ""
         var destinationTown = ""
 
+        // look through address components to find town name
         for addressComponent in self.fromLocation!.addressComponents! {
             if addressComponent.types.contains("locality") {
                 originTown = addressComponent.name
             }
         }
-
         for addressComponent in self.toLocation!.addressComponents! {
             if addressComponent.types.contains("locality") {
                 destinationTown = addressComponent.name
             }
         }
 
+        // add ride to DB
         let newRide = Ride(origin: originTown, destination: destinationTown)
         self.database.addRide(ride: newRide)
         self.isShowing.toggle()
