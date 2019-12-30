@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */; };
 		B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */; };
-		B77D1DAF23B420B500CAAEA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAE23B420B500CAAEA5 /* ContentView.swift */; };
+		B77D1DAF23B420B500CAAEA5 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAE23B420B500CAAEA5 /* RideTable.swift */; };
 		B77D1DB123B420B600CAAEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB023B420B600CAAEA5 /* Assets.xcassets */; };
 		B77D1DB423B420B600CAAEA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB323B420B600CAAEA5 /* Preview Assets.xcassets */; };
 		B77D1DB723B420B600CAAEA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */; };
@@ -20,6 +20,11 @@
 		B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE023B451D100CAAEA5 /* RideRow.swift */; };
 		B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */; };
 		B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE423B5485800CAAEA5 /* AddRide.swift */; };
+		B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE923B5BE6200CAAEA5 /* Database.swift */; };
+		B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */; };
+		B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1923B93680001D297B /* InputOptions.swift */; };
+		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
+		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +52,7 @@
 		B77D1DA723B420B500CAAEA5 /* PoolCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoolCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B77D1DAE23B420B500CAAEA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B77D1DAE23B420B500CAAEA5 /* RideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTable.swift; sourceTree = "<group>"; };
 		B77D1DB023B420B600CAAEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B77D1DB323B420B600CAAEA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B77D1DB623B420B600CAAEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +68,11 @@
 		B77D1DE023B451D100CAAEA5 /* RideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRow.swift; sourceTree = "<group>"; };
 		B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetail.swift; sourceTree = "<group>"; };
 		B77D1DE423B5485800CAAEA5 /* AddRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRide.swift; sourceTree = "<group>"; };
+		B77D1DE923B5BE6200CAAEA5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSSearchPlaceController.swift; sourceTree = "<group>"; };
+		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
+		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
+		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,14 +143,12 @@
 		B77D1DA923B420B500CAAEA5 /* PoolCar */ = {
 			isa = PBXGroup;
 			children = (
+				B7A47B1623B9313E001D297B /* Adding Ride */,
+				B7A47B1523B930FC001D297B /* Models */,
+				B7A47B1423B930C1001D297B /* Ride Table */,
+				B7A47B1323B93017001D297B /* Environment Objects */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
-				B77D1DDC23B446F700CAAEA5 /* Ride.swift */,
-				B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */,
-				B77D1DAE23B420B500CAAEA5 /* ContentView.swift */,
-				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
-				B77D1DE423B5485800CAAEA5 /* AddRide.swift */,
-				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
@@ -173,6 +181,45 @@
 				B77D1DCE23B420B600CAAEA5 /* Info.plist */,
 			);
 			path = PoolCarUITests;
+			sourceTree = "<group>";
+		};
+		B7A47B1323B93017001D297B /* Environment Objects */ = {
+			isa = PBXGroup;
+			children = (
+				B77D1DDE23B4484100CAAEA5 /* PreviewData.swift */,
+				B77D1DE923B5BE6200CAAEA5 /* Database.swift */,
+			);
+			path = "Environment Objects";
+			sourceTree = "<group>";
+		};
+		B7A47B1423B930C1001D297B /* Ride Table */ = {
+			isa = PBXGroup;
+			children = (
+				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
+				B77D1DAE23B420B500CAAEA5 /* RideTable.swift */,
+				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
+			);
+			path = "Ride Table";
+			sourceTree = "<group>";
+		};
+		B7A47B1523B930FC001D297B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B77D1DDC23B446F700CAAEA5 /* Ride.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B7A47B1623B9313E001D297B /* Adding Ride */ = {
+			isa = PBXGroup;
+			children = (
+				B77D1DE423B5485800CAAEA5 /* AddRide.swift */,
+				B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */,
+				B7A47B1923B93680001D297B /* InputOptions.swift */,
+				B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */,
+				B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */,
+			);
+			path = "Adding Ride";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,14 +415,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
+				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
+				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
+				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
+				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
-				B77D1DAF23B420B500CAAEA5 /* ContentView.swift in Sources */,
+				B77D1DAF23B420B500CAAEA5 /* RideTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

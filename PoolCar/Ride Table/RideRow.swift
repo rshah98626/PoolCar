@@ -12,8 +12,8 @@ struct RideRow: View {
     var ride: Ride
     var body: some View {
         HStack {
-            Text(ride.destination)
             Text(ride.origin)
+            Text(ride.destination)
             Spacer()
         }.padding()
     }

@@ -8,22 +8,39 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var data: [Ride]
+struct RideTable: View {
+    @EnvironmentObject var database: Database
+    @State private var showAddRideModal: Bool = false
+
+    var addRideButton: some View {
+        HStack {
+            Button(action: {
+                self.showAddRideModal.toggle()
+            }) {
+                Image(systemName: "car.fill")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
+    }
 
     var body: some View {
         NavigationView {
-            List(data) { ride in
+            List(database.rides) { ride in
                 NavigationLink(destination: RideDetail(ride: ride)) {
                     RideRow(ride: ride)
                 }
             }
             .navigationBarTitle("Rides", displayMode: .inline)
-            .navigationBarItems(trailing: AddRideButton())
+            .navigationBarItems(trailing: addRideButton)
+            .sheet(isPresented: $showAddRideModal) {
+                AddRide(isShowing: self.$showAddRideModal)
+                    .environmentObject(self.database)
+            }
         }
     }
 
-    init(data: [Ride]) {
+    init() {
         // navigation bar color
         UINavigationBar.appearance().backgroundColor = .green
 
@@ -35,25 +52,11 @@ struct ContentView: View {
         // for displayMode .inline
         UINavigationBar.appearance().titleTextAttributes = [
             .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
-
-        self.data = data
     }
 }
 
-struct AddRideButton: View {
-    var body: some View {
-        HStack {
-            Button(action: {}) {
-                Image(systemName: "car.fill")
-                    .font(.largeTitle)
-            }
-            .foregroundColor(.blue)
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct RideTable_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(data: tempRides)
+        RideTable().environmentObject(Database())
     }
 }
