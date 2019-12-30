@@ -23,7 +23,18 @@ struct AddRide: View {
     @State private var showingGMSTo = false
     @State private var showingGMSFrom = false
 
-    // Menu buttons
+    var body: some View {
+        VStack {
+            topButtonBar
+            InputOptions(timing: $timing, fromLocation: $fromLocation,
+                         toLocation: $toLocation, showingGMSTo: $showingGMSTo, showingGMSFrom: $showingGMSFrom)
+            GoogleMapView(toLocation: $toLocation, fromLocation: $fromLocation)
+                .padding()
+            Spacer()
+        }
+    }
+
+    /// Menu buttons
     var topButtonBar: some View {
         HStack {
             Button("Cancel") { self.isShowing.toggle() }
@@ -33,16 +44,7 @@ struct AddRide: View {
         .padding()
     }
 
-    var body: some View {
-        VStack {
-            topButtonBar
-            InputOptions(timing: $timing, fromLocation: $fromLocation,
-                         toLocation: $toLocation, showingGMSTo: $showingGMSTo, showingGMSFrom: $showingGMSFrom)
-            Spacer()
-        }
-    }
-
-    // Adds new ride to database based upon input selections
+    /// Adds new ride to database based upon input selections
     func submitRide() {
         var originTown = ""
         var destinationTown = ""
@@ -64,7 +66,7 @@ struct AddRide: View {
         self.isShowing.toggle()
     }
 
-    // Disable save button unless origin and destination are selected
+    /// Disable save button unless origin and destination are selected
     func saveButtonDisabled() -> Bool {
         if fromLocation == nil || toLocation == nil {
             return true
