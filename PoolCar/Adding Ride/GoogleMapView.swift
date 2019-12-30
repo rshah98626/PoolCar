@@ -21,7 +21,7 @@ struct GoogleMapView: UIViewRepresentable {
     /// Creates a `UIView` instance to be presented.
     func makeUIView(context: Self.Context) -> GMSMapView {
         // TODO: move camera on current user location
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 40.1020, longitude: -88.2272, zoom: 15.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
 
         return mapView
