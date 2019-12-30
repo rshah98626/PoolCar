@@ -10,7 +10,16 @@ import SwiftUI
 
 struct DrawerContent: View {
     var body: some View {
-        Color.green
+        VStack(spacing: 20) {
+            Text("My Profile")
+            Divider()
+            Text("Settings")
+            Divider()
+            Text("Past Rides")
+            Spacer()
+        }
+        .padding()
+        .background(Color.green)
     }
 }
 

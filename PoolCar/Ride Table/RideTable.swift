@@ -12,6 +12,7 @@ struct RideTable: View {
     @EnvironmentObject var database: Database
     var body: some View {
         List(database.rides) { ride in
+            // Navigation Link makes text and other items look faint in preview
             NavigationLink(destination: RideDetail(ride: ride)) {
                 RideRow(ride: ride)
             }

@@ -42,14 +42,6 @@ struct Home: View {
         }
     }
 
-//    var rideTable: some View {
-//        List(database.rides) { ride in
-//            NavigationLink(destination: RideDetail(ride: ride)) {
-//                RideRow(ride: ride)
-//            }
-//        }
-//    }
-
     var body: some View {
         ZStack {
             NavigationView {
@@ -69,6 +61,7 @@ struct Home: View {
         }
     }
 
+    /// Initializes the navigation controller
     init() {
         // navigation bar color
         UINavigationBar.appearance().backgroundColor = .green

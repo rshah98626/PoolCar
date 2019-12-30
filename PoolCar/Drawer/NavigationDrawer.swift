@@ -14,6 +14,7 @@ struct NavigationDrawer: View {
 
     var body: some View {
         ZStack {
+            // adds opaque view on top of background
             GeometryReader { _ in
                 EmptyView()
             }
@@ -23,13 +24,12 @@ struct NavigationDrawer: View {
             .onTapGesture {
                 self.isOpen.toggle()
             }
-
+            // menu content
             HStack {
                 DrawerContent()
                     .frame(width: self.width)
                     .offset(x: self.isOpen ? 0 : -self.width)
                     .animation(.easeIn)
-
                 Spacer()
             }
         }

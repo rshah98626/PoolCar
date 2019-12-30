@@ -124,6 +124,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B772304223BA8B1F003F1B95 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				B7358EAD23BA7D58003936E2 /* DrawerContent.swift */,
+				B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
 		B77D1D9E23B420B500CAAEA5 = {
 			isa = PBXGroup;
 			children = (
@@ -154,12 +163,11 @@
 				B7A47B1523B930FC001D297B /* Models */,
 				B7A47B1423B930C1001D297B /* Ride Table */,
 				B7A47B1323B93017001D297B /* Environment Objects */,
+				B772304223BA8B1F003F1B95 /* Drawer */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
-				B7358EAD23BA7D58003936E2 /* DrawerContent.swift */,
-				B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
 			);
