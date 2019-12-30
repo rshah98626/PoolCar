@@ -11,7 +11,9 @@ import SwiftUI
 struct RideTable: View {
     @EnvironmentObject var database: Database
     @State private var showAddRideModal: Bool = false
+    @State private var drawerOpen: Bool = false
 
+    /// Button to add ride
     var addRideButton: some View {
         HStack {
             Button(action: {
@@ -24,19 +26,42 @@ struct RideTable: View {
         }
     }
 
+    /// Menu drawer button
+    var sideMenuButton: some View {
+        HStack {
+            Button(action: {
+                // background thread
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                    self.drawerOpen.toggle()
+//                }
+                self.drawerOpen.toggle()
+            }) {
+                Image(systemName: "sidebar.left")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
+    }
+
     var body: some View {
-        NavigationView {
-            List(database.rides) { ride in
-                NavigationLink(destination: RideDetail(ride: ride)) {
-                    RideRow(ride: ride)
+        ZStack {
+            NavigationView {
+                // Ride table
+                List(database.rides) { ride in
+                    NavigationLink(destination: RideDetail(ride: ride)) {
+                        RideRow(ride: ride)
+                    }
+                }
+                .navigationBarTitle("Rides", displayMode: .inline)
+                .navigationBarItems(leading: sideMenuButton, trailing: addRideButton)
+                .sheet(isPresented: $showAddRideModal) {
+                    AddRide(isShowing: self.$showAddRideModal)
+                        .environmentObject(self.database)
                 }
             }
-            .navigationBarTitle("Rides", displayMode: .inline)
-            .navigationBarItems(trailing: addRideButton)
-            .sheet(isPresented: $showAddRideModal) {
-                AddRide(isShowing: self.$showAddRideModal)
-                    .environmentObject(self.database)
-            }
+
+            // side drawer
+            NavigationDrawer(isOpen: self.$drawerOpen)
         }
     }
 

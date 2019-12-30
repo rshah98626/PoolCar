@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
+		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */; };
 		B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */; };
 		B77D1DAF23B420B500CAAEA5 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAE23B420B500CAAEA5 /* RideTable.swift */; };
@@ -49,6 +51,8 @@
 		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
+		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
+		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		B77D1DA723B420B500CAAEA5 /* PoolCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoolCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
+				B7358EAD23BA7D58003936E2 /* DrawerContent.swift */,
+				B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
 			);
@@ -417,7 +423,9 @@
 			files = (
 				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
+				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
+				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
