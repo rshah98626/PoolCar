@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
+		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
 		B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */; };
 		B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */; };
-		B77D1DAF23B420B500CAAEA5 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAE23B420B500CAAEA5 /* RideTable.swift */; };
+		B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DAE23B420B500CAAEA5 /* Home.swift */; };
 		B77D1DB123B420B600CAAEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB023B420B600CAAEA5 /* Assets.xcassets */; };
 		B77D1DB423B420B600CAAEA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB323B420B600CAAEA5 /* Preview Assets.xcassets */; };
 		B77D1DB723B420B600CAAEA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */; };
@@ -53,10 +54,11 @@
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
 		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
+		B772304023BA89D1003F1B95 /* RideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTable.swift; sourceTree = "<group>"; };
 		B77D1DA723B420B500CAAEA5 /* PoolCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoolCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B77D1DAE23B420B500CAAEA5 /* RideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTable.swift; sourceTree = "<group>"; };
+		B77D1DAE23B420B500CAAEA5 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B77D1DB023B420B600CAAEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B77D1DB323B420B600CAAEA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B77D1DB623B420B600CAAEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		B77D1DA923B420B500CAAEA5 /* PoolCar */ = {
 			isa = PBXGroup;
 			children = (
+				B77D1DAE23B420B500CAAEA5 /* Home.swift */,
 				B7A47B1623B9313E001D297B /* Adding Ride */,
 				B7A47B1523B930FC001D297B /* Models */,
 				B7A47B1423B930C1001D297B /* Ride Table */,
@@ -202,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
-				B77D1DAE23B420B500CAAEA5 /* RideTable.swift */,
+				B772304023BA89D1003F1B95 /* RideTable.swift */,
 				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
 			);
 			path = "Ride Table";
@@ -427,6 +430,7 @@
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
+				B772304123BA89D1003F1B95 /* RideTable.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
@@ -435,7 +439,7 @@
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
-				B77D1DAF23B420B500CAAEA5 /* RideTable.swift in Sources */,
+				B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
