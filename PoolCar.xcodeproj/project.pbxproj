@@ -29,6 +29,9 @@
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
+		E6B662C423BB058C00105B7C /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C323BB058C00105B7C /* SwiftUIView.swift */; };
+		E6B662C623BBD32A00105B7C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C523BBD32A00105B7C /* LoginView.swift */; };
+		E6B662C823BBD42500105B7C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C723BBD42500105B7C /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
+		E6B662C323BB058C00105B7C /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		E6B662C523BBD32A00105B7C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E6B662C723BBD42500105B7C /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,9 @@
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
+				E6B662C323BB058C00105B7C /* SwiftUIView.swift */,
+				E6B662C523BBD32A00105B7C /* LoginView.swift */,
+				E6B662C723BBD42500105B7C /* SignupView.swift */,
 			);
 			path = PoolCar;
 			sourceTree = "<group>";
@@ -252,6 +261,7 @@
 				B77D1DA523B420B500CAAEA5 /* Resources */,
 				F478CC32E0D8D9B42846B2F4 /* [CP] Copy Pods Resources */,
 				B77D1DE623B5857B00CAAEA5 /* ShellScript */,
+				CD38C793BB40FDEA5A332F27 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +396,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		CD38C793BB40FDEA5A332F27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PoolCar/Pods-PoolCar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F3C8EF7571443234819A1086 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,8 +459,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B662C823BBD42500105B7C /* SignupView.swift in Sources */,
 				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
+				E6B662C423BB058C00105B7C /* SwiftUIView.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
@@ -443,6 +472,7 @@
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
 				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
+				E6B662C623BBD32A00105B7C /* LoginView.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,

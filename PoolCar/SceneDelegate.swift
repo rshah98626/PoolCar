@@ -24,7 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = Home().environmentObject(Database())
+        let contentView =
+            Home().environmentObject(Database())
+        //This one will be used once the main page & user pages are done
+       // let contentView = SwiftUIView().environmentObject(Database())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
