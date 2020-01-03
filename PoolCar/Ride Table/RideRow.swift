@@ -12,16 +12,32 @@ struct RideRow: View {
     var ride: Ride
     var body: some View {
         HStack {
-            Text(ride.origin)
-            Text(ride.destination)
-            Spacer()
-        }.padding()
+// placeholder for driver picture
+Circle().fill(Color.gray).frame(width: 75, height: 75)
+            Divider()
+            VStack {
+                HStack {
+                        Text(ride.origin)
+                        Spacer()
+// possibly add arrow
+                    Text(ride.destination)
+                    }.padding()
+                HStack {
+                    Text("$30")
+                        .padding(.leading)
+                    Spacer()
+                    Text("01/01/2020")
+                }
+                .padding(.trailing)
+            }
+            .padding(.bottom)
+        }
     }
 }
 
 struct RideRow_Previews: PreviewProvider {
     static var previews: some View {
         RideRow(ride: tempRides[0])
-            .previewLayout(.fixed(width: 300, height: 50))
+            .previewLayout(.fixed(width: 400, height: 100))
     }
 }
