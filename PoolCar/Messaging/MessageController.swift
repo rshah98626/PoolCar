@@ -9,6 +9,7 @@
 import Combine
 import SwiftUI
 
+/// TODO have to figure out how to connect this to Ride model
 class MessageController: ObservableObject {
     var didChange = PassthroughSubject<Void, Never>()
 
