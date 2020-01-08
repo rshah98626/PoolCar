@@ -10,6 +10,7 @@ import SwiftUI
 //package allows HTTPS Requests to be sent
 import Alamofire
 
+
 struct SignupView: View {
     var body: some View {
        VStack{
@@ -29,6 +30,7 @@ struct SignupView: View {
                 .frame(width: 200.0, height: 30.0)
                 .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+        //values for text fields need to be held at VALUE
             TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
             .padding(.horizontal)
             .frame(width: 200.0, height: 30.0)
