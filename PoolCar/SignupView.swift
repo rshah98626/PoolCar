@@ -10,47 +10,44 @@ import SwiftUI
 //package allows HTTPS Requests to be sent
 import Alamofire
 
-
 struct SignupView: View {
     @State private var passwrd = ""
     @State private var email = ""
     @State private var name = ""
     var body: some View {
-       VStack{
+       VStack {
             Text("Create a New User")
                 .font(.title)
                 .fontWeight(.bold)
-                
-            //.font(Font.title)
-            //.font(.title)
+
             Text("please enter your info")
                 .font(.subheadline)
                 .fontWeight(.light)
-            
             //.padding(EdgeInsets(top: 0, bottom: 70, leading: 0))
+        //name text field - needs proper formatting
             TextField("Name", text: $name)
             .padding(.horizontal)
             .frame(width: 200.0, height: 30.0)
             .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
         
+            //email field - needs proper formatting
             TextField("Email", text: $email)
                 .padding(.horizontal)
                 .frame(width: 200.0, height: 30.0)
                 .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
         
-        //values for text fields need to be held at VALUE
+            //password field, is set to secure typing
             SecureField("Password", text: $passwrd)
             .padding(.horizontal)
             .frame(width: 200.0, height: 30.0)
             .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-            /*TextField("Email", text:Binding<String>("hi"))
-                .padding(.top, CGFloat(70.0))
-                .frame(width: CGFloat(1.0), height: CGFloat(1.0))*/
+  
             
-        Button(action: {testConnection(email: self.email, pass: self.passwrd, name: self.name)}) {
+        //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
+        Button(action: {SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
             Text("Sign Up")
                 .frame(width: nil)
         }
@@ -63,20 +60,19 @@ struct SignupView_Previews: PreviewProvider {
         SignupView()
     }
 }
-struct Login: Encodable{
+//struct turns values into JSON format
+struct Signup: Encodable{
     let name: String
     let email: String
     let password: String
 }
-
-func testConnection(email: String, pass: String, name: String)->Void{
+//This function grabs all of the values entered it and sends it to the node server
+func SignupRequest(email: String, pass: String, name: String)->Void{
+    //node URL
     let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
-    let login = Login(name: name, email: email, password: pass)
+    let signup = Signup(name: name, email: email, password: pass)
 
-    AF.request(url, method: .post, parameters: login).response{ response in
-    debugPrint(response)
-        
-        //need to work here to make sure there is error handling
-
+    AF.request(url, method: .post, parameters: signup).response{ response in debugPrint(response) }
+        //need to include error handling here to ensure that connection failures and bad inputs are handled
 }
-}
+//NEED TO REMEMBER TO UPDATE transport security when moving to production
