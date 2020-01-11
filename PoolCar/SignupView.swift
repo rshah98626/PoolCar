@@ -23,7 +23,7 @@ struct SignupView: View {
             Text("please enter your info")
                 .font(.subheadline)
                 .fontWeight(.light)
-            //.padding(EdgeInsets(top: 0, bottom: 70, leading: 0))
+
         //name text field - needs proper formatting
             TextField("Name", text: $name)
             .padding(.horizontal)

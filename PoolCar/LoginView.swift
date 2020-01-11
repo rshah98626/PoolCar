@@ -22,8 +22,7 @@ struct LoginView: View {
             Text("please enter your info")
                 .font(.subheadline)
                 .fontWeight(.light)
-            //.padding(EdgeInsets(top: 0, bottom: 70, leading: 0))
-
+   
             //email field - needs proper formatting
             TextField("Email", text: $email)
                 .padding(.horizontal)
