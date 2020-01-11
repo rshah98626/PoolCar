@@ -12,6 +12,8 @@ import Alamofire
 
 
 struct SignupView: View {
+    @State private var passwrd = ""
+    @State private var email = ""
     var body: some View {
        VStack{
             Text("Create a New User")
@@ -25,13 +27,13 @@ struct SignupView: View {
                 .fontWeight(.light)
             
             //.padding(EdgeInsets(top: 0, bottom: 70, leading: 0))
-            TextField("Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+            TextField("Email", text: $email)
                 .padding(.horizontal)
                 .frame(width: 200.0, height: 30.0)
                 .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
         //values for text fields need to be held at VALUE
-            TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+            TextField("Password", text: $passwrd)
             .padding(.horizontal)
             .frame(width: 200.0, height: 30.0)
             .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
@@ -40,7 +42,7 @@ struct SignupView: View {
                 .padding(.top, CGFloat(70.0))
                 .frame(width: CGFloat(1.0), height: CGFloat(1.0))*/
             
-        Button(action: testConnection) {
+        Button(action: {testConnection(email: self.email, pass: self.passwrd)}) {
         Text("Login")
         }
         }
@@ -52,33 +54,20 @@ struct SignupView_Previews: PreviewProvider {
         SignupView()
     }
 }
+struct Login: Encodable{
+    let name: String
+    let email: String
+    let password: String
+}
 
-func testConnection()-> Void {
-    let url = "http://localhost:8000/users/test"
+func testConnection(email: String, pass: String)->Void{
+    let url = "http://localhost:8000/users/signup"
+    let login = Login(name: "testusr", email: email, password: pass)
 
-    AF.request(url).response{ response in
+    AF.request(url, method: .post, parameters: login).response{ response in
     debugPrint(response)
-    /*
-        .responseJSON { resp in
-            if resp.result.isSuccess,
-                let data = resp.result.value as? [String: Any],
-                let user = data["currentUser"] as? [String: String],
-                let users = data["users"] as? [String: [String: String]],
-                let id = user["id"], let name = user["name"]
-            {
-                for (uid, user) in users {
-                    if let name = user["name"], id != uid {
-                        self.users.append(User(id: uid, name: name))
-                    }
-                }
+        
+        //need to work here to make sure there is error handling
 
-                self.user = User(id: id, name: name)
-                self.nameTextField.text = nil
-
-                return handler(true)
-            }
-
-            handler(false)
-    }*/
 }
 }
