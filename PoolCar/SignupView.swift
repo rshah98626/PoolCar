@@ -14,6 +14,7 @@ import Alamofire
 struct SignupView: View {
     @State private var passwrd = ""
     @State private var email = ""
+    @State private var name = ""
     var body: some View {
        VStack{
             Text("Create a New User")
@@ -27,13 +28,20 @@ struct SignupView: View {
                 .fontWeight(.light)
             
             //.padding(EdgeInsets(top: 0, bottom: 70, leading: 0))
+            TextField("Name", text: $name)
+            .padding(.horizontal)
+            .frame(width: 200.0, height: 30.0)
+            .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+        
             TextField("Email", text: $email)
                 .padding(.horizontal)
                 .frame(width: 200.0, height: 30.0)
                 .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+        
         //values for text fields need to be held at VALUE
-            TextField("Password", text: $passwrd)
+            SecureField("Password", text: $passwrd)
             .padding(.horizontal)
             .frame(width: 200.0, height: 30.0)
             .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
@@ -42,8 +50,9 @@ struct SignupView: View {
                 .padding(.top, CGFloat(70.0))
                 .frame(width: CGFloat(1.0), height: CGFloat(1.0))*/
             
-        Button(action: {testConnection(email: self.email, pass: self.passwrd)}) {
-        Text("Login")
+        Button(action: {testConnection(email: self.email, pass: self.passwrd, name: self.name)}) {
+            Text("Sign Up")
+                .frame(width: nil)
         }
         }
     }
@@ -60,9 +69,9 @@ struct Login: Encodable{
     let password: String
 }
 
-func testConnection(email: String, pass: String)->Void{
-    let url = "http://localhost:8000/users/signup"
-    let login = Login(name: "testusr", email: email, password: pass)
+func testConnection(email: String, pass: String, name: String)->Void{
+    let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
+    let login = Login(name: name, email: email, password: pass)
 
     AF.request(url, method: .post, parameters: login).response{ response in
     debugPrint(response)
