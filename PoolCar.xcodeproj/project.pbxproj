@@ -28,6 +28,7 @@
 		B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5823BE19CA0062F8F4 /* MessageController.swift */; };
 		B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5A23BE7FA70062F8F4 /* MessageRow.swift */; };
 		B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5C23BEEC330062F8F4 /* Message.swift */; };
+		B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */; };
 		B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */; };
 		B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1923B93680001D297B /* InputOptions.swift */; };
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
@@ -83,6 +84,7 @@
 		B7A3FD5823BE19CA0062F8F4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		B7A3FD5A23BE7FA70062F8F4 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		B7A3FD5C23BEEC330062F8F4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveModifier.swift; sourceTree = "<group>"; };
 		B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSSearchPlaceController.swift; sourceTree = "<group>"; };
 		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
+				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
 			);
 			path = PoolCar;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
+				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,

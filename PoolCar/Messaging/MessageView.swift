@@ -40,7 +40,7 @@ struct MessageView: View {
                 }
             }
             .frame(minHeight: 50).padding()
-        }
+        }.keyboardResponsive()
     }
 
     // corresponding addition to DB
