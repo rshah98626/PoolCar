@@ -16,21 +16,34 @@ struct KeyboardResponsiveModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.bottom, offset)
+            // register observers to move screen up or down
             .onAppear {
+                // swiftlint:disable:next discarded_notification_center_observer
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
                     object: nil, queue: .main) { notif in
-                        let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-                        let height = value!.height
-                        let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
-                        self.offset = height - (bottomInset ?? 0)
+                        self.onKeyboardShow(notification: notif)
                 }
 
+                // swiftlint:disable:next discarded_notification_center_observer
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification,
                     object: nil, queue: .main) { _ in
-                        self.offset = 0
+                        self.onKeyboardHide()
                 }
             }
             .animation(.spring())
+    }
+
+    // move window up length of keyboard
+    func onKeyboardShow(notification: Notification) {
+        let value = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let height = value!.height
+        let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
+        self.offset = height - (bottomInset ?? 0)
+    }
+
+    // slide down keyboard
+    func onKeyboardHide() {
+        self.offset = 0
     }
 }
 
