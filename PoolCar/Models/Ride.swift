@@ -7,10 +7,18 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct Ride: Hashable, Codable, Identifiable {
     // swiftlint:disable:next identifier_name
     var id = UUID()
     var origin: String
     var destination: String
+
+    var lattitudeOrigin: Double
+    var longitudeOrigin: Double
+    var lattitudeDestination: Double
+    var longitudeDestination: Double
+
+    var price: Double = 25
 }
