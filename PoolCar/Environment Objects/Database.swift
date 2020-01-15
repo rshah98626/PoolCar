@@ -11,7 +11,8 @@ import Combine
 
 final class Database: ObservableObject {
     @Published var rides = tempRides
-
+    @Published var locations = tempLocations
+    @Published var names = tempNames
     func addRide(ride: Ride) {
         self.rides.append(ride)
     }
