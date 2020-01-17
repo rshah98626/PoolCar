@@ -32,6 +32,9 @@
 		B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */; };
 		B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1923B93680001D297B /* InputOptions.swift */; };
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
+		B7C91B5323D27EF700A7051D /* AddRideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C91B5223D27EF700A7051D /* AddRideTests.swift */; };
+		B7C91B5523D27F4400A7051D /* MessagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C91B5423D27F4400A7051D /* MessagingTests.swift */; };
+		B7C91B5723D27FBD00A7051D /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C91B5623D27FBD00A7051D /* PerformanceTests.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +91,9 @@
 		B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSSearchPlaceController.swift; sourceTree = "<group>"; };
 		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
+		B7C91B5223D27EF700A7051D /* AddRideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRideTests.swift; sourceTree = "<group>"; };
+		B7C91B5423D27F4400A7051D /* MessagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingTests.swift; sourceTree = "<group>"; };
+		B7C91B5623D27FBD00A7051D /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,13 +181,13 @@
 				B7A47B1323B93017001D297B /* Environment Objects */,
 				B772304223BA8B1F003F1B95 /* Drawer */,
 				B7A3FD5523BE16C00062F8F4 /* Messaging */,
+				B7C91B5123D26CF800A7051D /* Additional Helpers */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
-				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
 			);
 			path = PoolCar;
 			sourceTree = "<group>";
@@ -208,6 +214,9 @@
 			children = (
 				B77D1DCC23B420B600CAAEA5 /* PoolCarUITests.swift */,
 				B77D1DCE23B420B600CAAEA5 /* Info.plist */,
+				B7C91B5223D27EF700A7051D /* AddRideTests.swift */,
+				B7C91B5423D27F4400A7051D /* MessagingTests.swift */,
+				B7C91B5623D27FBD00A7051D /* PerformanceTests.swift */,
 			);
 			path = PoolCarUITests;
 			sourceTree = "<group>";
@@ -260,6 +269,14 @@
 				B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */,
 			);
 			path = "Adding Ride";
+			sourceTree = "<group>";
+		};
+		B7C91B5123D26CF800A7051D /* Additional Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
+			);
+			path = "Additional Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +509,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77D1DCD23B420B600CAAEA5 /* PoolCarUITests.swift in Sources */,
+				B7C91B5323D27EF700A7051D /* AddRideTests.swift in Sources */,
+				B7C91B5723D27FBD00A7051D /* PerformanceTests.swift in Sources */,
+				B7C91B5523D27F4400A7051D /* MessagingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
