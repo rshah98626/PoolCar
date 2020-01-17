@@ -31,7 +31,7 @@ struct Home: View {
         HStack {
             Button(action: {
                 // background thread
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     self.drawerOpen.toggle()
                 }
             }) {
