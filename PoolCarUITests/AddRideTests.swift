@@ -8,27 +8,57 @@
 
 import XCTest
 
-class AddRide: XCTestCase {
+class AddRideTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testAddRide() {
+
     }
 
+    func testCancelAddRide() {
+        let app = XCUIApplication()
+        app.launch()
+
+        // get navbar and table view
+        let navbar = app.descendants(matching: .navigationBar).element(boundBy: 0)
+        let listItems = app.descendants(matching: .table).children(matching: .cell)
+        let trailingNavbarButton = navbar.buttons["car.fill"]
+        let countBefore = listItems.count
+
+        // go to add ride controller and wait for it to show
+        trailingNavbarButton.tap()
+        let expectation = XCTestExpectation(description: "Waiting for 2 seconds to let add ride modal appear")
+        XCTWaiter().wait(for: [expectation], timeout: 2)
+
+        // hit cancel
+        let cancelButton = app.buttons["Cancel"]
+        XCTAssertTrue(cancelButton.exists)
+        cancelButton.tap()
+
+        // test navbar content
+        let leadingNavbarButton = navbar.buttons["gear"]
+        let rideLabel = navbar.staticTexts["Rides"]
+        XCTAssertTrue(leadingNavbarButton.exists)
+        XCTAssertTrue(trailingNavbarButton.exists)
+        XCTAssertTrue(rideLabel.exists)
+
+        // test that cells exist and labels are correct
+        XCTAssertEqual(countBefore, app.descendants(matching: .table).children(matching: .cell).count)
+        let firstRideCell = listItems.element(boundBy: 0).descendants(matching: .button).element
+        let secondRideCell = listItems.element(boundBy: 1).descendants(matching: .button).element
+        XCTAssertTrue(firstRideCell.exists)
+        XCTAssertTrue(secondRideCell.exists)
+        XCTAssertTrue(firstRideCell.label == "Naperville\nChampaign")
+        XCTAssertTrue(secondRideCell.label == "Mount Prospect\nChampaign")
+    }
 }
