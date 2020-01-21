@@ -65,7 +65,12 @@ struct AddRide: View {
         }
 
         // add ride to DB
-        let newRide = Ride(origin: originTown, destination: destinationTown)
+        let newRide = Ride(origin: originTown, destination: destinationTown,
+                           lattitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
+                           longitudeOrigin: fromLocation?.coordinate.longitude ?? 0.0,
+                           lattitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
+                           longitudeDestination: toLocation?.coordinate.longitude ?? 0.0
+                      )
         self.database.addRide(ride: newRide)
         self.isShowing.toggle()
     }

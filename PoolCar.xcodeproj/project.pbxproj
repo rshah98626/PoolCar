@@ -24,6 +24,11 @@
 		B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */; };
 		B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE423B5485800CAAEA5 /* AddRide.swift */; };
 		B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77D1DE923B5BE6200CAAEA5 /* Database.swift */; };
+		B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5623BE16E50062F8F4 /* MessageView.swift */; };
+		B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5823BE19CA0062F8F4 /* MessageController.swift */; };
+		B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5A23BE7FA70062F8F4 /* MessageRow.swift */; };
+		B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD5C23BEEC330062F8F4 /* Message.swift */; };
+		B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */; };
 		B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */; };
 		B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1923B93680001D297B /* InputOptions.swift */; };
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
@@ -78,6 +83,11 @@
 		B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetail.swift; sourceTree = "<group>"; };
 		B77D1DE423B5485800CAAEA5 /* AddRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRide.swift; sourceTree = "<group>"; };
 		B77D1DE923B5BE6200CAAEA5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		B7A3FD5623BE16E50062F8F4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		B7A3FD5823BE19CA0062F8F4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		B7A3FD5A23BE7FA70062F8F4 /* MessageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		B7A3FD5C23BEEC330062F8F4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveModifier.swift; sourceTree = "<group>"; };
 		B7A47B1723B932C0001D297B /* GMSSearchPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSSearchPlaceController.swift; sourceTree = "<group>"; };
 		B7A47B1923B93680001D297B /* InputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOptions.swift; sourceTree = "<group>"; };
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
@@ -170,6 +180,7 @@
 				B7A47B1423B930C1001D297B /* Ride Table */,
 				B7A47B1323B93017001D297B /* Environment Objects */,
 				B772304223BA8B1F003F1B95 /* Drawer */,
+				B7A3FD5523BE16C00062F8F4 /* Messaging */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
@@ -179,6 +190,7 @@
 				E6B662C323BB058C00105B7C /* SwiftUIView.swift */,
 				E6B662C723BBD42500105B7C /* SignupView.swift */,
 				E67ACC9723C9AE8D005CF574 /* LoginView.swift */,
+				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
 			);
 			path = PoolCar;
 			sourceTree = "<group>";
@@ -209,6 +221,16 @@
 			path = PoolCarUITests;
 			sourceTree = "<group>";
 		};
+		B7A3FD5523BE16C00062F8F4 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				B7A3FD5623BE16E50062F8F4 /* MessageView.swift */,
+				B7A3FD5823BE19CA0062F8F4 /* MessageController.swift */,
+				B7A3FD5A23BE7FA70062F8F4 /* MessageRow.swift */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
 		B7A47B1323B93017001D297B /* Environment Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				B77D1DDC23B446F700CAAEA5 /* Ride.swift */,
+				B7A3FD5C23BEEC330062F8F4 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,9 +484,11 @@
 			files = (
 				E6B662C823BBD42500105B7C /* SignupView.swift in Sources */,
 				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
+				B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				E6B662C423BB058C00105B7C /* SwiftUIView.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
+				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
@@ -473,10 +498,13 @@
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
 				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
+				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
+				B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */,
+				B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +676,7 @@
 				DEVELOPMENT_TEAM = CRBQ72AQ23;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PoolCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,6 +698,7 @@
 				DEVELOPMENT_TEAM = CRBQ72AQ23;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PoolCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
