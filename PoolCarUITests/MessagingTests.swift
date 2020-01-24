@@ -21,6 +21,8 @@ class MessagingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    // MARK: Chat Action Tests
+    /// Tests closing a the chat window
     func testHideChat() {
         let app = XCUIApplication()
         app.launch()
@@ -47,85 +49,7 @@ class MessagingTests: XCTestCase {
         XCTAssertEqual(countMessagesBefore, app.descendants(matching: .table).children(matching: .cell).count)
     }
 
-    func testChatLookAndFeel() {
-        let app = XCUIApplication()
-        app.launch()
-
-        // get table view and click on first cell
-        let listItems = app.descendants(matching: .table).children(matching: .cell)
-        let firstRideCell = listItems.element(boundBy: 0).descendants(matching: .button).element
-        firstRideCell.tap()
-
-        // go to chat view
-        let showChatButton = app.buttons["Show Chat"]
-        XCTAssertTrue(showChatButton.exists)
-        showChatButton.tap()
-
-        // verify chat components
-        let hideChatButton = app.buttons["Close Chat"]
-        let sendButton = app.buttons["Send"]
-        let messageTextField = app.textFields["Message..."]
-        XCTAssertTrue(hideChatButton.exists)
-        XCTAssertTrue(sendButton.exists)
-        XCTAssertTrue(messageTextField.exists)
-
-        // verify messages
-        let chatListItems = app.descendants(matching: .table).children(matching: .cell)
-        XCTAssertEqual(chatListItems.count, 2)
-
-        let firstMessage = chatListItems.element(boundBy: 0)
-        XCTAssertTrue(firstMessage.exists)
-        XCTAssertEqual(firstMessage.descendants(matching: .staticText).element(boundBy: 0).label, "A")
-        XCTAssertEqual(firstMessage.descendants(matching: .staticText).element(boundBy: 1).label, "Hello world")
-
-        let secondMessage = chatListItems.element(boundBy: 1)
-        XCTAssertTrue(secondMessage.exists)
-        XCTAssertEqual(secondMessage.descendants(matching: .staticText).element(boundBy: 0).label, "B")
-        XCTAssertEqual(secondMessage.descendants(matching: .staticText).element(boundBy: 1).label, "Hi")
-    }
-
-    func testChatKeyboardSlides() {
-        let app = XCUIApplication()
-        app.launch()
-
-        // get table view and click on first cell
-        let listItems = app.descendants(matching: .table).children(matching: .cell)
-        let firstRideCell = listItems.element(boundBy: 0).descendants(matching: .button).element
-        firstRideCell.tap()
-
-        // go to chat view
-        let showChatButton = app.buttons["Show Chat"]
-        XCTAssertTrue(showChatButton.exists)
-        showChatButton.tap()
-
-        // verify chat components
-        let sendButton = app.buttons["Send"]
-        let messageTextField = app.textFields["Message..."]
-        XCTAssertTrue(sendButton.exists)
-        XCTAssertTrue(messageTextField.exists)
-
-        // verify compose message field and send button slide up when keyboard is shown
-        let oldMessageTextFieldYPos = messageTextField.frame.origin.y
-        let oldSendButtonYPos = sendButton.frame.origin.y
-        messageTextField.tap()
-
-        // wait for keyboard to show
-        var expectation = XCTestExpectation(description: "Waiting for 1.5 seconds to let keyboard show")
-        XCTWaiter().wait(for: [expectation], timeout: 1.5)
-        XCTAssertTrue(oldMessageTextFieldYPos > messageTextField.frame.origin.y)
-        XCTAssertTrue(oldSendButtonYPos > sendButton.frame.origin.y)
-
-        // slide the keyboard down
-        let keyboard = app.keyboards.element(boundBy: 0)
-        keyboard.buttons["Return"].tap()
-
-        // check that compose message field and send button return to original position
-        expectation = XCTestExpectation(description: "Waiting for 1.5 seconds to let keyboard hide")
-        XCTWaiter().wait(for: [expectation], timeout: 1.5)
-        XCTAssertEqual(oldSendButtonYPos, sendButton.frame.origin.y)
-        XCTAssertEqual(oldMessageTextFieldYPos, messageTextField.frame.origin.y)
-    }
-
+    /// Tests sending a message
     func testChatSend() {
         let app = XCUIApplication()
         app.launch()
@@ -176,5 +100,87 @@ class MessagingTests: XCTestCase {
         XCTAssertTrue(thirdMessage.exists)
         XCTAssertEqual(thirdMessage.descendants(matching: .staticText).element(boundBy: 1).label, "C")
         XCTAssertEqual(thirdMessage.descendants(matching: .staticText).element(boundBy: 0).label, "Rahul")
+    }
+
+    // MARK: Chat Interface
+    /// Tests the UI of the Chat
+    func testChatLookAndFeel() {
+        let app = XCUIApplication()
+        app.launch()
+
+        // get table view and click on first cell
+        let listItems = app.descendants(matching: .table).children(matching: .cell)
+        let firstRideCell = listItems.element(boundBy: 0).descendants(matching: .button).element
+        firstRideCell.tap()
+
+        // go to chat view
+        let showChatButton = app.buttons["Show Chat"]
+        XCTAssertTrue(showChatButton.exists)
+        showChatButton.tap()
+
+        // verify chat components
+        let hideChatButton = app.buttons["Close Chat"]
+        let sendButton = app.buttons["Send"]
+        let messageTextField = app.textFields["Message..."]
+        XCTAssertTrue(hideChatButton.exists)
+        XCTAssertTrue(sendButton.exists)
+        XCTAssertTrue(messageTextField.exists)
+
+        // verify messages
+        let chatListItems = app.descendants(matching: .table).children(matching: .cell)
+        XCTAssertEqual(chatListItems.count, 2)
+
+        let firstMessage = chatListItems.element(boundBy: 0)
+        XCTAssertTrue(firstMessage.exists)
+        XCTAssertEqual(firstMessage.descendants(matching: .staticText).element(boundBy: 0).label, "A")
+        XCTAssertEqual(firstMessage.descendants(matching: .staticText).element(boundBy: 1).label, "Hello world")
+
+        let secondMessage = chatListItems.element(boundBy: 1)
+        XCTAssertTrue(secondMessage.exists)
+        XCTAssertEqual(secondMessage.descendants(matching: .staticText).element(boundBy: 0).label, "B")
+        XCTAssertEqual(secondMessage.descendants(matching: .staticText).element(boundBy: 1).label, "Hi")
+    }
+
+    /// Tests that the keyboard slides correctly
+    func testChatKeyboardSlides() {
+        let app = XCUIApplication()
+        app.launch()
+
+        // get table view and click on first cell
+        let listItems = app.descendants(matching: .table).children(matching: .cell)
+        let firstRideCell = listItems.element(boundBy: 0).descendants(matching: .button).element
+        firstRideCell.tap()
+
+        // go to chat view
+        let showChatButton = app.buttons["Show Chat"]
+        XCTAssertTrue(showChatButton.exists)
+        showChatButton.tap()
+
+        // verify chat components
+        let sendButton = app.buttons["Send"]
+        let messageTextField = app.textFields["Message..."]
+        XCTAssertTrue(sendButton.exists)
+        XCTAssertTrue(messageTextField.exists)
+
+        // verify compose message field and send button slide up when keyboard is shown
+        let oldMessageTextFieldYPos = messageTextField.frame.origin.y
+        let oldSendButtonYPos = sendButton.frame.origin.y
+        messageTextField.tap()
+
+        // wait for keyboard to show
+        var expectation = XCTestExpectation(description: "Waiting for 1.5 seconds to let keyboard show")
+        XCTWaiter().wait(for: [expectation], timeout: 1.5)
+        XCTAssertTrue(oldMessageTextFieldYPos > messageTextField.frame.origin.y)
+        XCTAssertTrue(oldSendButtonYPos > sendButton.frame.origin.y)
+
+        // slide the keyboard down
+        let keyboard = app.keyboards.element(boundBy: 0)
+        keyboard.buttons["Return"].tap()
+
+        // check that compose message field and send button return to original position
+        expectation = XCTestExpectation(description: "Waiting for 1.5 seconds to let keyboard hide")
+        XCTWaiter().wait(for: [expectation], timeout: 1.5)
+        XCTAssertEqual(oldSendButtonYPos, sendButton.frame.origin.y)
+        XCTAssertEqual(oldMessageTextFieldYPos, messageTextField.frame.origin.y)
     }
 }

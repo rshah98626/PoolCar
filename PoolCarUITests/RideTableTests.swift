@@ -20,6 +20,7 @@ class RideTableTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    /// Tests that the ride table's look and feel is correct
     func testRideTable() {
         let app = XCUIApplication()
         app.launch()
@@ -45,6 +46,7 @@ class RideTableTests: XCTestCase {
         XCTAssertTrue(secondRideCell.label == "Mount Prospect\nChampaign")
     }
 
+    /// Tests tapping on a ride cell and the look of a detailed view
     func testDetail() {
         let app = XCUIApplication()
         app.launch()

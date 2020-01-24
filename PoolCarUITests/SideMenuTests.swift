@@ -20,6 +20,7 @@ class SideMenuTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    /// Tests that the side menu opens and closes correctly
     func testSideMenu() {
         let app = XCUIApplication()
         app.launch()
