@@ -49,7 +49,7 @@ struct InputOptions: View {
         HStack {
             Text("To:")
             Spacer()
-            Button(self.toLocation?.name ?? "Tap to select a desination!") {
+            Button(self.toLocation?.name ?? "Tap to select a destination!") {
                     self.showingGMSTo.toggle()
             }
             .sheet(isPresented: $showingGMSTo) {
@@ -61,7 +61,7 @@ struct InputOptions: View {
 
     var dateTimeView: some View {
         // in param makes sure you can only select a date in the future
-        DatePicker("Depature Time", selection: $timing, in: Date()...)
+        DatePicker("Departure Time", selection: $timing, in: Date()...)
             .labelsHidden()
     }
 }
