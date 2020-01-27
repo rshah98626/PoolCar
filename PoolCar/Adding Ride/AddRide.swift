@@ -10,6 +10,7 @@ import SwiftUI
 import GoogleMaps
 import GooglePlaces
 import os
+import Alamofire
 
 struct AddRide: View {
     // MARK: State Variables
@@ -66,13 +67,24 @@ struct AddRide: View {
 
         // add ride to DB
         let newRide = Ride(origin: originTown, destination: destinationTown,
-                           lattitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
+                           latitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
                            longitudeOrigin: fromLocation?.coordinate.longitude ?? 0.0,
-                           lattitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
+                           latitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
                            longitudeDestination: toLocation?.coordinate.longitude ?? 0.0
                       )
         self.database.addRide(ride: newRide)
+        //adding ride via Heroku Server
+        self.riderAddRequest(newRide: newRide)
         self.isShowing.toggle()
+    }
+    //This function sends ride object to MongoDB
+    func riderAddRequest(newRide: Ride)->Void{
+        //node URL - online server
+        let url = "http://infinite-stream-52265.herokuapp.com/rides/create"
+        //local URL
+        /*let url = "http://localhost:8000/rides/create"*/
+        AF.request(url, method: .post, parameters: newRide).response{ response in debugPrint(response) }
+            //need to include error handling here to ensure that connection failures and bad inputs are handled
     }
 
     /// Disable save button unless origin and destination are selected

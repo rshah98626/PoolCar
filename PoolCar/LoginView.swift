@@ -64,6 +64,7 @@ struct Login: Encodable{
 func LoginRequest(email: String, pass: String)->Void{
     //node URL
     let url = "https://infinite-stream-52265.herokuapp.com/users/login"
+    
     let signup = Login(email: email, password: pass)
 
     AF.request(url, method: .post, parameters: signup).response{ response in debugPrint(response) }
