@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72B960C23DFFE2000553AE2 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B960B23DFFE2000553AE2 /* Parser.swift */; };
+		B72B961023DFFF3900553AE2 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B960F23DFFF3900553AE2 /* AppError.swift */; };
+		B72B961223E00CBE00553AE2 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B961123E00CBE00553AE2 /* ResponseModels.swift */; };
+		B72B961423E0C57100553AE2 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B961323E0C57100553AE2 /* Fetcher.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
@@ -64,6 +68,10 @@
 		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
+		B72B960B23DFFE2000553AE2 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		B72B960F23DFFF3900553AE2 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B72B961123E00CBE00553AE2 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
+		B72B961323E0C57100553AE2 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
 		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		B772304023BA89D1003F1B95 /* RideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTable.swift; sourceTree = "<group>"; };
@@ -148,6 +156,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B72B960A23DFFDFA00553AE2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B72B960B23DFFE2000553AE2 /* Parser.swift */,
+				B72B960F23DFFF3900553AE2 /* AppError.swift */,
+				B72B961123E00CBE00553AE2 /* ResponseModels.swift */,
+				B72B961323E0C57100553AE2 /* Fetcher.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B772304223BA8B1F003F1B95 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +209,7 @@
 				B772304223BA8B1F003F1B95 /* Drawer */,
 				B7A3FD5523BE16C00062F8F4 /* Messaging */,
 				B7C91B5123D26CF800A7051D /* Additional Helpers */,
+				B72B960A23DFFDFA00553AE2 /* Utilities */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
@@ -506,6 +526,8 @@
 				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
 				B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
+				B72B961023DFFF3900553AE2 /* AppError.swift in Sources */,
+				B72B961223E00CBE00553AE2 /* ResponseModels.swift in Sources */,
 				E6B662C423BB058C00105B7C /* SwiftUIView.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
@@ -519,7 +541,9 @@
 				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
 				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
+				B72B960C23DFFE2000553AE2 /* Parser.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
+				B72B961423E0C57100553AE2 /* Fetcher.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,

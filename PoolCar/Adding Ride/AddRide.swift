@@ -83,8 +83,10 @@ struct AddRide: View {
         let url = "http://infinite-stream-52265.herokuapp.com/rides/create"
         //local URL
         /*let url = "http://localhost:8000/rides/create"*/
-        AF.request(url, method: .post, parameters: newRide).response{ response in debugPrint(response) }
-            //need to include error handling here to ensure that connection failures and bad inputs are handled
+        AF.request(url, method: .post, parameters: newRide).response{ response in
+            debugPrint(response)
+        }
+        //need to include error handling here to ensure that connection failures and bad inputs are handled
     }
 
     /// Disable save button unless origin and destination are selected
