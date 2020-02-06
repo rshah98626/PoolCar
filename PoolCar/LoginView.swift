@@ -59,10 +59,18 @@ struct Login: Encodable{
 //This function grabs all of the values entered it and sends it to the node server - login
 func LoginRequest(email: String, pass: String)->Void{
     //node URL
-    let url = "https://infinite-stream-52265.herokuapp.com/users/login"
+    let url = "https://infinite-stream-52265.herokuapp.com/users/verify"
     
     let signup = Login(email: email, password: pass)
 
-    AF.request(url, method: .post, parameters: signup).response{ response in debugPrint(response) }
-        //need to include error handling here to ensure that connection failures and bad inputs are handled
+    AF.request(url, method: .post, parameters: signup)
+        .validate()
+        .responseString { response in
+            switch response.result {
+            case let .success(token):
+                NetworkingUtilities.storeJwtToken(token)
+            case let .failure(error):
+                print(error)
+            }
+        }
 }
