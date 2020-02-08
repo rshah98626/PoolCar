@@ -14,7 +14,10 @@ struct SignupView: View {
     @State private var passwrd = ""
     @State private var email = ""
     @State private var name = ""
+    @State private var signedUp = 0
     var body: some View {
+        VStack{
+            if signedUp == 0{
        VStack {
             Text("Create a New User")
                 .font(.title)
@@ -47,10 +50,16 @@ struct SignupView: View {
   
             
         //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-        Button(action: {SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
+        Button(action: {self.signedUp = SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
             Text("Sign Up")
                 .frame(width: nil)
         }
+            }}
+            else{
+                //takes user to the home page once successful signup
+
+                Home()
+            }
         }
     }
 }
@@ -67,7 +76,7 @@ struct Signup: Encodable{
     let password: String
 }
 //This function grabs all of the values entered it and sends it to the node server
-func SignupRequest(email: String, pass: String, name: String)->Void{
+func SignupRequest(email: String, pass: String, name: String)->Int{
     //node URL
     let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
     let signup = Signup(name: name, email: email, password: pass)
@@ -80,7 +89,9 @@ func SignupRequest(email: String, pass: String, name: String)->Void{
                 NetworkingUtilities.storeJwtToken(token)
             case let .failure(error):
                 print(error)
+                
         }
     }
+    return 1
 }
 //NEED TO REMEMBER TO UPDATE transport security when moving to production

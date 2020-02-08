@@ -13,7 +13,10 @@ import Alamofire
 struct LoginView: View {
     @State private var passwrd = ""
     @State private var email = ""
+    @State private var loggedIn = 0
     var body: some View {
+        VStack{
+            if loggedIn == 0{
        VStack {
             Text("Welcome Back")
                 .font(.title)
@@ -39,10 +42,14 @@ struct LoginView: View {
   
             
         //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-        Button(action: {LoginRequest(email: self.email, pass: self.passwrd)}) {
+        Button(action: {self.loggedIn = LoginRequest(email: self.email, pass: self.passwrd)}) {
             Text("Login")
                 .frame(width: nil)
         }
+            }}
+            else{
+                Home()
+            }
         }
     }
 }
@@ -57,7 +64,7 @@ struct Login: Encodable{
     let password: String
 }
 //This function grabs all of the values entered it and sends it to the node server - login
-func LoginRequest(email: String, pass: String)->Void{
+func LoginRequest(email: String, pass: String)->Int{
     //node URL
     let url = "https://infinite-stream-52265.herokuapp.com/users/verify"
     
@@ -69,8 +76,10 @@ func LoginRequest(email: String, pass: String)->Void{
             switch response.result {
             case let .success(token):
                 NetworkingUtilities.storeJwtToken(token)
+                
             case let .failure(error):
                 print(error)
             }
         }
+    return 1
 }

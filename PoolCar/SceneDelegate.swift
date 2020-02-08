@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView =
-            Home().environmentObject(Database())
+            StartView().environmentObject(Database())
         //Use this to test Signup View
        // let contentView =
          //   SignupView().environmentObject(Database())
