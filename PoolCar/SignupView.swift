@@ -50,7 +50,7 @@ struct SignupView: View {
   
             
         //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-        Button(action: {self.signedUp = SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
+        Button(action: {self.SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
             Text("Sign Up")
                 .frame(width: nil)
         }
@@ -59,6 +59,26 @@ struct SignupView: View {
                 //takes user to the home page once successful signup
 
                 Home()
+            }
+        }
+    }
+    
+    //This function grabs all of the values entered it and sends it to the node server
+    func SignupRequest(email: String, pass: String, name: String) {
+        //node URL
+        let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
+        let signup = Signup(name: name, email: email, password: pass)
+
+        AF.request(url, method: .post, parameters: signup)
+            .validate()
+            .responseString { response in
+                switch response.result {
+                case let .success(token):
+                    NetworkingUtilities.storeJwtToken(token)
+                    self.signedUp = 1
+                case let .failure(error):
+                    print(error)
+                    
             }
         }
     }
@@ -75,23 +95,5 @@ struct Signup: Encodable{
     let email: String
     let password: String
 }
-//This function grabs all of the values entered it and sends it to the node server
-func SignupRequest(email: String, pass: String, name: String)->Int{
-    //node URL
-    let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
-    let signup = Signup(name: name, email: email, password: pass)
 
-    AF.request(url, method: .post, parameters: signup)
-        .validate()
-        .responseString { response in
-            switch response.result {
-            case let .success(token):
-                NetworkingUtilities.storeJwtToken(token)
-            case let .failure(error):
-                print(error)
-                
-        }
-    }
-    return 1
-}
 //NEED TO REMEMBER TO UPDATE transport security when moving to production
