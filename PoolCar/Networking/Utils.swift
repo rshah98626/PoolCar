@@ -21,6 +21,11 @@ class NetworkingUtilities {
         let defaults = UserDefaults.standard
         return (defaults.string(forKey: NetworkingUtilities.tokenKey) ?? "")
     }
+    
+    static func removeJwtToken() {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: NetworkingUtilities.tokenKey)
+    }
 
     static func getAuthorizationHeaders() -> HTTPHeaders {
         let headers: HTTPHeaders = [

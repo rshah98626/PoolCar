@@ -14,7 +14,10 @@ struct SignupView: View {
     @State private var passwrd = ""
     @State private var email = ""
     @State private var name = ""
+    @State private var signedUp = 0
     var body: some View {
+        VStack{
+            if signedUp == 0{
        VStack {
             Text("Create a New User")
                 .font(.title)
@@ -47,10 +50,36 @@ struct SignupView: View {
   
             
         //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-        Button(action: {SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
+        Button(action: {self.SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
             Text("Sign Up")
                 .frame(width: nil)
         }
+            }}
+            else{
+                //takes user to the home page once successful signup
+
+                Home()
+            }
+        }
+    }
+    
+    //This function grabs all of the values entered it and sends it to the node server
+    func SignupRequest(email: String, pass: String, name: String) {
+        //node URL
+        let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
+        let signup = Signup(name: name, email: email, password: pass)
+
+        AF.request(url, method: .post, parameters: signup)
+            .validate()
+            .responseString { response in
+                switch response.result {
+                case let .success(token):
+                    NetworkingUtilities.storeJwtToken(token)
+                    self.signedUp = 1
+                case let .failure(error):
+                    print(error)
+                    
+            }
         }
     }
 }
@@ -66,21 +95,5 @@ struct Signup: Encodable{
     let email: String
     let password: String
 }
-//This function grabs all of the values entered it and sends it to the node server
-func SignupRequest(email: String, pass: String, name: String)->Void{
-    //node URL
-    let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
-    let signup = Signup(name: name, email: email, password: pass)
 
-    AF.request(url, method: .post, parameters: signup)
-        .validate()
-        .responseString { response in
-            switch response.result {
-            case let .success(token):
-                NetworkingUtilities.storeJwtToken(token)
-            case let .failure(error):
-                print(error)
-        }
-    }
-}
 //NEED TO REMEMBER TO UPDATE transport security when moving to production

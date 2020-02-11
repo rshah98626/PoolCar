@@ -13,7 +13,14 @@ import Alamofire
 struct LoginView: View {
     @State private var passwrd = ""
     @State private var email = ""
+    @State private var loggedIn = 0
+    @State private var showingAlert = false
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    
     var body: some View {
+        VStack{
+            if loggedIn == 0{
        VStack {
             Text("Welcome Back")
                 .font(.title)
@@ -39,10 +46,56 @@ struct LoginView: View {
   
             
         //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-        Button(action: {LoginRequest(email: self.email, pass: self.passwrd)}) {
-            Text("Login")
-                .frame(width: nil)
+        Button(action: {self.LoginRequest(email: self.email, pass: self.passwrd)}) {
+                Text("Login")
+                    .frame(width: nil)
         }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text(self.errorTitle), message: Text(self.errorMessage), dismissButton: .default(Text("OK")))
+        }
+        
+        }
+        
+        }
+            else{
+                Home()
+            }
+        }
+    }
+    
+    //This function grabs all of the values entered it and sends it to the node server - login
+    func LoginRequest(email: String, pass: String) {
+        //node URL
+        let url = "https://infinite-stream-52265.herokuapp.com/users/verify"
+        
+        let signup = Login(email: email, password: pass)
+
+        AF.request(url, method: .post, parameters: signup)
+            .validate()
+            .responseString { response in
+                switch response.result {
+                case let .success(token):
+                    NetworkingUtilities.storeJwtToken(token)
+                    self.loggedIn = 1
+                    
+                case let .failure(error):
+                    var notSet = true
+                    if let responseCode = error.responseCode {
+                        if responseCode == 401 {
+                            self.errorTitle = "Login Failed"
+                            self.errorMessage = "Email/Password Combination Incorrect"
+                            notSet = false
+                        }
+                    }
+                    
+                    if notSet {
+                        self.errorTitle = "Network Error"
+                        self.errorMessage = "There was an error with the network request. Please try again"
+                    }
+                    
+                    self.showingAlert = true
+                    print(error)
+                }
         }
     }
 }
@@ -55,22 +108,4 @@ struct LoginView_Previews: PreviewProvider {
 struct Login: Encodable{
     let email: String
     let password: String
-}
-//This function grabs all of the values entered it and sends it to the node server - login
-func LoginRequest(email: String, pass: String)->Void{
-    //node URL
-    let url = "https://infinite-stream-52265.herokuapp.com/users/verify"
-    
-    let signup = Login(email: email, password: pass)
-
-    AF.request(url, method: .post, parameters: signup)
-        .validate()
-        .responseString { response in
-            switch response.result {
-            case let .success(token):
-                NetworkingUtilities.storeJwtToken(token)
-            case let .failure(error):
-                print(error)
-            }
-        }
 }

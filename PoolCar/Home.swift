@@ -12,6 +12,7 @@ struct Home: View {
     @EnvironmentObject var database: Database
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
+    @State private var shouldLogOut = false
 
     /// Button to add ride
     var addRideButton: some View {
@@ -43,21 +44,27 @@ struct Home: View {
     }
 
     var body: some View {
-        ZStack {
-            NavigationView {
-                // Ride table
-                RideTable().environmentObject(database)
-                // Navigation configurations
-                .navigationBarTitle("Rides", displayMode: .inline)
-                .navigationBarItems(leading: sideMenuButton, trailing: addRideButton)
-                .sheet(isPresented: $showAddRideModal) {
-                    AddRide(isShowing: self.$showAddRideModal)
-                        .environmentObject(self.database)
+        VStack {
+            if self.shouldLogOut {
+                StartView()
+            } else {
+                ZStack {
+                    NavigationView {
+                        // Ride table
+                        RideTable().environmentObject(database)
+                        // Navigation configurations
+                        .navigationBarTitle("Rides", displayMode: .inline)
+                        .navigationBarItems(leading: sideMenuButton, trailing: addRideButton)
+                        .sheet(isPresented: $showAddRideModal) {
+                            AddRide(isShowing: self.$showAddRideModal)
+                                .environmentObject(self.database)
+                        }
+                    }
+
+                    // side drawer
+                    NavigationDrawer(isOpen: self.$drawerOpen, shouldLogOut: self.$shouldLogOut)
                 }
             }
-
-            // side drawer
-            NavigationDrawer(isOpen: self.$drawerOpen)
         }
     }
 
