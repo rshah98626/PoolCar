@@ -11,11 +11,11 @@ import Alamofire
 
 struct RideTable: View {
     @EnvironmentObject var database: Database
-    @State var rides: [Ride] = [Ride]()
+    @ObservedObject var ridesViewModel = RidesViewModel()
     
     var body: some View {
         VStack {
-            if rides.isEmpty {
+            if ridesViewModel.rides.isEmpty {
                 List(database.rides) { ride in
                     // Navigation Link makes text and other items look faint in preview
                     NavigationLink(destination: RideDetail(ride: ride)) {
@@ -23,34 +23,13 @@ struct RideTable: View {
                     }
                 }
             } else {
-                List(rides) { ride in
+                List(ridesViewModel.rides) { ride in
                    // Navigation Link makes text and other items look faint in preview
                    NavigationLink(destination: RideDetail(ride: ride)) {
                        RideRow(ride: ride)
                    }
                 }
             }
-        }
-        .onAppear() {
-            self.GetRides()
-        }
-    }
-    
-    func GetRides() {
-        //node URL
-        let url = "https://infinite-stream-52265.herokuapp.com/rides/getAll"
-        
-        AF.request(url, method: .get, headers: NetworkingUtilities.getAuthorizationHeaders())
-            .validate()
-            .responseData() { response in
-                switch response.result {
-                case let .success(data):
-                    let decoder = JSONDecoder()
-                    let ridesServer = try? decoder.decode([Ride].self, from: data)
-                    self.rides = ridesServer ?? [Ride]()
-                case let .failure(error):
-                    print(error)
-                }
         }
     }
 }
