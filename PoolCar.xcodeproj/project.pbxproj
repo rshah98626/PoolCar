@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6038EA3F23F5129A00CF0893 /* RidesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6038EA3E23F5129A00CF0893 /* RidesApi.swift */; };
 		6038EA4223F5134000CF0893 /* RidesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6038EA4123F5134000CF0893 /* RidesViewModel.swift */; };
+		6038EA4423F5194F00CF0893 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6038EA4323F5194F00CF0893 /* UsersApi.swift */; };
 		604881D223EBDA0C00B32BE5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604881D123EBDA0C00B32BE5 /* Utils.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
@@ -64,6 +65,7 @@
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
 		6038EA3E23F5129A00CF0893 /* RidesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesApi.swift; sourceTree = "<group>"; };
 		6038EA4123F5134000CF0893 /* RidesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewModel.swift; sourceTree = "<group>"; };
+		6038EA4323F5194F00CF0893 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		604881D123EBDA0C00B32BE5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				604881D123EBDA0C00B32BE5 /* Utils.swift */,
 				6038EA3E23F5129A00CF0893 /* RidesApi.swift */,
+				6038EA4323F5194F00CF0893 /* UsersApi.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
+				6038EA4423F5194F00CF0893 /* UsersApi.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
 				6038EA4223F5134000CF0893 /* RidesViewModel.swift in Sources */,
