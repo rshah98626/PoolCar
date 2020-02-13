@@ -12,14 +12,23 @@ import Alamofire
 class RidesApi {
     static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"
     
-    static func getAllRides(responseHandler: @escaping (AFDataResponse<Data>) -> Void) {
+    static func getAllRides(successAction: @escaping ([Ride]) -> Void) {
         //node URL
         let getAllRidesRoute = "rides/getAll"
         let getAllRidesUrl = baseUrl + getAllRidesRoute
         
         AF.request(getAllRidesUrl, method: .get, headers: NetworkingUtilities.getAuthorizationHeaders())
             .validate()
-            .responseData(completionHandler: responseHandler)
+            .responseData() { response in
+                switch response.result {
+                case let .success(data):
+                    let decoder = JSONDecoder()
+                    let ridesServer = (try? decoder.decode([Ride].self, from: data)) ?? [Ride]()
+                    successAction(ridesServer)
+                case let .failure(error):
+                    print(error)
+                }
+            }
     }
     
     static func addRide(ride: Ride) {
