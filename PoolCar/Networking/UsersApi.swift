@@ -30,4 +30,26 @@ class UsersApi {
             }
         }
     }
+    
+    static func logIn(email: String, pass: String, successAction: @escaping () -> Void, errorAction: @escaping (AFError) -> Void) {
+        //node URL
+        let logInRoute = "users/verify"
+        let logInUrl = baseUrl + logInRoute
+        
+        let loginBody = Login(email: email, password: pass)
+        
+        AF.request(logInUrl, method: .post, parameters: loginBody)
+            .validate()
+            .responseString { response in
+                switch response.result {
+                case let .success(token):
+                    NetworkingUtilities.storeJwtToken(token)
+                    successAction()
+
+                case let .failure(error):
+                    errorAction(error)
+                    print(error)
+                }
+            }
+    }
 }
