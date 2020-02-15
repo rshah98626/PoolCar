@@ -11,32 +11,29 @@ struct StartView: View {
     //needs a 3rd destination being if the user is still logged in
     @State private var viewPointer = 0
     var body: some View {
-        
+
         VStack {
-            if NetworkingUtilities.getJwtToken().isEmpty == false {
+            if JWTUtils.getJwtToken().isEmpty == false {
                 Home()
-            }
-            else {
-                if viewPointer == 0{
-                    VStack{
+            } else {
+                if viewPointer == 0 {
+                    VStack {
                         Text("WELCOME TO POOL")
-                        Button(action: {self.viewPointer = 2}){
+                        Button(action: {self.viewPointer = 2}) {
                             Text("Login")
                                 .frame(width: 200.0, height: 40.0)
-                                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                                .border(Color.black, width: 2)
                         }
-                        
-                        Button(action: {self.viewPointer = 1}){
+
+                        Button(action: {self.viewPointer = 1}) {
                             Text("Sign Up")
                                 .frame(width: 200.0, height: 40.0)
-                                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                                .border(Color.black, width: 2)
                         }
-                    }}
-                    //takes the user to the correct view
-                else if viewPointer == 1 {
+                    }
+                } else if viewPointer == 1 { //takes the user to the correct view
                     SignupView()
-                }
-                else if viewPointer == 2 {
+                } else if viewPointer == 2 {
                     LoginView()
                 }
             }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		604881D223EBDA0C00B32BE5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604881D123EBDA0C00B32BE5 /* Utils.swift */; };
+		604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604881D123EBDA0C00B32BE5 /* JWTUtils.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
@@ -35,6 +35,9 @@
 		B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */; };
 		B7B81B0423F640B200A08E7A /* StripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B81B0323F640B200A08E7A /* StripeView.swift */; };
 		B7B81B0623F6421A00A08E7A /* StripeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */; };
+		B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBA523F647B1001A15A4 /* Errors.swift */; };
+		B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBA723F71912001A15A4 /* ResponseModels.swift */; };
+		B7E3FBAE23F72901001A15A4 /* APIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 		E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67ACC9723C9AE8D005CF574 /* LoginView.swift */; };
@@ -62,7 +65,7 @@
 /* Begin PBXFileReference section */
 		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
-		604881D123EBDA0C00B32BE5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		604881D123EBDA0C00B32BE5 /* JWTUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTUtils.swift; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
 		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
@@ -97,6 +100,9 @@
 		B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapView.swift; sourceTree = "<group>"; };
 		B7B81B0323F640B200A08E7A /* StripeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeView.swift; sourceTree = "<group>"; };
 		B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPIClient.swift; sourceTree = "<group>"; };
+		B7E3FBA523F647B1001A15A4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		B7E3FBA723F71912001A15A4 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
+		B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetcher.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 		E67ACC9723C9AE8D005CF574 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E6B662C323BB058C00105B7C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -138,12 +144,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		604881D023EBD9D500B32BE5 /* Networking */ = {
+		604881D023EBD9D500B32BE5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				604881D123EBDA0C00B32BE5 /* Utils.swift */,
+				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
+				B7E3FBAB23F72750001A15A4 /* API */,
 			);
-			path = Networking;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		7AD07E4F1E183A762AF414D6 /* Frameworks */ = {
@@ -188,7 +195,6 @@
 		B77D1DA923B420B500CAAEA5 /* PoolCar */ = {
 			isa = PBXGroup;
 			children = (
-				604881D023EBD9D500B32BE5 /* Networking */,
 				B77D1DAE23B420B500CAAEA5 /* Home.swift */,
 				B7A47B1623B9313E001D297B /* Adding Ride */,
 				B7A47B1523B930FC001D297B /* Models */,
@@ -196,18 +202,16 @@
 				B7A47B1323B93017001D297B /* Environment Objects */,
 				B772304223BA8B1F003F1B95 /* Drawer */,
 				B7A3FD5523BE16C00062F8F4 /* Messaging */,
-				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
+				B7E3FBA923F726B9001A15A4 /* Errors */,
+				604881D023EBD9D500B32BE5 /* Utilities */,
+				B7E3FBAA23F726E2001A15A4 /* Login */,
+				B7E3FBAC23F7276F001A15A4 /* Stripe Views */,
 				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
+				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
-				E6B662C323BB058C00105B7C /* StartView.swift */,
-				E6B662C723BBD42500105B7C /* SignupView.swift */,
-				E67ACC9723C9AE8D005CF574 /* LoginView.swift */,
-				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
-				B7B81B0323F640B200A08E7A /* StripeView.swift */,
-				B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */,
 			);
 			path = PoolCar;
 			sourceTree = "<group>";
@@ -286,6 +290,43 @@
 				B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */,
 			);
 			path = "Adding Ride";
+			sourceTree = "<group>";
+		};
+		B7E3FBA923F726B9001A15A4 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				B7E3FBA523F647B1001A15A4 /* Errors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		B7E3FBAA23F726E2001A15A4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E6B662C323BB058C00105B7C /* StartView.swift */,
+				E6B662C723BBD42500105B7C /* SignupView.swift */,
+				E67ACC9723C9AE8D005CF574 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B7E3FBAB23F72750001A15A4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B7E3FBA723F71912001A15A4 /* ResponseModels.swift */,
+				604881D123EBDA0C00B32BE5 /* JWTUtils.swift */,
+				B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */,
+				B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B7E3FBAC23F7276F001A15A4 /* Stripe Views */ = {
+			isa = PBXGroup;
+			children = (
+				B7B81B0323F640B200A08E7A /* StripeView.swift */,
+			);
+			path = "Stripe Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +475,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		CD38C793BB40FDEA5A332F27 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -501,10 +542,11 @@
 			files = (
 				E6B662C823BBD42500105B7C /* SignupView.swift in Sources */,
 				B7A47B1C23B99E0C001D297B /* GoogleMapView.swift in Sources */,
+				B7E3FBAE23F72901001A15A4 /* APIFetcher.swift in Sources */,
 				B7A3FD5923BE19CA0062F8F4 /* MessageController.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				E6B662C423BB058C00105B7C /* StartView.swift in Sources */,
-				604881D223EBDA0C00B32BE5 /* Utils.swift in Sources */,
+				604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
@@ -518,7 +560,9 @@
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
 				B7B81B0623F6421A00A08E7A /* StripeAPIClient.swift in Sources */,
 				B7B81B0423F640B200A08E7A /* StripeView.swift in Sources */,
+				B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */,
 				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
+				B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DrawerContent: View {
     @Binding var shouldLogOut: Bool
-    
+
     var body: some View {
             VStack(spacing: 20) {
                 Text("My Profile")
@@ -19,20 +19,24 @@ struct DrawerContent: View {
                 Divider()
                 Text("Past Rides")
                 Divider()
-                
-                Button(action: {self.logout()} ) {
+
+                Button(
+                    action: {
+                        self.logout()
+                    }
+                ) {
                     Text("Log out")
                         .frame(width: nil)
                 }
-                
+
                 Spacer()
             }
             .padding()
             .background(Color.green)
     }
-    
+
     func logout() {
-        NetworkingUtilities.removeJwtToken()
+        JWTUtils.removeJwtToken()
         self.shouldLogOut = true
     }
 }
