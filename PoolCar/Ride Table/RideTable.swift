@@ -7,14 +7,28 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct RideTable: View {
     @EnvironmentObject var database: Database
+    @ObservedObject var ridesViewModel = RidesViewModel()
+    
     var body: some View {
-        List(database.rides) { ride in
-            // Navigation Link makes text and other items look faint in preview
-            NavigationLink(destination: RideDetail(ride: ride)) {
-                RideRow(ride: ride)
+        VStack {
+            if ridesViewModel.rides.isEmpty {
+                List(database.rides) { ride in
+                    // Navigation Link makes text and other items look faint in preview
+                    NavigationLink(destination: RideDetail(ride: ride)) {
+                        RideRow(ride: ride)
+                    }
+                }
+            } else {
+                List(ridesViewModel.rides) { ride in
+                   // Navigation Link makes text and other items look faint in preview
+                   NavigationLink(destination: RideDetail(ride: ride)) {
+                       RideRow(ride: ride)
+                   }
+                }
             }
         }
     }

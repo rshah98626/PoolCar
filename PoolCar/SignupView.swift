@@ -11,7 +11,7 @@ import SwiftUI
 import Alamofire
 
 struct SignupView: View {
-    @State private var passwrd = ""
+    @State private var password = ""
     @State private var email = ""
     @State private var name = ""
     @State private var signedUp = 0
@@ -42,7 +42,7 @@ struct SignupView: View {
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                     
                     //password field, is set to secure typing
-                    SecureField("Password", text: $passwrd)
+                    SecureField("Password", text: $password)
                         .padding(.horizontal)
                         .frame(width: 200.0, height: 30.0)
                         .background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
@@ -50,7 +50,11 @@ struct SignupView: View {
                     
                     
                     //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
-                    Button(action: {self.SignupRequest(email: self.email, pass: self.passwrd, name: self.name)}) {
+                    Button(action: {
+                        UsersApi.signUp(email: self.email, pass: self.password, name: self.name) {
+                            self.signedUp = 1
+                        }
+                    }) {
                         Text("Sign Up")
                             .frame(width: nil)
                     }
@@ -60,26 +64,6 @@ struct SignupView: View {
                 
                 Home()
             }
-        }
-    }
-    
-    //This function grabs all of the values entered it and sends it to the node server
-    func SignupRequest(email: String, pass: String, name: String) {
-        //node URL
-        let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
-        let signup = Signup(name: name, email: email, password: pass)
-        
-        AF.request(url, method: .post, parameters: signup)
-            .validate()
-            .responseString { response in
-                switch response.result {
-                case let .success(token):
-                    NetworkingUtilities.storeJwtToken(token)
-                    self.signedUp = 1
-                case let .failure(error):
-                    print(error)
-                    
-                }
         }
     }
 }
