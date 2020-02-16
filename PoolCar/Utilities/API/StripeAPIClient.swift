@@ -12,7 +12,24 @@ import Alamofire
 
 class StripeAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
-        APIFetcher.jsonResponse("/users/ephemeralKey", completion: completion)
+        let relPath = "/users/ephemeralKey/" + UserIDUtils.getUserID()
+        let params = ["version": apiVersion]
+        let baseURL = "http://localhost:5000/"
+        
+        var components = URLComponents(string: NSString.path(withComponents: [baseURL, relPath]))
+        components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value) }
+        let finalURL = components?.url?.absoluteString ?? ""
+        //APIFetcher.getJSONResponse(url, params: params, completion: completion)
+        AF.request(finalURL, method: .get)
+        .validate(statusCode: 200..<300)
+        .responseJSON { responseJSON in
+            switch responseJSON.result {
+            case .success(let json):
+                completion(json as? [String: AnyObject], nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
     }
 
     //    func createCustomerKey(withAPIVersion apiVersion: String,
@@ -30,12 +47,14 @@ class StripeAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
     //        }
     //    }
 
-    func createPaymentIntent(price: Double,
+    func createPaymentIntent(ride: Ride?,
                              paymentContext: STPPaymentContext,
                              paymentResult: STPPaymentResult,
                              completion: @escaping STPPaymentStatusBlock) {
-        APIFetcher.jsonResponse("/users/charge") { (resp: StripeClientSecretResponse?, err: APIError?) in
-
+        let url = "/rides/purchase/\(ride?.id)"
+        let req = UserRequest(userID: UserIDUtils.getUserID())
+        APIFetcher.postJSONResponse(url,
+                                    params: req) { (resp: StripeClientSecretResponse?, err: APIError?) in
             guard let clientSecret = resp else {
                 completion(.error, err)
                 return

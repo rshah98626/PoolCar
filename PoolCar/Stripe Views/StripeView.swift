@@ -13,9 +13,12 @@ struct StripeView: View {
     // swiftlint:disable:next weak_delegate
     private var paymentContextDelegate = PaymentContextDelegate()
     private var context: STPPaymentContext
+    var ride: Ride
 
     // TODO figure out how to handle errors and passing from delegate to struct
     private class PaymentContextDelegate: NSObject, STPPaymentContextDelegate {
+        //var ride: Ride
+
         func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {}
 
         func paymentContextDidChange(_ paymentContext: STPPaymentContext) {}
@@ -23,13 +26,17 @@ struct StripeView: View {
         func paymentContext(_ paymentContext: STPPaymentContext,
                             didCreatePaymentResult paymentResult: STPPaymentResult,
                             completion: @escaping STPPaymentStatusBlock) {
-            StripeAPIClient().createPaymentIntent(price: 20,
+            StripeAPIClient().createPaymentIntent(ride: nil,
                                                   paymentContext: paymentContext,
                                                   paymentResult: paymentResult, completion: completion)
         }
 
         func paymentContext(_ paymentContext: STPPaymentContext,
                             didFinishWith status: STPPaymentStatus, error: Error?) {}
+
+//        init(_ ride: Ride) {
+//            self.ride = ride
+//        }
     }
 
     var body: some View {
@@ -82,16 +89,18 @@ struct StripeView: View {
         }
     }
 
-    init() {
+    init(_ ride: Ride) {
+        self.ride = ride
         let customerContext = STPCustomerContext(keyProvider: StripeAPIClient())
         self.context = STPPaymentContext(customerContext: customerContext)
         self.context.hostViewController = UIApplication.shared.keyWindow?.rootViewController
+        //self.paymentContextDelegate = PaymentContextDelegate(ride)
         self.context.delegate = self.paymentContextDelegate
     }
 }
 
 struct StripeView_Previews: PreviewProvider {
     static var previews: some View {
-        StripeView()
+        StripeView(tempRides[0])
     }
 }

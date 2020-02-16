@@ -69,20 +69,33 @@ struct SignupView: View {
     //This function grabs all of the values entered it and sends it to the node server
     func signupRequest(email: String, pass: String, name: String) {
         //node URL
-        let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
-        let signup = Signup(name: name, email: email, password: pass)
+        //let url = "http://localhost:5000/users/signup"
+        //let url = "https://infinite-stream-52265.herokuapp.com/users/signup"
+        let signup = Signup(name: name, email: email, password: self.passwrd)
 
-        AF.request(url, method: .post, parameters: signup)
-            .validate()
-            .responseString { response in
-                switch response.result {
-                case let .success(token):
-                    JWTUtils.storeJwtToken(token)
-                    self.signedUp = 1
-                case let .failure(error):
-                    print(error)
-                }
+        APIFetcher.postJSONResponse("users/signup", params: signup) { (resp: VerifyResponse?, err: APIError?) in
+            // TODO more graceful error handling
+            guard let resp = resp else {
+                fatalError(err?.toString() ?? "Provided error was nil")
             }
+
+            // store jwt token and user id
+            UserIDUtils.storeUserID(resp.userID)
+            JWTUtils.storeJwtToken(resp.jwtToken)
+            self.signedUp = 1
+        }
+
+//        AF.request(url, method: .post, parameters: signup)
+//            .validate()
+//            .responseString { response in
+//                switch response.result {
+//                case let .success(token):
+//                    JWTUtils.storeJwtToken(token)
+//                    self.signedUp = 1
+//                case let .failure(error):
+//                    print(error)
+//                }
+//            }
     }
 }
 
@@ -90,13 +103,6 @@ struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
         SignupView()
     }
-}
-
-//struct turns values into JSON format
-struct Signup: Encodable {
-    let name: String
-    let email: String
-    let password: String
 }
 
 // TODO NEED TO REMEMBER TO UPDATE transport security when moving to production

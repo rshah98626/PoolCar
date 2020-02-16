@@ -10,5 +10,16 @@ import Foundation
 
 enum APIError: Error {
     case castError(type: Any)
-    case alamofireError(_ description: String?)
+    case alamofireError(_ description: String?, _ responseCode: Int?)
+
+    func toString() -> String {
+        switch self {
+        case .castError(let type):
+            return "Cast error with type " + String(describing: type)
+        case .alamofireError(let description, let responseCode):
+            let desc = "Description: " + (description ?? "")
+            let code = "With code: \(responseCode ?? 0)"
+            return "Alamofire error. \n" + desc + "\n" + code
+        }
+    }
 }

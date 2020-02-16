@@ -80,6 +80,15 @@ struct InterestsResponse: Codable {
     }
 }
 
+struct VerifyResponse: Codable {
+    let userID, jwtToken: String
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case jwtToken = "token"
+    }
+}
+
 // MARK: Stripe Responses
 struct StripeClientSecretResponse: Codable {
     let secret: String

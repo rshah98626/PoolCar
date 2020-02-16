@@ -38,6 +38,8 @@
 		B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBA523F647B1001A15A4 /* Errors.swift */; };
 		B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBA723F71912001A15A4 /* ResponseModels.swift */; };
 		B7E3FBAE23F72901001A15A4 /* APIFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */; };
+		B7E3FBB023F88846001A15A4 /* UserIDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBAF23F88846001A15A4 /* UserIDUtils.swift */; };
+		B7E3FBB223F88BAB001A15A4 /* RequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBB123F88BAB001A15A4 /* RequestModels.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
 		E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67ACC9723C9AE8D005CF574 /* LoginView.swift */; };
@@ -103,6 +105,8 @@
 		B7E3FBA523F647B1001A15A4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		B7E3FBA723F71912001A15A4 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
 		B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetcher.swift; sourceTree = "<group>"; };
+		B7E3FBAF23F88846001A15A4 /* UserIDUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDUtils.swift; sourceTree = "<group>"; };
+		B7E3FBB123F88BAB001A15A4 /* RequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModels.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 		E67ACC9723C9AE8D005CF574 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E6B662C323BB058C00105B7C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
+				604881D123EBDA0C00B32BE5 /* JWTUtils.swift */,
+				B7E3FBAF23F88846001A15A4 /* UserIDUtils.swift */,
 				B7E3FBAB23F72750001A15A4 /* API */,
 			);
 			path = Utilities;
@@ -314,9 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				B7E3FBA723F71912001A15A4 /* ResponseModels.swift */,
-				604881D123EBDA0C00B32BE5 /* JWTUtils.swift */,
 				B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */,
 				B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */,
+				B7E3FBB123F88BAB001A15A4 /* RequestModels.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -564,8 +570,10 @@
 				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
 				B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
+				B7E3FBB023F88846001A15A4 /* UserIDUtils.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,
+				B7E3FBB223F88BAB001A15A4 /* RequestModels.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
 				B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */,
 				B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */,

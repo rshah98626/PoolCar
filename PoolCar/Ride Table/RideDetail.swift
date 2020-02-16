@@ -19,13 +19,14 @@ struct RideDetail: View {
             Text("To: " + self.ride.destination)
             Text("Price: $" + String(self.ride.price))
             Button("Show Chat") {
+                print(self.ride.id)
                 self.isShowingChat.toggle()
             }
             .sheet(isPresented: self.$isShowingChat) {
                 MessageView(chatShowing: self.$isShowingChat).environmentObject(MessageController())
             }
             Spacer()
-            StripeView()
+            StripeView(self.ride)
             .padding(.top).padding(.leading).padding(.trailing)
         }
     }

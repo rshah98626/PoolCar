@@ -31,6 +31,7 @@ struct Home: View {
     var sideMenuButton: some View {
         HStack {
             Button(action: {
+                print(UserIDUtils.getUserID())
                 // background thread
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     self.drawerOpen.toggle()
