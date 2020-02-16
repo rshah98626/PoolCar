@@ -9,16 +9,20 @@
 import UIKit
 import GooglePlaces
 import GoogleMaps
+import Stripe
 
-let apiKey = "AIzaSyDFl55AH4SCMf3dCMNzOQwxQOqaIY3EKLk"
+let googleApiKey = "AIzaSyDFl55AH4SCMf3dCMNzOQwxQOqaIY3EKLk"
+let stripeApiKey = "pk_test_JWwMI2nVwf0NOMmrvwDfBqvt00Q8ftrfmq"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Enable Google Maps and Google Places
-        GMSServices.provideAPIKey(apiKey)
-        GMSPlacesClient.provideAPIKey(apiKey)
+        GMSServices.provideAPIKey(googleApiKey)
+        GMSPlacesClient.provideAPIKey(googleApiKey)
+        Stripe.setDefaultPublishableKey(stripeApiKey)
+        STPTheme.default().accentColor = UIColor(red: 21/255, green: 189/255, blue: 77/255, alpha: 1.0)
         return true
     }
 

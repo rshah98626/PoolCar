@@ -11,6 +11,7 @@ import Alamofire
 
 class APIFetcher {
     // params wants query parameters
+    
     static func getJSONResponse<T>(_ relPath: String, params: [String: String] = [:],
                                    completion: @escaping (_ resp: T?, _ err: APIError?) -> Void)
     where T: Decodable {
@@ -55,30 +56,6 @@ class APIFetcher {
             }
         }
     }
-
-    // function is only used when completion has a weird type (aka Stripe handlers)
-//    static func postJSONResponse<T, Y>(_ relPath: String, params: Y? = nil,
-//                                       completion: @escaping (_ resp: T?, _ err: APIError?) -> Void)
-//    where Y: Encodable {
-//        let baseURL = "http://localhost:5000/"
-//        let queryURL = NSString.path(withComponents: [baseURL, relPath])
-//
-//        AF.request(queryURL, method: .post, parameters: params, encoder: URLEncodedFormParameterEncoder.default,
-//                   headers: JWTUtils.getAuthorizationHeaders())
-//        .validate(statusCode: 200 ..< 300)
-//        .responseJSON { responseJSON in
-//            switch responseJSON.result {
-//            case .success(let resp):
-//                guard let ret = resp as? T else {
-//                    completion(nil, APIError.castError(type: T.self))
-//                    break
-//                }
-//                completion(ret, nil)
-//            case .failure(let err):
-//                completion(nil, APIError.alamofireError(err.errorDescription, err.responseCode))
-//            }
-//        }
-//    }
 }
 
 //class APIResponse<T> {

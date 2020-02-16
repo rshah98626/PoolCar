@@ -47,11 +47,11 @@ class StripeAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
     //        }
     //    }
 
-    func createPaymentIntent(ride: Ride?,
+    func createPaymentIntent(ride: Ride,
                              paymentContext: STPPaymentContext,
                              paymentResult: STPPaymentResult,
                              completion: @escaping STPPaymentStatusBlock) {
-        let url = "/rides/purchase/\(ride?.id)"
+        let url = "/rides/purchase/\(ride.id)"
         let req = UserRequest(userID: UserIDUtils.getUserID())
         APIFetcher.postJSONResponse(url,
                                     params: req) { (resp: StripeClientSecretResponse?, err: APIError?) in
