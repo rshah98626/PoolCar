@@ -154,7 +154,6 @@
 				B7A3FD6223CBC5890062F8F4 /* KeyboardResponsiveModifier.swift */,
 				604881D123EBDA0C00B32BE5 /* JWTUtils.swift */,
 				B7E3FBAF23F88846001A15A4 /* UserIDUtils.swift */,
-				B7E3FBAB23F72750001A15A4 /* API */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -212,8 +211,9 @@
 				604881D023EBD9D500B32BE5 /* Utilities */,
 				B7E3FBAA23F726E2001A15A4 /* Login */,
 				B7E3FBAC23F7276F001A15A4 /* Stripe Views */,
-				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
+				B7E3FBAB23F72750001A15A4 /* API */,
 				B77D1DAA23B420B500CAAEA5 /* AppDelegate.swift */,
+				B77D1DAC23B420B500CAAEA5 /* SceneDelegate.swift */,
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
