@@ -32,7 +32,7 @@ struct DrawerContent: View {
     }
     
     func logout() {
-        NetworkingUtilities.removeJwtToken()
+        JWTUtils.removeJwtToken()
         self.shouldLogOut = true
     }
 }

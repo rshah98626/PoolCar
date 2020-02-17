@@ -17,7 +17,7 @@ class RidesApi {
         let getAllRidesRoute = "rides/getAll"
         let getAllRidesUrl = baseUrl + getAllRidesRoute
         
-        AF.request(getAllRidesUrl, method: .get, headers: NetworkingUtilities.getAuthorizationHeaders())
+        AF.request(getAllRidesUrl, method: .get, headers: JWTUtils.getAuthorizationHeaders())
             .validate()
             .responseData() { response in
                 switch response.result {
@@ -35,7 +35,7 @@ class RidesApi {
         let createRideRoute = "rides/create"
         let createRidesUrl = baseUrl + createRideRoute
         
-        AF.request(createRidesUrl, method: .post, parameters: ride, headers: NetworkingUtilities.getAuthorizationHeaders())
+        AF.request(createRidesUrl, method: .post, parameters: ride, headers: JWTUtils.getAuthorizationHeaders())
         .validate()
         .responseString { response in
             switch response.result {

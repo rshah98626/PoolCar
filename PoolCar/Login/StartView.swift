@@ -13,7 +13,7 @@ struct StartView: View {
     var body: some View {
         
         VStack {
-            if NetworkingUtilities.getJwtToken().isEmpty == false {
+            if JWTUtils.getJwtToken().isEmpty == false {
                 Home()
             }
             else {
