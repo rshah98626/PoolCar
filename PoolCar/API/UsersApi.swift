@@ -22,7 +22,7 @@ class UsersApi {
             .responseString { response in
                 switch response.result {
                 case let .success(token):
-                    NetworkingUtilities.storeJwtToken(token)
+                    JWTUtils.storeJwtToken(token)
                     successAction()
                 case let .failure(error):
                     print(error)
@@ -43,7 +43,7 @@ class UsersApi {
             .responseString { response in
                 switch response.result {
                 case let .success(token):
-                    NetworkingUtilities.storeJwtToken(token)
+                    JWTUtils.storeJwtToken(token)
                     successAction()
 
                 case let .failure(error):
