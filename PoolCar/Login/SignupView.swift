@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-//package allows HTTPS Requests to be sent
 import Alamofire
 
 struct SignupView: View {
@@ -35,22 +34,22 @@ struct SignupView: View {
                         .background(Color.white)
                         .border(Color.black, width: 2)
 
-                    //email field - needs proper formatting
+                    // email field - needs proper formatting
                     TextField("Email", text: $email)
                         .padding(.horizontal)
                         .frame(width: 200.0, height: 30.0)
                         .background(Color.white)
                         .border(Color.black, width: 2)
-                    
-                    //password field, is set to secure typing
+
+                    // password field, is set to secure typing
                     SecureField("Password", text: $password)
                         .padding(.horizontal)
                         .frame(width: 200.0, height: 30.0)
                         .background(Color.white)
                         .border(Color.black, width: 2)
-                    
-                    
-                    //button handle calling AF and submitting entered information - NEEDS to reject when fields are not entered
+
+                    // button handle calling AF and submitting entered information
+                    // TODO - NEEDS to reject when fields are not entered
                     Button(action: {
                         UsersApi.signUp(email: self.email, pass: self.password, name: self.name) {
                             self.signedUp = 1
@@ -59,8 +58,8 @@ struct SignupView: View {
                         Text("Sign Up")
                             .frame(width: nil)
                     }
-                }}
-            else{
+                }
+            } else {
                 //takes user to the home page once successful signup
                 Home()
             }

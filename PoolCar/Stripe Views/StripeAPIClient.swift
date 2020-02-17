@@ -15,7 +15,7 @@ class StripeAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
         let relPath = "/users/ephemeralKey/" + UserIDUtils.getUserID()
         let params = ["version": apiVersion]
         let baseURL = "http://localhost:5000/"
-        
+
         var components = URLComponents(string: NSString.path(withComponents: [baseURL, relPath]))
         components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value) }
         let finalURL = components?.url?.absoluteString ?? ""

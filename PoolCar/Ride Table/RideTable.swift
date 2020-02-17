@@ -12,7 +12,7 @@ import Alamofire
 struct RideTable: View {
     @EnvironmentObject var database: Database
     @ObservedObject var ridesViewModel = RidesViewModel()
-    
+
     var body: some View {
         VStack {
             if ridesViewModel.rides.isEmpty {

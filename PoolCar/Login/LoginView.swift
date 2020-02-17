@@ -46,7 +46,9 @@ struct LoginView: View {
                     // button handle calling AF and submitting entered information
                     // TODO - NEEDS to reject when fields are not entered
                     Button(action: {
-                        UsersApi.logIn(email: self.email, pass: self.passwrd, successAction: {self.loggedIn = 1}, errorAction: { error in
+                        UsersApi.logIn(email: self.email, pass: self.passwrd,
+                                       successAction: {self.loggedIn = 1},
+                                       errorAction: { error in
                             var notSet = true
                             if let responseCode = error.responseCode {
                                 if responseCode == 401 {
@@ -55,12 +57,12 @@ struct LoginView: View {
                                     notSet = false
                                 }
                             }
-                            
+
                             if notSet {
                                 self.errorTitle = "Network Error"
                                 self.errorMessage = "There was an error with the network request. Please try again"
                             }
-                            
+
                             self.showingAlert = true
                         })
                     }) {
@@ -68,13 +70,13 @@ struct LoginView: View {
                             .frame(width: nil)
                     }
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text(self.errorTitle), message: Text(self.errorMessage), dismissButton: .default(Text("OK")))
+                        Alert(title: Text(self.errorTitle), message: Text(self.errorMessage),
+                              dismissButton: .default(Text("OK")))
                     }
-                    
+
                 }
-                
-            }
-            else{
+
+            } else {
                 Home()
             }
         }

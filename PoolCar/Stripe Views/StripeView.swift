@@ -64,8 +64,7 @@ struct StripeView: View {
             })
 
             Button(action: {
-                // TODO change for price of ride
-                self.context.paymentAmount = 5000
+                self.context.paymentAmount = Int(self.ride.price) * 100
                 self.context.requestPayment()
             }, label: {
                 HStack {

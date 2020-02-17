@@ -11,7 +11,6 @@ import Alamofire
 
 class APIFetcher {
     // params wants query parameters
-    
     static func getJSONResponse<T>(_ relPath: String, params: [String: String] = [:],
                                    completion: @escaping (_ resp: T?, _ err: APIError?) -> Void)
     where T: Decodable {
