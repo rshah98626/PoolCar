@@ -321,7 +321,6 @@
 			children = (
 				B7E3FBA723F71912001A15A4 /* ResponseModels.swift */,
 				B7E3FBAD23F72901001A15A4 /* APIFetcher.swift */,
-				B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */,
 				B7E3FBB123F88BAB001A15A4 /* RequestModels.swift */,
 			);
 			path = API;
@@ -330,6 +329,7 @@
 		B7E3FBAC23F7276F001A15A4 /* Stripe Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7B81B0523F6421A00A08E7A /* StripeAPIClient.swift */,
 				B7B81B0323F640B200A08E7A /* StripeView.swift */,
 			);
 			path = "Stripe Views";
