@@ -11,7 +11,6 @@ struct StartView: View {
     //needs a 3rd destination being if the user is still logged in
     @State private var viewPointer = 0
     var body: some View {
-
         VStack {
             if JWTUtils.getJwtToken().isEmpty == false {
                 Home()

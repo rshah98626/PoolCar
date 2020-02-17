@@ -5,8 +5,11 @@
 //  Created by Raajesh Arunachalam on 2/12/20.
 //  Copyright © 2020 RSInc. All rights reserved.
 //
+
 import Foundation
 import Alamofire
+
+// TODO - fix this entire file, & integrate with user ID utils
 
 class UsersApi {
     static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"

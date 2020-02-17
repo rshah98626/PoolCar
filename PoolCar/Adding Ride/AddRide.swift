@@ -74,26 +74,8 @@ struct AddRide: View {
                       )
         self.database.addRide(ride: newRide)
         //adding ride via Heroku Server
-        self.riderAddRequest(newRide: newRide)
+        RidesApi.addRide(ride: newRide)
         self.isShowing.toggle()
-    }
-    //This function sends ride object to MongoDB
-    func riderAddRequest(newRide: Ride) {
-        //node URL - online server
-        let url = "http://infinite-stream-52265.herokuapp.com/rides/create"
-        //local URL
-        /*let url = "http://localhost:8000/rides/create"*/
-
-        AF.request(url, method: .post, parameters: newRide, headers: JWTUtils.getAuthorizationHeaders())
-            .validate()
-            .responseString { response in
-                switch response.result {
-                case let .success(rideID):
-                    print(rideID)
-                case let .failure(error):
-                    print(error)
-                }
-            }
     }
 
     /// Disable save button unless origin and destination are selected
