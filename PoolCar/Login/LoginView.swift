@@ -49,19 +49,33 @@ struct LoginView: View {
                         UsersApi.logIn(email: self.email, pass: self.passwrd,
                                        successAction: {self.loggedIn = 1},
                                        errorAction: { error in
-                            var notSet = true
-                            if let responseCode = error.responseCode {
-                                if responseCode == 401 {
+                            //var notSet = true
+
+                            switch error {
+                            case .alamofireError(_, let respCode):
+                                if (respCode ?? 0) == 401 {
                                     self.errorTitle = "Login Failed"
                                     self.errorMessage = "Email/Password Combination Incorrect"
-                                    notSet = false
+                                    //notSet = false
+                                    break
                                 }
-                            }
-
-                            if notSet {
+                            default:
                                 self.errorTitle = "Network Error"
                                 self.errorMessage = "There was an error with the network request. Please try again"
                             }
+
+//                            if let responseCode = error.responseCode {
+//                                if responseCode == 401 {
+//                                    self.errorTitle = "Login Failed"
+//                                    self.errorMessage = "Email/Password Combination Incorrect"
+//                                    notSet = false
+//                                }
+//                            }
+//
+//                            if notSet {
+//                                self.errorTitle = "Network Error"
+//                                self.errorMessage = "There was an error with the network request. Please try again"
+//                            }
 
                             self.showingAlert = true
                         })

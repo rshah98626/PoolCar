@@ -89,6 +89,14 @@ struct VerifyResponse: Codable {
     }
 }
 
+struct AllRides: Codable {
+    let rides: [Ride]
+    
+    enum CodingKeys: String, CodingKey {
+        case rides
+    }
+}
+
 // MARK: Stripe Responses
 struct StripeClientSecretResponse: Codable {
     let secret: String

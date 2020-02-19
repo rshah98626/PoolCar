@@ -14,7 +14,8 @@ class APIFetcher {
     static func getJSONResponse<T>(_ relPath: String, params: [String: String] = [:],
                                    completion: @escaping (_ resp: T?, _ err: APIError?) -> Void)
     where T: Decodable {
-        let baseURL = "http://localhost:5000/"
+        let baseURL = "https://infinite-stream-52265.herokuapp.com/"
+        //let baseURL = "http://localhost:5000/"
         var components = URLComponents(string: NSString.path(withComponents: [baseURL, relPath]))
         components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value) }
         let finalURL = components?.url?.absoluteString ?? ""
@@ -22,25 +23,35 @@ class APIFetcher {
         AF.request(finalURL, method: .get, /*parameters: params, encoder: JSONParameterEncoder.default,*/
                    headers: JWTUtils.getAuthorizationHeaders())
         .validate(statusCode: 200 ..< 300)
-        .responseJSON { responseJSON in
-            switch responseJSON.result {
+        .responseDecodable(of: T.self) { response in
+            print(response.debugDescription)
+            switch response.result {
             case .success(let resp):
-                guard let ret = resp as? T else {
-                    completion(nil, APIError.castError(type: T.self))
-                    break
-                }
-                completion(ret, nil)
+                completion(resp, nil)
             case .failure(let err):
-                completion(nil, APIError.alamofireError(err.errorDescription, err.responseCode))
+                completion(nil, APIError.alamofireError(err.localizedDescription, err.responseCode))
             }
         }
+//        .responseJSON { responseJSON in
+//            switch responseJSON.result {
+//            case .success(let resp):
+//                guard let ret = resp as? T else {
+//                    completion(nil, APIError.castError(type: T.self))
+//                    break
+//                }
+//                completion(ret, nil)
+//            case .failure(let err):
+//                completion(nil, APIError.alamofireError(err.errorDescription, err.responseCode))
+//            }
+//        }
     }
 
     // params is used for sending JSON body
     static func postJSONResponse<T, Y>(_ relPath: String, params: Y? = nil,
                                        completion: @escaping (_ resp: T?, _ err: APIError?) -> Void)
     where T: Decodable, Y: Encodable {
-        let baseURL = "http://localhost:5000/"
+        let baseURL = "https://infinite-stream-52265.herokuapp.com/"
+        //let baseURL = "http://localhost:5000/"
         let queryURL = NSString.path(withComponents: [baseURL, relPath])
 
         AF.request(queryURL, method: .post, parameters: params, encoder: URLEncodedFormParameterEncoder.default,

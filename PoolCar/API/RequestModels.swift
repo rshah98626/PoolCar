@@ -20,7 +20,7 @@ struct Login: Encodable {
 }
 
 // used if body is empty
-struct Empty: Encodable {
+struct Empty: Codable {
 
 }
 
