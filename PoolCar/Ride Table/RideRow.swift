@@ -21,7 +21,7 @@ Circle().fill(Color.gray).frame(width: 75, height: 75)
                         Spacer()
 // possibly add arrow
                     Text(ride.destination)
-                }.padding()
+                    }.padding()
                 HStack {
                     Text("$30")
                         .padding(.leading)
