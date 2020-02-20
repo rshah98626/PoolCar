@@ -55,7 +55,7 @@ struct Home: View {
                         .environmentObject(self.database)
                 }
             }
-
+            RideMap().environmentObject(database)
             // side drawer
             NavigationDrawer(isOpen: self.$drawerOpen)
         }

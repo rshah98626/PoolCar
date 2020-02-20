@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FCAFDE723F3579C005EA838 /* RideMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAFDE623F3579C005EA838 /* RideMap.swift */; };
+		2FEEC2AD23FA0EDD002FFB9D /* DragRideInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC2AC23FA0EDD002FFB9D /* DragRideInfo.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FCAFDE623F3579C005EA838 /* RideMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideMap.swift; sourceTree = "<group>"; };
+		2FEEC2AC23FA0EDD002FFB9D /* DragRideInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragRideInfo.swift; sourceTree = "<group>"; };
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 			children = (
 				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
 				B772304023BA89D1003F1B95 /* RideTable.swift */,
+				2FEEC2AC23FA0EDD002FFB9D /* DragRideInfo.swift */,
+				2FCAFDE623F3579C005EA838 /* RideMap.swift */,
 				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
 			);
 			path = "Ride Table";
@@ -438,6 +444,7 @@
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
+				2FCAFDE723F3579C005EA838 /* RideMap.swift in Sources */,
 				B772304123BA89D1003F1B95 /* RideTable.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
@@ -446,6 +453,7 @@
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
+				2FEEC2AD23FA0EDD002FFB9D /* DragRideInfo.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */,
 			);
