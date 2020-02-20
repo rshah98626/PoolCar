@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  JWTUtils.swift
 //  PoolCar
 //
 //  Created by Raajesh Arunachalam on 2/5/20.
@@ -21,7 +21,7 @@ class JWTUtils {
         let defaults = UserDefaults.standard
         return (defaults.string(forKey: JWTUtils.tokenKey) ?? "")
     }
-    
+
     static func removeJwtToken() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: JWTUtils.tokenKey)

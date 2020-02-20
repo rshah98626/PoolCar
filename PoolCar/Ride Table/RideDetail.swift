@@ -13,15 +13,21 @@ struct RideDetail: View {
     @State var isShowingChat = false
 
     var body: some View {
-
         VStack(spacing: 20) {
-            Text("From: " + ride.origin)
-            Text("To: " + ride.destination)
-            Text("Price: $" + String(ride.price))
-            Button("Show Chat") { self.isShowingChat.toggle() }
-            .sheet(isPresented: $isShowingChat) {
+            Spacer()
+            Text("From: " + self.ride.origin)
+            Text("To: " + self.ride.destination)
+            Text("Price: $" + String(self.ride.price))
+            Button("Show Chat") {
+                print(self.ride.id)
+                self.isShowingChat.toggle()
+            }
+            .sheet(isPresented: self.$isShowingChat) {
                 MessageView(chatShowing: self.$isShowingChat).environmentObject(MessageController())
             }
+            Spacer()
+            StripeView(self.ride)
+            .padding(.top).padding(.leading).padding(.trailing)
         }
     }
 }

@@ -10,13 +10,13 @@ import Foundation
 
 class RidesViewModel: ObservableObject {
     @Published var rides = [Ride]()
-    
+
     init() {
         fetchRides()
     }
-    
+
     func fetchRides() {
-        RidesApi.getAllRides() { ridesServer in
+        RidesApi.getAllRides { ridesServer in
             self.rides = ridesServer
         }
     }

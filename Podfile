@@ -11,6 +11,7 @@ target 'PoolCar' do
   pod 'GooglePlaces', '~> 3.4.0'
   pod 'SwiftLint', '~> 0.35'
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'Stripe', '~> 18.4'
 end
 
 #target 'PoolCarTests' do
