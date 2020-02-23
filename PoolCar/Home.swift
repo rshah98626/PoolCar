@@ -13,6 +13,8 @@ struct Home: View {
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
+    @State private var shouldInRide = false
+    @State private var showBanner: Bool = true
 
     /// Button to add ride
     var addRideButton: some View {
@@ -47,8 +49,10 @@ struct Home: View {
     var body: some View {
         VStack {
             if self.shouldLogOut {
-                StartView()
-            } else {
+                StartView()}
+            else if self.shouldInRide {
+               InRideView()}
+            else {
                 ZStack {
                     NavigationView {
                         // Ride table
@@ -64,9 +68,17 @@ struct Home: View {
 
                     // side drawer
                     NavigationDrawer(isOpen: self.$drawerOpen, shouldLogOut: self.$shouldLogOut)
-                }
+                }.animation(.easeInOut)
+                .transition(.move(edge: .top))
+                .navigationBarTitle("Demo", displayMode: .inline) // large title is always tricky
+                    .banner(isPresented: $showBanner, data: BannerData(title: "Ride Is Ready", actionTitle: "Go To Ride Page", level: .success, style: .action
+                        ), action: {
+                            self.shouldInRide = true
+                            self.showBanner = false
+                    })
             }
         }
+        
     }
 
     /// Initializes the navigation controller

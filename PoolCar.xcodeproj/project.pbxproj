@@ -45,9 +45,11 @@
 		B7E3FBBE23FA6814001A15A4 /* RidesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBBD23FA6814001A15A4 /* RidesViewModel.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
+		E65FDCAE24031CA500C536DD /* InRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65FDCAD24031CA500C536DD /* InRideView.swift */; };
 		E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67ACC9723C9AE8D005CF574 /* LoginView.swift */; };
 		E6B662C423BB058C00105B7C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C323BB058C00105B7C /* StartView.swift */; };
 		E6B662C823BBD42500105B7C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C723BBD42500105B7C /* SignupView.swift */; };
+		E6D882BB2400F608004E844A /* PopupBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D882BA2400F608004E844A /* PopupBanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,9 +116,11 @@
 		B7E3FBBB23FA67AD001A15A4 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		B7E3FBBD23FA6814001A15A4 /* RidesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewModel.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
+		E65FDCAD24031CA500C536DD /* InRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InRideView.swift; sourceTree = "<group>"; };
 		E67ACC9723C9AE8D005CF574 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E6B662C323BB058C00105B7C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E6B662C723BBD42500105B7C /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		E6D882BA2400F608004E844A /* PopupBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 				B77D1DB023B420B600CAAEA5 /* Assets.xcassets */,
 				B77D1DB523B420B600CAAEA5 /* LaunchScreen.storyboard */,
 				B77D1DB823B420B600CAAEA5 /* Info.plist */,
+				E6D882B92400F5C8004E844A /* InRideViews */,
 				B77D1DB223B420B600CAAEA5 /* Preview Content */,
 			);
 			path = PoolCar;
@@ -323,7 +328,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-
 		B7E3FBAB23F72750001A15A4 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +357,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-
+		E6D882B92400F5C8004E844A /* InRideViews */ = {
+			isa = PBXGroup;
+			children = (
+				E6D882BA2400F608004E844A /* PopupBanner.swift */,
+				E65FDCAD24031CA500C536DD /* InRideView.swift */,
+			);
+			path = InRideViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -578,10 +590,8 @@
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
-				6038EA4423F5194F00CF0893 /* UsersApi.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
-				6038EA4223F5134000CF0893 /* RidesViewModel.swift in Sources */,
 				B772304123BA89D1003F1B95 /* RideTable.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
@@ -593,13 +603,14 @@
 				B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */,
 				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
 				B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */,
+				E65FDCAE24031CA500C536DD /* InRideView.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7E3FBB023F88846001A15A4 /* UserIDUtils.swift in Sources */,
 				B7A47B1823B932C0001D297B /* GMSSearchPlaceController.swift in Sources */,
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,
+				E6D882BB2400F608004E844A /* PopupBanner.swift in Sources */,
 				B7E3FBB223F88BAB001A15A4 /* RequestModels.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
-				6038EA3F23F5129A00CF0893 /* RidesApi.swift in Sources */,
 				B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */,
 				B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */,
