@@ -14,6 +14,11 @@ struct Home: View {
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
 
+    @State private var showFilterModal: Bool = true
+    @State var originLocation: String?
+    @State var destinationLocation: String?
+    @State var rideStartTime: Double?
+
     /// Button to add ride
     var addRideButton: some View {
         HStack {
@@ -21,6 +26,18 @@ struct Home: View {
                 self.showAddRideModal.toggle()
             }) {
                 Image(systemName: "car.fill")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
+    }
+
+    var filterButton: some View {
+        HStack {
+            Button(action: {
+                self.showFilterModal.toggle()
+            }) {
+                Image(systemName: "slider.horizontal.3")
                     .font(.largeTitle)
             }
             .foregroundColor(.blue)
@@ -52,13 +69,22 @@ struct Home: View {
                 ZStack {
                     NavigationView {
                         // Ride table
-                        RideTable().environmentObject(database)
+                        RideTable(originLocation: self.originLocation, destinationLocation: self.destinationLocation, tripStartTime: self.rideStartTime
+                        ).environmentObject(database)
                         // Navigation configurations
                         .navigationBarTitle("Rides", displayMode: .inline)
-                        .navigationBarItems(leading: sideMenuButton, trailing: addRideButton)
+                        .navigationBarItems(leading: sideMenuButton,
+                                            trailing: HStack {
+                                                filterButton
+                                                addRideButton
+                                            }
+                        )
                         .sheet(isPresented: $showAddRideModal) {
                             AddRide(isShowing: self.$showAddRideModal)
                                 .environmentObject(self.database)
+                        }
+                        .sheet(isPresented: $showFilterModal) {
+                            RideFilter(isShowing: self.$showFilterModal, originLocation: self.$originLocation, destinationLocation: self.$destinationLocation, tripStartDate: self.$rideStartTime)
                         }
                     }
 

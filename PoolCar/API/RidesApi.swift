@@ -12,12 +12,13 @@ import Alamofire
 class RidesApi {
     static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"
 
-    static func getAllRides(successAction: @escaping ([Ride]) -> Void) {
+    static func getRides(originLocation: String?, destinationLocation: String?, startDate: Double?, successAction: @escaping ([Ride]) -> Void) {
         //node URL
+        let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation, startDate: startDate)
+
         let getAllRidesRoute = "rides/getAll"
         let getAllRidesUrl = baseUrl + getAllRidesRoute
-
-        AF.request(getAllRidesUrl, method: .get, headers: JWTUtils.getAuthorizationHeaders())
+        AF.request(getAllRidesUrl, method: .get, parameters: rideReq, headers: JWTUtils.getAuthorizationHeaders())
             .validate()
             .responseData { response in
                 switch response.result {

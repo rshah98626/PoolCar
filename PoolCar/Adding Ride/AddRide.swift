@@ -64,7 +64,6 @@ struct AddRide: View {
                 destinationTown = addressComponent.name
             }
         }
-
         // add ride to DB
         let newRide = Ride(origin: originTown, destination: destinationTown,
                            latitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
