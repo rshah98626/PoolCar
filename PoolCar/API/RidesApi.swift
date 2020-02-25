@@ -12,9 +12,10 @@ import Alamofire
 class RidesApi {
     static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"
 
-    static func getRides(originLocation: String?, destinationLocation: String?, startDate: Double?, successAction: @escaping ([Ride]) -> Void) {
-        //node URL
-        let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation, startDate: startDate)
+    static func getRides(originLocation: String?, destinationLocation: String?,
+                         startDate: Double?, successAction: @escaping ([Ride]) -> Void) {
+        let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation,
+                                  startDate: startDate)
 
         let getAllRidesRoute = "rides/get"
         let getAllRidesUrl = baseUrl + getAllRidesRoute

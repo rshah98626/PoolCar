@@ -9,7 +9,8 @@
 import Foundation
 
 class DateUtils {
-    static func getFormattedDateTime(_ time: Double?, dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .short) -> String {
+    static func getFormattedDateTime(_ time: Double?, dateStyle: DateFormatter.Style = .short,
+                                     timeStyle: DateFormatter.Style = .short) -> String {
         if let secondsSinceEpoch = time {
             let date = Date(timeIntervalSince1970: secondsSinceEpoch)
             let dateFormatter = DateFormatter()

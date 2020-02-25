@@ -23,7 +23,8 @@ class RidesViewModel: ObservableObject {
     }
 
     func fetchRides(originLocation: String?, destinationLocation: String?, startDate: Double?) {
-        if (self.originLocation != originLocation) || (self.destinationLocation != destinationLocation) || (self.startDate != startDate) {
+        if (self.originLocation != originLocation) || (self.destinationLocation != destinationLocation)
+            || (self.startDate != startDate) {
             self.originLocation = originLocation
             self.destinationLocation = destinationLocation
             self.startDate = startDate
