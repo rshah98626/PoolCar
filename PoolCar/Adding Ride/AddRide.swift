@@ -68,6 +68,7 @@ struct AddRide: View {
         }
         // add ride to DB
         let newRide = Ride(origin: originTown, destination: destinationTown,
+                           startTime: timing.timeIntervalSince1970,
                            latitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
                            longitudeOrigin: fromLocation?.coordinate.longitude ?? 0.0,
                            latitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
