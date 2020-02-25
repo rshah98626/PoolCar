@@ -23,7 +23,7 @@ struct RideRow: View {
                     Text(ride.destination)
                 }.padding()
                 HStack {
-                    Text("$30")
+                    Text(PriceUtils.getPriceString(ride.price))
                         .padding(.leading)
                     Spacer()
                     Text(DateUtils.getFormattedDateTime(ride.rideStartTime))

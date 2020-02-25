@@ -10,6 +10,7 @@
 		604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604881D123EBDA0C00B32BE5 /* JWTUtils.swift */; };
 		60548111240340C700C6381C /* RideFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60548110240340C700C6381C /* RideFilter.swift */; };
 		60A639282404EA80007D397A /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A639272404EA80007D397A /* DateUtils.swift */; };
+		60D510202405782F004E21C4 /* PriceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D5101F2405782F004E21C4 /* PriceUtils.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
@@ -75,6 +76,7 @@
 		604881D123EBDA0C00B32BE5 /* JWTUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTUtils.swift; sourceTree = "<group>"; };
 		60548110240340C700C6381C /* RideFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideFilter.swift; sourceTree = "<group>"; };
 		60A639272404EA80007D397A /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		60D5101F2405782F004E21C4 /* PriceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceUtils.swift; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
 		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				604881D123EBDA0C00B32BE5 /* JWTUtils.swift */,
 				B7E3FBAF23F88846001A15A4 /* UserIDUtils.swift */,
 				60A639272404EA80007D397A /* DateUtils.swift */,
+				60D5101F2405782F004E21C4 /* PriceUtils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				B7E3FBBA23FA679A001A15A4 /* RidesApi.swift in Sources */,
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				E6B662C423BB058C00105B7C /* StartView.swift in Sources */,
+				60D510202405782F004E21C4 /* PriceUtils.swift in Sources */,
 				B7E3FBBE23FA6814001A15A4 /* RidesViewModel.swift in Sources */,
 				B7E3FBBC23FA67AD001A15A4 /* UsersApi.swift in Sources */,
 				604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */,
