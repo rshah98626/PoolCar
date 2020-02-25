@@ -18,7 +18,7 @@ struct AddRide: View {
     @Binding var isShowing: Bool  // Bool for showing add ride controller
 
     @State var ridesViewModel: RidesViewModel
-    
+
     // Input variables
     @State private var timing = Date()
     @State private var fromLocation: GMSPlace?
