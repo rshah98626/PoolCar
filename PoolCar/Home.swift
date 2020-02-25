@@ -13,6 +13,9 @@ struct Home: View {
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
+    
+    @ObservedObject var ridesViewModel: RidesViewModel
+    @State private var showFilterModal: Bool = true
 
     /// Button to add ride
     var addRideButton: some View {
@@ -24,6 +27,27 @@ struct Home: View {
                     .font(.largeTitle)
             }
             .foregroundColor(.blue)
+        }
+        .sheet(isPresented: $showAddRideModal) {
+            AddRide(isShowing: self.$showAddRideModal,
+                    ridesViewModel: self.ridesViewModel)
+                .environmentObject(self.database)
+        }
+    }
+
+    var filterButton: some View {
+        HStack {
+            Button(action: {
+                self.showFilterModal.toggle()
+            }) {
+                Image(systemName: "slider.horizontal.3")
+                    .font(.largeTitle)
+            }
+            .foregroundColor(.blue)
+        }
+        .sheet(isPresented: $showFilterModal) {
+            RideFilter(isShowing: self.$showFilterModal,
+                       ridesViewModel: self.ridesViewModel)
         }
     }
 
@@ -52,14 +76,15 @@ struct Home: View {
                 ZStack {
                     NavigationView {
                         // Ride table
-                        RideTable().environmentObject(database)
+                        RideTable(ridesViewModel: self.ridesViewModel).environmentObject(database)
                         // Navigation configurations
                         .navigationBarTitle("Rides", displayMode: .inline)
-                        .navigationBarItems(leading: sideMenuButton, trailing: addRideButton)
-                        .sheet(isPresented: $showAddRideModal) {
-                            AddRide(isShowing: self.$showAddRideModal)
-                                .environmentObject(self.database)
-                        }
+                        .navigationBarItems(leading: sideMenuButton,
+                                            trailing: HStack {
+                                                filterButton
+                                                addRideButton
+                                            }
+                        )
                     }
 
                     // side drawer
@@ -68,25 +93,10 @@ struct Home: View {
             }
         }
     }
-
-    /// Initializes the navigation controller
-    init() {
-        // navigation bar color
-        UINavigationBar.appearance().backgroundColor = .green
-
-        // for displayMode .large
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor.darkGray,
-            .font: UIFont(name: "Papyrus", size: 40)!]
-
-        // for displayMode .inline
-        UINavigationBar.appearance().titleTextAttributes = [
-            .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
-    }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environmentObject(Database())
+        Home(ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }

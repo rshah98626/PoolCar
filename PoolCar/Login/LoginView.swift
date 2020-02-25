@@ -91,7 +91,7 @@ struct LoginView: View {
                 }
 
             } else {
-                Home()
+                Home(ridesViewModel: RidesViewModel())
             }
         }
     }

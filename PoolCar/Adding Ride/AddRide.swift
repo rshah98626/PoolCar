@@ -17,6 +17,8 @@ struct AddRide: View {
     @EnvironmentObject var database: Database
     @Binding var isShowing: Bool  // Bool for showing add ride controller
 
+    @State var ridesViewModel: RidesViewModel
+    
     // Input variables
     @State private var timing = Date()
     @State private var fromLocation: GMSPlace?
@@ -64,9 +66,9 @@ struct AddRide: View {
                 destinationTown = addressComponent.name
             }
         }
-
         // add ride to DB
         let newRide = Ride(origin: originTown, destination: destinationTown,
+                           rideStartTime: timing.timeIntervalSince1970,
                            latitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
                            longitudeOrigin: fromLocation?.coordinate.longitude ?? 0.0,
                            latitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
@@ -75,6 +77,7 @@ struct AddRide: View {
         self.database.addRide(ride: newRide)
         //adding ride via Heroku Server
         RidesApi.addRide(ride: newRide)
+        self.ridesViewModel.refresh()
         self.isShowing.toggle()
     }
 
@@ -90,6 +93,6 @@ struct AddRide: View {
 
 struct AddRide_Previews: PreviewProvider {
     static var previews: some View {
-        AddRide(isShowing: .constant(true)).environmentObject(Database())
+        AddRide(isShowing: .constant(true), ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }

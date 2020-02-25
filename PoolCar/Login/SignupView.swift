@@ -61,7 +61,7 @@ struct SignupView: View {
                 }
             } else {
                 //takes user to the home page once successful signup
-                Home()
+                Home(ridesViewModel: RidesViewModel())
             }
         }
     }

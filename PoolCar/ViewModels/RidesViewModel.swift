@@ -10,14 +10,29 @@ import Foundation
 
 class RidesViewModel: ObservableObject {
     @Published var rides = [Ride]()
+    private var originLocation: String?
+    private var destinationLocation: String?
+    private var startDate: Double?
 
-    init() {
-        fetchRides()
+    func refresh() {
+        RidesApi.getRides(originLocation: self.originLocation,
+                          destinationLocation: self.destinationLocation,
+                          startDate: self.startDate) { ridesServer in
+            self.rides = ridesServer
+        }
     }
 
-    func fetchRides() {
-        RidesApi.getAllRides { ridesServer in
-            self.rides = ridesServer
+    func fetchRides(originLocation: String?, destinationLocation: String?, startDate: Double?) {
+        if (self.originLocation != originLocation) || (self.destinationLocation != destinationLocation) || (self.startDate != startDate) {
+            self.originLocation = originLocation
+            self.destinationLocation = destinationLocation
+            self.startDate = startDate
+
+            RidesApi.getRides(originLocation: self.originLocation,
+                              destinationLocation: self.destinationLocation,
+                              startDate: self.startDate) { ridesServer in
+                self.rides = ridesServer
+            }
         }
     }
 }

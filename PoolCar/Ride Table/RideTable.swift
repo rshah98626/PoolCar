@@ -11,24 +11,15 @@ import Alamofire
 
 struct RideTable: View {
     @EnvironmentObject var database: Database
-    @ObservedObject var ridesViewModel = RidesViewModel()
+    @ObservedObject var ridesViewModel: RidesViewModel
 
     var body: some View {
         VStack {
-            if ridesViewModel.rides.isEmpty {
-                List(database.rides) { ride in
-                    // Navigation Link makes text and other items look faint in preview
-                    NavigationLink(destination: RideDetail(ride: ride)) {
-                        RideRow(ride: ride)
-                    }
-                }
-            } else {
-                List(ridesViewModel.rides) { ride in
-                   // Navigation Link makes text and other items look faint in preview
-                   NavigationLink(destination: RideDetail(ride: ride)) {
-                       RideRow(ride: ride)
-                   }
-                }
+            List(ridesViewModel.rides) { ride in
+               // Navigation Link makes text and other items look faint in preview
+               NavigationLink(destination: RideDetail(ride: ride)) {
+                   RideRow(ride: ride)
+               }
             }
         }
     }
@@ -36,6 +27,6 @@ struct RideTable: View {
 
 struct RideTable_Previews: PreviewProvider {
     static var previews: some View {
-        RideTable().environmentObject(Database())
+        RideTable(ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }

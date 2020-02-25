@@ -13,7 +13,7 @@ struct StartView: View {
     var body: some View {
         VStack {
             if JWTUtils.getJwtToken().isEmpty == false {
-                Home()
+                Home(ridesViewModel: RidesViewModel())
             } else {
                 if viewPointer == 0 {
                     VStack {
@@ -37,6 +37,21 @@ struct StartView: View {
                 }
             }
         }
+    }
+    
+    /// Initializes the navigation controller
+    init() {
+        // navigation bar color
+        UINavigationBar.appearance().backgroundColor = .green
+
+        // for displayMode .large
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.darkGray,
+            .font: UIFont(name: "Papyrus", size: 40)!]
+
+        // for displayMode .inline
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
     }
 }
 

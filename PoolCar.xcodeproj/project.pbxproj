@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604881D123EBDA0C00B32BE5 /* JWTUtils.swift */; };
+		60548111240340C700C6381C /* RideFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60548110240340C700C6381C /* RideFilter.swift */; };
 		B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAD23BA7D58003936E2 /* DrawerContent.swift */; };
 		B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */; };
 		B772304123BA89D1003F1B95 /* RideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772304023BA89D1003F1B95 /* RideTable.swift */; };
@@ -71,6 +72,7 @@
 		0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		530B7238C3F35FA5EE6E1A91 /* Pods-PoolCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.release.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.release.xcconfig"; sourceTree = "<group>"; };
 		604881D123EBDA0C00B32BE5 /* JWTUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTUtils.swift; sourceTree = "<group>"; };
+		60548110240340C700C6381C /* RideFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideFilter.swift; sourceTree = "<group>"; };
 		A8D64A8F36A43829E2D10171 /* Pods-PoolCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolCar.debug.xcconfig"; path = "Target Support Files/Pods-PoolCar/Pods-PoolCar.debug.xcconfig"; sourceTree = "<group>"; };
 		B7358EAD23BA7D58003936E2 /* DrawerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContent.swift; sourceTree = "<group>"; };
 		B7358EAF23BA7DA0003936E2 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				B77D1DE223B5471C00CAAEA5 /* RideDetail.swift */,
 				B772304023BA89D1003F1B95 /* RideTable.swift */,
 				B77D1DE023B451D100CAAEA5 /* RideRow.swift */,
+				60548110240340C700C6381C /* RideFilter.swift */,
 			);
 			path = "Ride Table";
 			sourceTree = "<group>";
@@ -323,7 +326,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-
 		B7E3FBAB23F72750001A15A4 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,7 +355,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -578,16 +579,15 @@
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
 				B7A3FD6323CBC5890062F8F4 /* KeyboardResponsiveModifier.swift in Sources */,
 				B77D1DE123B451D100CAAEA5 /* RideRow.swift in Sources */,
-				6038EA4423F5194F00CF0893 /* UsersApi.swift in Sources */,
 				B7358EB023BA7DA0003936E2 /* NavigationDrawer.swift in Sources */,
 				B77D1DDF23B4484100CAAEA5 /* PreviewData.swift in Sources */,
-				6038EA4223F5134000CF0893 /* RidesViewModel.swift in Sources */,
 				B772304123BA89D1003F1B95 /* RideTable.swift in Sources */,
 				B77D1DAB23B420B500CAAEA5 /* AppDelegate.swift in Sources */,
 				B77D1DDD23B446F700CAAEA5 /* Ride.swift in Sources */,
 				B77D1DE323B5471C00CAAEA5 /* RideDetail.swift in Sources */,
 				B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */,
 				B77D1DE523B5485800CAAEA5 /* AddRide.swift in Sources */,
+				60548111240340C700C6381C /* RideFilter.swift in Sources */,
 				B7B81B0623F6421A00A08E7A /* StripeAPIClient.swift in Sources */,
 				B7B81B0423F640B200A08E7A /* StripeView.swift in Sources */,
 				B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */,
@@ -599,7 +599,6 @@
 				E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */,
 				B7E3FBB223F88BAB001A15A4 /* RequestModels.swift in Sources */,
 				B77D1DAD23B420B500CAAEA5 /* SceneDelegate.swift in Sources */,
-				6038EA3F23F5129A00CF0893 /* RidesApi.swift in Sources */,
 				B7A3FD5D23BEEC330062F8F4 /* Message.swift in Sources */,
 				B7A3FD5B23BE7FA70062F8F4 /* MessageRow.swift in Sources */,
 				B77D1DAF23B420B500CAAEA5 /* Home.swift in Sources */,

@@ -31,3 +31,9 @@ struct UserRequest: Codable {
         case userID = "user_id"
     }
 }
+
+struct RideRequest: Codable {
+    let originLocation: String?
+    let destinationLocation: String?
+    let startDate: Double?
+}
