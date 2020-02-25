@@ -16,7 +16,7 @@ struct Ride: Hashable, Codable, Identifiable {
     var driverName: String = "billy"
     var origin: String
     var destination: String
-    var startTime: Double?
+    var rideStartTime: Double?
 
     var latitudeOrigin: Double
     var longitudeOrigin: Double
