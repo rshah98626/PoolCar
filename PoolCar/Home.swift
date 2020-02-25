@@ -28,6 +28,11 @@ struct Home: View {
             }
             .foregroundColor(.blue)
         }
+        .sheet(isPresented: $showAddRideModal) {
+            AddRide(isShowing: self.$showAddRideModal,
+                    ridesViewModel: self.ridesViewModel)
+                .environmentObject(self.database)
+        }
     }
 
     var filterButton: some View {
@@ -39,6 +44,10 @@ struct Home: View {
                     .font(.largeTitle)
             }
             .foregroundColor(.blue)
+        }
+        .sheet(isPresented: $showFilterModal) {
+            RideFilter(isShowing: self.$showFilterModal,
+                       ridesViewModel: self.ridesViewModel)
         }
     }
 
@@ -76,15 +85,6 @@ struct Home: View {
                                                 addRideButton
                                             }
                         )
-                        .sheet(isPresented: $showAddRideModal) {
-                            AddRide(isShowing: self.$showAddRideModal,
-                                    ridesViewModel: self.ridesViewModel)
-                                .environmentObject(self.database)
-                        }
-                        .sheet(isPresented: $showFilterModal) {
-                            RideFilter(isShowing: self.$showFilterModal,
-                                       ridesViewModel: self.ridesViewModel)
-                        }
                     }
 
                     // side drawer

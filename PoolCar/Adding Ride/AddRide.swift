@@ -76,7 +76,7 @@ struct AddRide: View {
         self.database.addRide(ride: newRide)
         //adding ride via Heroku Server
         RidesApi.addRide(ride: newRide)
-//        self.ridesViewModel.refresh()
+        self.ridesViewModel.refresh()
         self.isShowing.toggle()
     }
 
