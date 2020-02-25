@@ -17,6 +17,8 @@ struct AddRide: View {
     @EnvironmentObject var database: Database
     @Binding var isShowing: Bool  // Bool for showing add ride controller
 
+    @State var ridesViewModel: RidesViewModel
+    
     // Input variables
     @State private var timing = Date()
     @State private var fromLocation: GMSPlace?
@@ -74,6 +76,7 @@ struct AddRide: View {
         self.database.addRide(ride: newRide)
         //adding ride via Heroku Server
         RidesApi.addRide(ride: newRide)
+//        self.ridesViewModel.refresh()
         self.isShowing.toggle()
     }
 
@@ -89,6 +92,6 @@ struct AddRide: View {
 
 struct AddRide_Previews: PreviewProvider {
     static var previews: some View {
-        AddRide(isShowing: .constant(true)).environmentObject(Database())
+        AddRide(isShowing: .constant(true), ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }

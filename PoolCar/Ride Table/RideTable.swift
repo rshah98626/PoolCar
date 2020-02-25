@@ -10,12 +10,8 @@ import SwiftUI
 import Alamofire
 
 struct RideTable: View {
-    @State var originLocation: String?
-    @State var destinationLocation: String?
-    @State var tripStartTime: Double?
-
     @EnvironmentObject var database: Database
-    @ObservedObject var ridesViewModel = RidesViewModel()
+    @ObservedObject var ridesViewModel: RidesViewModel
 
     var body: some View {
         VStack {
@@ -35,14 +31,11 @@ struct RideTable: View {
                 }
             }
         }
-        .onAppear(perform: {
-            self.ridesViewModel.fetchRides(originLocation: self.originLocation, destinationLocation: self.destinationLocation, startDate: self.tripStartTime)
-        })
     }
 }
 
 struct RideTable_Previews: PreviewProvider {
     static var previews: some View {
-        RideTable().environmentObject(Database())
+        RideTable(ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }

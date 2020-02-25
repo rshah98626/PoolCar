@@ -10,10 +10,8 @@ import SwiftUI
 
 struct RideFilter: View {
     @Binding var isShowing: Bool
-    @Binding var originLocation: String?
-    @Binding var destinationLocation: String?
-    @Binding var tripStartDate: Double?
 
+    @State var ridesViewModel: RidesViewModel
     @State var originLocationText = ""
     @State var destinationLocationText = ""
     @State var tripStartDateChosen = Date()
@@ -54,26 +52,15 @@ struct RideFilter: View {
     }
 
     func filterRides() {
-        if !self.originLocationText.isEmpty {
-            self.originLocation = self.originLocationText
-        }
-
-        if !self.destinationLocationText.isEmpty {
-            self.destinationLocation =
-                self.destinationLocationText
-        }
-
-        self.tripStartDate = self.tripStartDateChosen.timeIntervalSince1970
-
+        ridesViewModel.fetchRides(originLocation: self.originLocationText,
+                                  destinationLocation: self.destinationLocationText,
+                                  startDate: self.tripStartDateChosen.timeIntervalSince1970)
         self.isShowing.toggle()
     }
 }
 
 struct RideFilter_Previews: PreviewProvider {
     static var previews: some View {
-        RideFilter(isShowing: .constant(true),
-                   originLocation: .constant(nil),
-                   destinationLocation: .constant(nil),
-                   tripStartDate: .constant(nil))
+        RideFilter(isShowing: .constant(true), ridesViewModel: RidesViewModel())
     }
 }

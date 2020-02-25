@@ -13,11 +13,9 @@ struct Home: View {
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
-
+    
+    @ObservedObject var ridesViewModel: RidesViewModel
     @State private var showFilterModal: Bool = true
-    @State var originLocation: String?
-    @State var destinationLocation: String?
-    @State var rideStartTime: Double?
 
     /// Button to add ride
     var addRideButton: some View {
@@ -69,8 +67,7 @@ struct Home: View {
                 ZStack {
                     NavigationView {
                         // Ride table
-                        RideTable(originLocation: self.originLocation, destinationLocation: self.destinationLocation, tripStartTime: self.rideStartTime
-                        ).environmentObject(database)
+                        RideTable(ridesViewModel: self.ridesViewModel).environmentObject(database)
                         // Navigation configurations
                         .navigationBarTitle("Rides", displayMode: .inline)
                         .navigationBarItems(leading: sideMenuButton,
@@ -80,11 +77,13 @@ struct Home: View {
                                             }
                         )
                         .sheet(isPresented: $showAddRideModal) {
-                            AddRide(isShowing: self.$showAddRideModal)
+                            AddRide(isShowing: self.$showAddRideModal,
+                                    ridesViewModel: self.ridesViewModel)
                                 .environmentObject(self.database)
                         }
                         .sheet(isPresented: $showFilterModal) {
-                            RideFilter(isShowing: self.$showFilterModal, originLocation: self.$originLocation, destinationLocation: self.$destinationLocation, tripStartDate: self.$rideStartTime)
+                            RideFilter(isShowing: self.$showFilterModal,
+                                       ridesViewModel: self.ridesViewModel)
                         }
                     }
 
@@ -94,25 +93,10 @@ struct Home: View {
             }
         }
     }
-
-    /// Initializes the navigation controller
-    init() {
-        // navigation bar color
-        UINavigationBar.appearance().backgroundColor = .green
-
-        // for displayMode .large
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor.darkGray,
-            .font: UIFont(name: "Papyrus", size: 40)!]
-
-        // for displayMode .inline
-        UINavigationBar.appearance().titleTextAttributes = [
-            .font: UIFont(name: "HelveticaNeue-Thin", size: 20)!]
-    }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home().environmentObject(Database())
+        Home(ridesViewModel: RidesViewModel()).environmentObject(Database())
     }
 }
