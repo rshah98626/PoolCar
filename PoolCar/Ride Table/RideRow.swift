@@ -12,16 +12,16 @@ struct RideRow: View {
     var ride: Ride
     var body: some View {
         HStack {
-// placeholder for driver picture
-Circle().fill(Color.gray).frame(width: 75, height: 75)
+            // placeholder for driver picture
+            Circle().fill(Color.gray).frame(width: 75, height: 75)
             Divider()
             VStack {
                 HStack {
-                        Text(ride.origin)
-                        Spacer()
-// possibly add arrow
+                    Text(ride.origin)
+                    Spacer()
+                    // possibly add arrow
                     Text(ride.destination)
-                    }.padding()
+                }.padding()
                 HStack {
                     Text("$30")
                         .padding(.leading)
