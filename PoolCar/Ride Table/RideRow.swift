@@ -26,7 +26,7 @@ struct RideRow: View {
                     Text("$30")
                         .padding(.leading)
                     Spacer()
-                    Text("01/01/2020")
+                    Text(DateUtils.getFormattedDateTime(ride.rideStartTime))
                 }
                 .padding(.trailing)
             }
