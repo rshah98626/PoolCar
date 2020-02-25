@@ -15,20 +15,11 @@ struct RideTable: View {
 
     var body: some View {
         VStack {
-            if ridesViewModel.rides.isEmpty {
-                List(database.rides) { ride in
-                    // Navigation Link makes text and other items look faint in preview
-                    NavigationLink(destination: RideDetail(ride: ride)) {
-                        RideRow(ride: ride)
-                    }
-                }
-            } else {
-                List(ridesViewModel.rides) { ride in
-                   // Navigation Link makes text and other items look faint in preview
-                   NavigationLink(destination: RideDetail(ride: ride)) {
-                       RideRow(ride: ride)
-                   }
-                }
+            List(ridesViewModel.rides) { ride in
+               // Navigation Link makes text and other items look faint in preview
+               NavigationLink(destination: RideDetail(ride: ride)) {
+                   RideRow(ride: ride)
+               }
             }
         }
     }
