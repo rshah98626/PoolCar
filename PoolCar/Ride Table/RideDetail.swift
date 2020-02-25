@@ -17,9 +17,9 @@ struct RideDetail: View {
             Spacer()
             Text("From: " + self.ride.origin)
             Text("To: " + self.ride.destination)
-            Text("Date: " + DateUtils.getFormattedDateTime(ride.rideStartTime, dateStyle: .long, timeStyle: .none))
-            Text("Time: " + DateUtils.getFormattedDateTime(ride.rideStartTime, dateStyle: .none, timeStyle: .long))
-            Text("Price: " + PriceUtils.getPriceString(ride.price))
+            Text("Date: " + ride.getFormattedDateTime(dateStyle: .long, timeStyle: .none))
+            Text("Time: " + ride.getFormattedDateTime(dateStyle: .none, timeStyle: .long))
+            Text("Price: " + ride.getPriceString())
             Button("Show Chat") {
                 print(self.ride.id)
                 self.isShowingChat.toggle()
