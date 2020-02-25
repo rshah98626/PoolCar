@@ -16,7 +16,7 @@ class RidesApi {
         //node URL
         let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation, startDate: startDate)
 
-        let getAllRidesRoute = "rides/getAll"
+        let getAllRidesRoute = "rides/get"
         let getAllRidesUrl = baseUrl + getAllRidesRoute
         AF.request(getAllRidesUrl, method: .get, parameters: rideReq, headers: JWTUtils.getAuthorizationHeaders())
             .validate()

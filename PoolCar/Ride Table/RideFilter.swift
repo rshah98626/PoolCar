@@ -14,7 +14,7 @@ struct RideFilter: View {
     @State var ridesViewModel: RidesViewModel
     @State var originLocationText = ""
     @State var destinationLocationText = ""
-    @State var tripStartDateChosen = Date()
+    @State var tripStartDateChosen = Calendar.current.startOfDay(for: Date())
 
     var body: some View {
         VStack(spacing: 30) {
