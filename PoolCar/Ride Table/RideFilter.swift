@@ -26,7 +26,7 @@ struct RideFilter: View {
                 .border(Color.black, width: 2)
 
             TextField("Destination Location", text: self.$destinationLocationText)
-                .padding(.horizontal)
+                .padding()
                 .frame(width: 250.0, height: 40.0)
                 .background(Color.white)
                 .border(Color.black, width: 2)
@@ -35,7 +35,6 @@ struct RideFilter: View {
                 Text("Trip Date")
             }
             .padding()
-
 
             Spacer()
         }
