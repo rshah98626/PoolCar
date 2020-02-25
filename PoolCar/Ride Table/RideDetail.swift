@@ -10,33 +10,24 @@ import SwiftUI
 
 struct RideDetail: View {
     var ride: Ride
+    @State var isShowingChat = false
+
     var body: some View {
-        VStack {
-            profile
-            description
+        VStack(spacing: 20) {
             Spacer()
-        }
-    }
-    var profile: some View {
-        HStack {
-        Circle().fill(Color.gray).frame(width: 225, height: 200)
-            Spacer()
-            VStack {
-                Text("From: " + ride.origin)
-                    .padding(.bottom)
-                Text("To: " + ride.destination)
-                    .padding()
-                Text("01/01/2020")
-                    .padding()
+            Text("From: " + self.ride.origin)
+            Text("To: " + self.ride.destination)
+            Text("Price: $" + String(self.ride.price))
+            Button("Show Chat") {
+                print(self.ride.id)
+                self.isShowingChat.toggle()
             }
-        }
-    }
-    var description: some View {
-        VStack {
-            Text("Name")
-            Divider()
-            Text("Hobbies")
-            
+            .sheet(isPresented: self.$isShowingChat) {
+                MessageView(chatShowing: self.$isShowingChat).environmentObject(MessageController())
+            }
+            Spacer()
+            StripeView(self.ride)
+            .padding(.top).padding(.leading).padding(.trailing)
         }
     }
 }

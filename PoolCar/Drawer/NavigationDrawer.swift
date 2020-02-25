@@ -11,6 +11,7 @@ import SwiftUI
 struct NavigationDrawer: View {
     private let width = UIScreen.main.bounds.width - 100
     @Binding var isOpen: Bool
+    @Binding var shouldLogOut: Bool
 
     var body: some View {
         ZStack {
@@ -26,7 +27,7 @@ struct NavigationDrawer: View {
             }
             // menu content
             HStack {
-                DrawerContent()
+                DrawerContent(shouldLogOut: self.$shouldLogOut)
                     .frame(width: self.width)
                     .offset(x: self.isOpen ? 0 : -self.width)
                     .animation(.easeIn)
@@ -38,6 +39,6 @@ struct NavigationDrawer: View {
 
 struct NavigationDrawer_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationDrawer(isOpen: .constant(true))
+        NavigationDrawer(isOpen: .constant(true), shouldLogOut: .constant(true))
     }
 }

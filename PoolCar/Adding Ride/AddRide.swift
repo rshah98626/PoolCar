@@ -10,6 +10,7 @@ import SwiftUI
 import GoogleMaps
 import GooglePlaces
 import os
+import Alamofire
 
 struct AddRide: View {
     // MARK: State Variables
@@ -65,8 +66,15 @@ struct AddRide: View {
         }
 
         // add ride to DB
-        let newRide = Ride(origin: originTown, destination: destinationTown)
+        let newRide = Ride(origin: originTown, destination: destinationTown,
+                           latitudeOrigin: fromLocation?.coordinate.latitude ?? 0.0,
+                           longitudeOrigin: fromLocation?.coordinate.longitude ?? 0.0,
+                           latitudeDestination: toLocation?.coordinate.latitude ?? 0.0,
+                           longitudeDestination: toLocation?.coordinate.longitude ?? 0.0
+                      )
         self.database.addRide(ride: newRide)
+        //adding ride via Heroku Server
+        RidesApi.addRide(ride: newRide)
         self.isShowing.toggle()
     }
 

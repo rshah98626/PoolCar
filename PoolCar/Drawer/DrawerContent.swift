@@ -9,22 +9,41 @@
 import SwiftUI
 
 struct DrawerContent: View {
+    @Binding var shouldLogOut: Bool
+
     var body: some View {
-        VStack(spacing: 20) {
-            Text("My Profile")
-            Divider()
-            Text("Settings")
-            Divider()
-            Text("Past Rides")
-            Spacer()
-        }
-        .padding()
-        .background(Color.green)
+            VStack(spacing: 20) {
+                Text("My Profile")
+                Divider()
+                Text("Settings")
+                Divider()
+                Text("Past Rides")
+                Divider()
+
+                Button(
+                    action: {
+                        self.logout()
+                    }
+                ) {
+                    Text("Log out")
+                        .frame(width: nil)
+                }
+
+                Spacer()
+            }
+            .padding()
+            .background(Color.green)
+    }
+
+    func logout() {
+        JWTUtils.removeJwtToken()
+        UserIDUtils.removeUserID()
+        self.shouldLogOut = true
     }
 }
 
 struct DrawerContent_Previews: PreviewProvider {
     static var previews: some View {
-        DrawerContent()
+        DrawerContent(shouldLogOut: .constant(true))
     }
 }
