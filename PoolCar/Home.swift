@@ -13,7 +13,7 @@ struct Home: View {
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
-    
+
     @ObservedObject var ridesViewModel: RidesViewModel
     @State private var showFilterModal: Bool = true
 

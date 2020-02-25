@@ -38,7 +38,7 @@ struct StartView: View {
             }
         }
     }
-    
+
     /// Initializes the navigation controller
     init() {
         // navigation bar color
