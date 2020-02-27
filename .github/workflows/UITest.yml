@@ -6,7 +6,5 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ls -al
-      - run: cd PoolCar
       - run: | 
           xcodebuild -workspace mobile/Poolcar.xcworkspace -scheme "PoolCar" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3' test;
