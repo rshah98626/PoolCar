@@ -16,3 +16,6 @@ router.put('/:id/update', ride_controller.ride_update);
 router.delete('/:id/delete', ride_controller.ride_delete);
 router.post('/purchase/:id', ride_controller.ride_purchase);
 router.post('/passcode', ride_controller.password_create);
+router.post('/passcodeGet', ride_controller.password_get);
+router.post('/passcodeMatch', ride_controller.password_check);
+//router.post('/getPass', ride_controller.get_pass);

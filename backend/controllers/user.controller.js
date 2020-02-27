@@ -55,6 +55,7 @@ exports.user_create = async function (req, res, next) {
 			crypto.pbkdf2(req.body.password, salt_value, ITERATIONS, PASSWORD_LENGTH,
 										DIGEST,
 				function(err, password_result) {
+					var starting = [];
 					let user = new User(
 						{
 							email: req.body.email,
@@ -62,7 +63,8 @@ exports.user_create = async function (req, res, next) {
 							password: password_result.toString(),
 							salt: salt_value,
 							stripe_customer_token: customer["id"],
-							DriverIndicator: false
+							DriverIndicator: false,
+							activeRides: starting
 						}
 					);
 					user.save(function (err, saved_user) {
@@ -105,7 +107,7 @@ exports.verify = function(req, res, next) {
 			if(result.toString() === user.password) {
 				const token = utilities.create_jwt_token(req.body.email)
 				const id = user["id"]
-				
+
 				res.send({"user_id": id, "token": token});
 			} else {
 				res.status(401).end();
@@ -160,5 +162,25 @@ exports.user_ephemeral_key = function (req, res, next) {
 
 		//console.log(key)
 		res.send(key);
+	})
+}
+
+exports.add_ride = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
+	}
+	User.findOneAndUpdate({_id: req.body.id}, {$push :{"activeRides": req.body.rideID}}, function(err,user){
+		if (err) return next(err);
+		res.send(user["activeRides"]);
+	});
+};
+
+exports.get_rides = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
+	}
+	User.findOne({id: req.body.id}, function(err,user){
+		if (err) return next(err);
+		res.send(user["activeRides"]);
 	})
 }

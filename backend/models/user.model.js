@@ -8,6 +8,7 @@ let UserSchema = new Schema({
     salt: {type: String, required: true},
     stripe_customer_token: {type: String, required: true},
     DriverIndicator: {type:Boolean, required: true},
+    activeRides: {type:Array, required: false},
     //Email: {type:String, required: true},
 
 });

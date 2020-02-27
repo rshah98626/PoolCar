@@ -21,7 +21,11 @@ router.put('/:id/update', user_controller.user_update);
 
 router.delete('/:id/delete', user_controller.user_delete);
 
-router.get('/ephemeralKey/:id', user_controller.user_ephemeral_key)
+router.get('/ephemeralKey/:id', user_controller.user_ephemeral_key);
+
+router.post('/addRide', user_controller.add_ride);
+
+router.get('/getRides', user_controller.get_rides);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

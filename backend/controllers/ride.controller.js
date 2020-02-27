@@ -120,26 +120,16 @@ exports.ride_purchase = async function (req, res, next) {
 	Ride.findOne({"id": req.params.id}, async function(err, ride){
 		const price = ride["price"] * 100
 		User.findById(req.body.user_id, async function(err, user){
-			// get user's customer token and create payment intent
+			// create card hold
 			const customer_token = user["stripe_customer_token"]
 			const paymentIntent = await stripe.paymentIntents.create({
 				amount: price,
 				currency: 'usd',
 				customer: customer_token,
-				//payment_method_types: ['card'],
-    			capture_method: 'manual',
 			})
 			.catch(function(err){
 				return next(err)
 			})
-
-			// TODO can only create payment intent if ride will happen within a week
-			// Have to save payment intent id with ride request
-			// test capturing of funds from card
-			// const paymentCapture = await stripe.paymentIntents.capture(paymentIntent.id)
-			// .catch(err => {
-			// 	return next(err)
-			// })
 
 			const clientSecret = paymentIntent.client_secret
 			res.send({"secret": clientSecret})
@@ -166,6 +156,48 @@ exports.password_create = function (req, res, next) {
 	Ride.findOneAndUpdate({id: req.body.id}, {pass_Start: passStart,pass_End: passEnd}, function (err, ride) {
 		if (err) return next(err);
 		res.send({passStart,passEnd});
+	});
+
+};
+
+exports.password_get = function (req, res, next) {
+		if(!utilities.check_authorization(req)){
+			return res.status(401).end()
+		}
+		var type = req.body.type
+		Ride.findOne({id: req.body.id}, function(err, ride){
+		if (err) return next(err);
+		var pass = "";
+		if (type == "start") {pass = ride["pass_Start"]; }
+		else if (type == "end") {pass = ride["pass_End"];}
+
+		res.send(pass);
+
+	});
+
+
+};
+
+exports.password_check = function (req, res, next) {
+	if(!utilities.check_authorization(req)){
+		return res.status(401).end()
+	}
+	var attemptedPass = req.body.passAttempt;
+	var type = req.body.type;
+	var correct = "";
+	//later consider limiting passwords generated to one
+	Ride.findOne({id: req.body.id}, function (err, ride) {
+		if (err) return next(err);
+		if (type == "start") {
+			if(attemptedPass == ride["pass_Start"]) {correct = true;}
+			else{correct = false}}
+		else if (type == "end"){
+		if(attemptedPass == ride["pass_End"]) {correct = true;}
+		else{correct = false}}
+		else{
+			res.send("fail");
+		}
+		res.send(correct);
 	});
 
 };
