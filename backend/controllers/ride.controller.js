@@ -80,8 +80,12 @@ exports.ride_getAll = function (req, res, next) {
 	if(!utilities.check_authorization(req)) {
 		return res.status(401).end()
 	}
+	
+	var offset = parseInt(req.query.offset)
 
-	Ride.find({}, function(err, rides) {
+	var perQueryLimit = 20
+
+	Ride.find({}, null, {skip: offset, limit: perQueryLimit}, function(err, rides) {
 		res.send(rides);
 	});
 };
@@ -91,15 +95,15 @@ exports.ride_get = function (req, res, next) {
 		return res.status(401).end()
 	}
 
-	destinationLocationInput = req.query.destinationLocation
-	filterByDestinationLocation = !(destinationLocationInput.length === 0)
+	var destinationLocationInput = req.query.destinationLocation
+	var filterByDestinationLocation = !(destinationLocationInput.length === 0)
 
-	originLocationInput = req.query.originLocation
-	filterByOriginLocation = !(originLocationInput.length === 0)
+	var originLocationInput = req.query.originLocation
+	var filterByOriginLocation = !(originLocationInput.length === 0)
 
-	startDateInput = parseFloat(req.query.startDate)
+	var startDateInput = parseFloat(req.query.startDate)
 
-	filterObject = {}
+	var filterObject = {}
 	filterObject["rideStartTime"] = {$gte: startDateInput, $lt: (startDateInput+86400)}
 
 	if(filterByDestinationLocation) {
