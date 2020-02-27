@@ -9,8 +9,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Pods
         run: cd mobile; pod install;
-      - name: Debug Directory
-        run: ls -al
       - name: Execute UI Tests 
         run: | 
           xcodebuild -workspace mobile/PoolCar.xcworkspace -scheme "PoolCar" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3' test;
