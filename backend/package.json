@@ -15,13 +15,15 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "expressjs": "^1.0.1",
+    "jest": "^25.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.4.1",
     "mongoose": "^5.8.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "randomstring": "^1.1.5",
-    "stripe": "^8.20.0"
+    "stripe": "^8.20.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
