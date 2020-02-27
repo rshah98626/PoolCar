@@ -15,7 +15,11 @@ struct Home: View {
     @State private var shouldLogOut = false
 
     @ObservedObject var ridesViewModel: RidesViewModel
-    @State private var showFilterModal: Bool = true
+    
+    @State var originLocationText = ""
+    @State var destinationLocationText = ""
+    @State var tripStartDateChosen = Calendar.current.startOfDay(for: Date())
+    @State private var showFilterModal: Bool = false
 
     /// Button to add ride
     var addRideButton: some View {
@@ -47,7 +51,10 @@ struct Home: View {
         }
         .sheet(isPresented: $showFilterModal) {
             RideFilter(isShowing: self.$showFilterModal,
-                       ridesViewModel: self.ridesViewModel)
+                       ridesViewModel: self.ridesViewModel,
+                       originLocationText: self.$originLocationText,
+                       destinationLocationText: self.$destinationLocationText,
+                       tripStartDateChosen: self.$tripStartDateChosen)
         }
     }
 

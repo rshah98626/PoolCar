@@ -12,10 +12,9 @@ struct RideFilter: View {
     @Binding var isShowing: Bool
 
     @State var ridesViewModel: RidesViewModel
-    @State var originLocationText = ""
-    @State var destinationLocationText = ""
-    @State var tripStartDateChosen = Calendar.current.startOfDay(for: Date())
-
+    @Binding var originLocationText: String
+    @Binding var destinationLocationText: String
+    @Binding var tripStartDateChosen: Date
     var body: some View {
         VStack(spacing: 30) {
             topButtonBar
@@ -60,6 +59,10 @@ struct RideFilter: View {
 
 struct RideFilter_Previews: PreviewProvider {
     static var previews: some View {
-        RideFilter(isShowing: .constant(true), ridesViewModel: RidesViewModel())
+        RideFilter(isShowing: .constant(true),
+                   ridesViewModel: RidesViewModel(),
+                   originLocationText: .constant("Champaign"),
+                   destinationLocationText: .constant("Naperville"),
+                   tripStartDateChosen: .constant(Date()))
     }
 }
