@@ -5,7 +5,11 @@ jobs:
   UITest:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: cd mobile; pod install;
-      - run: | 
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Install Pods
+        run: cd mobile; pod install;
+      - run: ls -al
+      - name: Run UI Tests 
+        run: | 
           xcodebuild -workspace PoolCar.xcworkspace -scheme "PoolCar" -destination 'platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3' test;
