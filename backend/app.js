@@ -51,6 +51,8 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
+// export app
+module.exports = app
 /*
 
 const MongoClient = require('mongodb').MongoClient;
