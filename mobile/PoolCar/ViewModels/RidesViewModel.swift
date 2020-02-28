@@ -37,9 +37,9 @@ class RidesViewModel: ObservableObject {
     func getMoreResults() {
         RidesApi.getRides(originLocation: self.originLocation, destinationLocation: self.destinationLocation,
                           startDate: self.startDate, offset: self.currentOffset, type: self.type) { ridesServer in
-            self.currentOffset += ridesServer.count
-            self.objectsLeft = (ridesServer.count == RidesViewModel.pageLimit)
-            self.rides += ridesServer
+                            self.currentOffset += ridesServer.count
+                            self.objectsLeft = (ridesServer.count == RidesViewModel.pageLimit)
+                            self.rides += ridesServer
         }
     }
 
