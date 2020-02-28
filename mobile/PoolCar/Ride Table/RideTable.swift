@@ -15,11 +15,27 @@ struct RideTable: View {
 
     var body: some View {
         VStack {
-            List(ridesViewModel.rides) { ride in
-               // Navigation Link makes text and other items look faint in preview
-               NavigationLink(destination: RideDetail(ride: ride)) {
-                   RideRow(ride: ride)
-               }
+            List {
+                ForEach(ridesViewModel.rides) { ride in
+                    // Navigation Link makes text and other items look faint in preview
+                    NavigationLink(destination: RideDetail(ride: ride)) {
+                        RideRow(ride: ride)
+                    }
+                }
+
+                if ridesViewModel.objectsLeft {
+                    HStack {
+                        Spacer()
+
+                        Button(action: {self.ridesViewModel.getMoreResults()}) {
+                            Text("Load More Results").font(.system(size: 20))
+                        }
+                        .padding()
+                        .background(Color.blue)
+
+                        Spacer()
+                    }
+                }
             }
         }
     }

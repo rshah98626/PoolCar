@@ -80,12 +80,8 @@ exports.ride_getAll = function (req, res, next) {
 	if(!utilities.check_authorization(req)) {
 		return res.status(401).end()
 	}
-	
-	var offset = parseInt(req.query.offset)
 
-	var perQueryLimit = 20
-
-	Ride.find({}, null, {skip: offset, limit: perQueryLimit}, function(err, rides) {
+	Ride.find({}, function(err, rides) {
 		res.send(rides);
 	});
 };
@@ -104,7 +100,11 @@ exports.ride_get = function (req, res, next) {
 	var startDateInput = parseFloat(req.query.startDate)
 
 	var filterObject = {}
-	filterObject["rideStartTime"] = {$gte: startDateInput, $lt: (startDateInput+86400)}
+	if (req.query.type == "full") {
+		filterObject["rideStartTime"] = {$gte: startDateInput}
+	} else {
+		filterObject["rideStartTime"] = {$gte: startDateInput, $lt: (startDateInput+86400)}
+	}
 
 	if(filterByDestinationLocation) {
 		filterObject["destination"] = destinationLocationInput
@@ -114,8 +114,11 @@ exports.ride_get = function (req, res, next) {
 		filterObject["origin"] = originLocationInput
 	}
 
+	var offset = parseInt(req.query.offset)
+	var perQueryLimit = 15
+	var optionsObject = {skip: offset, limit: perQueryLimit, sort: 'rideStartTime'}
 
-	Ride.find(filterObject, function(err, rides) {
+	Ride.find(filterObject, null, optionsObject, function(err, rides) {
 		res.send(rides);
 	});
 }

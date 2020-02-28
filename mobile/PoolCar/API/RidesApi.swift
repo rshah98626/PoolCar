@@ -13,13 +13,14 @@ class RidesApi {
     static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"
 
     static func getRides(originLocation: String?, destinationLocation: String?,
-                         startDate: Double?, successAction: @escaping ([Ride]) -> Void) {
+                         startDate: Double?, offset: Int, type: RideQueryType,
+                         successAction: @escaping ([Ride]) -> Void) {
         let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation,
-                                  startDate: startDate)
+                                  startDate: startDate, offset: offset, type: type)
 
-        let getAllRidesRoute = "rides/get"
-        let getAllRidesUrl = baseUrl + getAllRidesRoute
-        AF.request(getAllRidesUrl, method: .get, parameters: rideReq, headers: JWTUtils.getAuthorizationHeaders())
+        let getRidesRoute = "rides/get"
+        let getRidesUrl = baseUrl + getRidesRoute
+        AF.request(getRidesUrl, method: .get, parameters: rideReq, headers: JWTUtils.getAuthorizationHeaders())
             .validate()
             .responseData { response in
                 switch response.result {

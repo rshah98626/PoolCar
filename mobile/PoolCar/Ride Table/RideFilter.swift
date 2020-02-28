@@ -41,18 +41,33 @@ struct RideFilter: View {
 
     /// Menu buttons
     var topButtonBar: some View {
-        HStack {
+        HStack(alignment: .top, spacing: nil) {
             Button("Cancel") { self.isShowing.toggle() }
             Spacer()
-            Button("Filter") { self.filterRides() }
+            VStack(alignment: .leading, spacing: 5.0) {
+                Button("Apply Filters") { self.filterRides() }
+                Button("Clear Filters") { self.clearFilters() }
+            }
         }
         .padding()
     }
 
     func filterRides() {
-        ridesViewModel.fetchRides(originLocation: self.originLocationText,
-                                  destinationLocation: self.destinationLocationText,
-                                  startDate: self.tripStartDateChosen.timeIntervalSince1970)
+        let beginningOfChosenDay = Calendar.current.startOfDay(for:
+            self.tripStartDateChosen).timeIntervalSince1970
+        ridesViewModel.fetchFilteredRides(originLocation: self.originLocationText,
+                                          destinationLocation: self.destinationLocationText,
+                                          startDate: beginningOfChosenDay)
+        self.isShowing.toggle()
+    }
+
+    func clearFilters() {
+        self.originLocationText = ""
+        self.destinationLocationText = ""
+        self.tripStartDateChosen = Calendar.current.startOfDay(for: Date())
+
+        self.ridesViewModel.setDefaultSettings()
+        self.ridesViewModel.getMoreResults()
         self.isShowing.toggle()
     }
 }
