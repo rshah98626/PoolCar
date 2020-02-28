@@ -34,6 +34,7 @@ struct NavigationDrawer: View {
                 Spacer()
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
