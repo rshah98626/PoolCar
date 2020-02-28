@@ -120,16 +120,25 @@ exports.ride_purchase = async function (req, res, next) {
 	Ride.findOne({"id": req.params.id}, async function(err, ride){
 		const price = ride["price"] * 100
 		User.findById(req.body.user_id, async function(err, user){
-			// create card hold
+			// get user's customer token and create payment intent
 			const customer_token = user["stripe_customer_token"]
 			const paymentIntent = await stripe.paymentIntents.create({
 				amount: price,
 				currency: 'usd',
 				customer: customer_token,
+    			capture_method: 'manual',
 			})
 			.catch(function(err){
 				return next(err)
 			})
+
+			// TODO can only create payment intent if ride will happen within a week
+			// Have to save payment intent id with ride request
+			// test capturing of funds from card
+			// const paymentCapture = await stripe.paymentIntents.capture(paymentIntent.id)
+			// .catch(err => {
+			// 	return next(err)
+			// })
 
 			const clientSecret = paymentIntent.client_secret
 			res.send({"secret": clientSecret})
@@ -142,6 +151,7 @@ exports.ride_purchase = async function (req, res, next) {
 		return next(err)
 	})
 }
+
 
 //Endpoint that is responsible for creating passwords to indicate that a ride
 //has been completed
