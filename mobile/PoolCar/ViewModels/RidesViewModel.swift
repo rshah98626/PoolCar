@@ -17,6 +17,7 @@ class RidesViewModel: ObservableObject {
     private var startDate: Double? = Calendar.current.startOfDay(for: Date()).timeIntervalSince1970
 
     var objectsLeft: Bool = false
+    var isLoading: Bool = true
     private var currentOffset: Int = 0
     private var type: RideQueryType = .full
 
@@ -35,11 +36,13 @@ class RidesViewModel: ObservableObject {
     }
 
     func getMoreResults() {
+        self.isLoading = true
         RidesApi.getRides(originLocation: self.originLocation, destinationLocation: self.destinationLocation,
                           startDate: self.startDate, offset: self.currentOffset, type: self.type) { ridesServer in
                             self.currentOffset += ridesServer.count
                             self.objectsLeft = (ridesServer.count == RidesViewModel.pageLimit)
                             self.rides += ridesServer
+                            self.isLoading = false
         }
     }
 

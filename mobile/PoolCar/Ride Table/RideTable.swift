@@ -16,24 +16,33 @@ struct RideTable: View {
     var body: some View {
         VStack {
             List {
-                ForEach(ridesViewModel.rides) { ride in
-                    // Navigation Link makes text and other items look faint in preview
-                    NavigationLink(destination: RideDetail(ride: ride)) {
-                        RideRow(ride: ride)
-                    }
-                }
-
-                if ridesViewModel.objectsLeft {
+                if !ridesViewModel.isLoading && ridesViewModel.rides.count == 0 {
                     HStack {
                         Spacer()
-
-                        Button(action: {self.ridesViewModel.getMoreResults()}) {
-                            Text("Load More Results").font(.system(size: 20))
-                        }
-                        .padding()
-                        .background(Color.blue)
-
+                        Text("No Rides Available").font(.system(size: 24))
                         Spacer()
+                    }
+                    .padding()
+                } else {
+                    ForEach(ridesViewModel.rides) { ride in
+                        // Navigation Link makes text and other items look faint in preview
+                        NavigationLink(destination: RideDetail(ride: ride)) {
+                            RideRow(ride: ride)
+                        }
+                    }
+
+                    if ridesViewModel.objectsLeft {
+                        HStack {
+                            Spacer()
+
+                            Button(action: {self.ridesViewModel.getMoreResults()}) {
+                                Text("Load More Results").font(.system(size: 20))
+                            }
+                            .padding()
+                            .background(Color.blue)
+
+                            Spacer()
+                        }
                     }
                 }
             }
