@@ -53,7 +53,7 @@ class RidesViewModel: ObservableObject {
                             self.isLoading = false
         }
     }
-    
+
     // Does not change current filtering settings, but just reloads the rides data
     func refresh() {
         self.objectsLeft = false

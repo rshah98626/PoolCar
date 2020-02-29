@@ -10,28 +10,19 @@ import Foundation
 import Alamofire
 
 class RidesApi {
-    static let baseUrl = "https://infinite-stream-52265.herokuapp.com/"
-
     static func getRides(originLocation: String?, destinationLocation: String?,
                          startDate: Double?, offset: Int, type: RideQueryType,
                          successAction: @escaping ([Ride]) -> Void) {
         let rideReq = RideRequest(originLocation: originLocation, destinationLocation: destinationLocation,
                                   startDate: startDate, offset: offset, type: type)
-
-        let getRidesRoute = "rides/get"
-        let getRidesUrl = baseUrl + getRidesRoute
-        AF.request(getRidesUrl, method: .get, parameters: rideReq, headers: JWTUtils.getAuthorizationHeaders())
-            .validate()
-            .responseData { response in
-                switch response.result {
-                case let .success(data):
-                    let decoder = JSONDecoder()
-                    let ridesServer = (try? decoder.decode([Ride].self, from: data)) ?? [Ride]()
-                    successAction(ridesServer)
-                case let .failure(error):
-                    print(error)
-                }
+        APIFetcher.getJSONResponse("rides/get", params: rideReq) { (resp: [Ride]?, err: APIError?) in
+            guard let rides = resp else {
+                print(err?.toString() ?? "Provided error was nil")
+                return
             }
+
+            successAction(rides)
+        }
     }
 
 //    static func getAllRides(successAction: @escaping([Ride]) -> Void) {

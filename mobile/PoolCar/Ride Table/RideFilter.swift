@@ -18,13 +18,13 @@ struct RideFilter: View {
     var body: some View {
         VStack(spacing: 30) {
             topButtonBar
-            TextField("Origin Location", text: self.$originLocationText)
+            TextField("Origin City", text: self.$originLocationText)
                 .padding()
                 .frame(width: 250.0, height: 40.0)
                 .background(Color.white)
                 .border(Color.black, width: 2)
 
-            TextField("Destination Location", text: self.$destinationLocationText)
+            TextField("Destination City", text: self.$destinationLocationText)
                 .padding()
                 .frame(width: 250.0, height: 40.0)
                 .background(Color.white)
