@@ -1,9 +1,10 @@
 // adapted from https://dev.to/paulasantamaria/testing-node-js-mongoose-with-an-in-memory-database-32np
-
 const mongoose = require('mongoose')
 const dbHandler = require('./db-handler')
 const User = require('../routes/user.route')
 const user_controller = require('../controllers/user.controller')
+const request = require('supertest')
+const app = require('../app')
 
 /**
 * Connect to a new in-memory database before running any tests.
@@ -11,62 +12,45 @@ const user_controller = require('../controllers/user.controller')
 beforeAll(async () => await dbHandler.connect())
 
 /**
-* Clear all test data after every test.
-*/
-afterEach(async () => await dbHandler.clearDatabase())
-
-/**
 * Remove and close the db and server.
 */
 afterAll(async () => await dbHandler.closeDatabase())
 
 /**
-* Matcher to verify sign up and sign in responses
-*/
-expect.extend({
-  async tokenJWTResponse(received) {
-    const externalValue = await getExternalValueFromRemoteSource();
-    const pass = received % externalValue == 0;
-    if (pass) {
-      return {
-        message: () =>
-        `expected ${received} not to be divisible by ${externalValue}`,
-        pass: true,
-      };
-    } else {
-      return {
-        message: () =>
-        `expected ${received} to be divisible by ${externalValue}`,
-        pass: false,
-      };
-    }
-  },
-});
-
-
-/**
 * User test suite.
 */
-describe('user_create', () => {
-  /**
-  * Verify that user can be created
-  */
-  it('can be created correctly', async () => {
+describe('User Tests', () => {
+  it('Can be created', async () => {
+    const pretendUserCreate = {
+      name: 'Ray',
+      email: 'hi@gmail.com',
+      password: 'testtest'
+    }
+    const response = await request(app).post('/users/signup').send(pretendUserCreate)
 
-    expect(async () => await user_controller.user_create(pretendUser))
-    .tokenJWTResponse()
-    // .not
-    // .toThrow();
-  });
-});
+    expect(response.statusCode).toBe(200)
+    expect(response.body.user_id).toEqual(expect.any(String))
+    expect(response.body.token).toEqual(expect.any(String))
+  })
 
-/**
-* Complete product example.
-*/
-const pretendUser = {
-  body: {
-    name: 'Ray',
-    email: 'hi@gmail.com',
-    password: 'test'
-  }
-}
+  it('Can be logged in', async () => {
+    const pretendUserLogin = {
+      email: 'hi@gmail.com',
+      password: 'testtest'
+    }
+    const response = await request(app).post('/users/verify').send(pretendUserLogin)
+
+    expect(response.statusCode).toBe(200)
+    expect(response.body.user_id).toEqual(expect.any(String))
+    expect(response.body.token).toEqual(expect.any(String))
+  })
+
+  it('Can be rejected if wrong password', async () => {
+    const pretendUserFailedLogin = {
+      email: 'hi@gmail.com',
+      password: 'wrongpass'
+    }
+    const response = await request(app).post('/users/verify').send(pretendUserFailedLogin)
+    expect(response.statusCode).toBe(401)
+  })
+})

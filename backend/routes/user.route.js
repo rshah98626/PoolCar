@@ -9,7 +9,8 @@ router.get('/test', user_controller.test);
 
 module.exports = router;
 
-router.post('/login', user_controller.user_login);
+// depreceated
+// router.post('/login', user_controller.user_login);
 
 router.post('/signup', user_controller.user_create);
 

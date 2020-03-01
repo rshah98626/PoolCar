@@ -4,7 +4,7 @@
   "description": "Backend code for CarpoolApp",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon app.js",
+    "devStart": "nodemon debugServer.js",
     "test": "jest --runInBand ./test"
   },
   "author": "",
