@@ -91,16 +91,20 @@ exports.ride_get = function (req, res, next) {
 		return res.status(401).end()
 	}
 
-	destinationLocationInput = req.query.destinationLocation
-	filterByDestinationLocation = !(destinationLocationInput.length === 0)
+	var destinationLocationInput = req.query.destinationLocation
+	var filterByDestinationLocation = !(destinationLocationInput.length === 0)
 
-	originLocationInput = req.query.originLocation
-	filterByOriginLocation = !(originLocationInput.length === 0)
+	var originLocationInput = req.query.originLocation
+	var filterByOriginLocation = !(originLocationInput.length === 0)
 
-	startDateInput = parseFloat(req.query.startDate)
+	var startDateInput = parseFloat(req.query.startDate)
 
-	filterObject = {}
-	filterObject["rideStartTime"] = {$gte: startDateInput, $lt: (startDateInput+86400)}
+	var filterObject = {}
+	if (req.query.type == "full") {
+		filterObject["rideStartTime"] = {$gte: startDateInput}
+	} else {
+		filterObject["rideStartTime"] = {$gte: startDateInput, $lt: (startDateInput+86400)}
+	}
 
 	if(filterByDestinationLocation) {
 		filterObject["destination"] = destinationLocationInput
@@ -110,8 +114,11 @@ exports.ride_get = function (req, res, next) {
 		filterObject["origin"] = originLocationInput
 	}
 
+	var offset = parseInt(req.query.offset)
+	var perQueryLimit = 15
+	var optionsObject = {skip: offset, limit: perQueryLimit, sort: 'rideStartTime'}
 
-	Ride.find(filterObject, function(err, rides) {
+	Ride.find(filterObject, null, optionsObject, function(err, rides) {
 		res.send(rides);
 	});
 }
