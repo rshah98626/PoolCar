@@ -13,7 +13,8 @@ struct Home: View {
     @State private var showAddRideModal: Bool = false
     @State private var drawerOpen: Bool = false
     @State private var shouldLogOut = false
-
+    @State private var shouldInRide = false
+    @State private var showBanner: Bool = true
     @ObservedObject var ridesViewModel: RidesViewModel
 
     @State var originLocationText = ""
@@ -92,7 +93,14 @@ struct Home: View {
                                                 addRideButton
                                             }
                         )
-                    }
+                    }.animation(.easeInOut)
+                    .transition(.move(edge: .top))
+                    .navigationBarTitle("Demo", displayMode: .inline) // large title is always tricky
+                        .banner(isPresented: $showBanner, data: BannerData(title: "Ride Is Ready", actionTitle: "Go To Ride Page", level: .success, style: .action
+                            ), action: {
+                                self.shouldInRide = true
+                                self.showBanner = false
+                        })
 
                     // side drawer
                     NavigationDrawer(isOpen: self.$drawerOpen, shouldLogOut: self.$shouldLogOut)

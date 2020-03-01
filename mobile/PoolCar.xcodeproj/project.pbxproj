@@ -46,6 +46,8 @@
 		B7E3FBBE23FA6814001A15A4 /* RidesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E3FBBD23FA6814001A15A4 /* RidesViewModel.swift */; };
 		B7F77A6E23B9C15D00C1E184 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */; };
 		CC3796A025B2B20267BBCCBF /* Pods_PoolCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF09D49DED9BB0095BFDA84 /* Pods_PoolCar.framework */; };
+		E65FDCBD240C473700C536DD /* InRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65FDCBC240C473700C536DD /* InRideView.swift */; };
+		E65FDCC0240C479D00C536DD /* PopupBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65FDCBF240C479D00C536DD /* PopupBanner.swift */; };
 		E67ACC9823C9AE8D005CF574 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67ACC9723C9AE8D005CF574 /* LoginView.swift */; };
 		E6B662C423BB058C00105B7C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C323BB058C00105B7C /* StartView.swift */; };
 		E6B662C823BBD42500105B7C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B662C723BBD42500105B7C /* SignupView.swift */; };
@@ -116,6 +118,8 @@
 		B7E3FBBB23FA67AD001A15A4 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		B7E3FBBD23FA6814001A15A4 /* RidesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewModel.swift; sourceTree = "<group>"; };
 		B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
+		E65FDCBC240C473700C536DD /* InRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InRideView.swift; sourceTree = "<group>"; };
+		E65FDCBF240C479D00C536DD /* PopupBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBanner.swift; sourceTree = "<group>"; };
 		E67ACC9723C9AE8D005CF574 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E6B662C323BB058C00105B7C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E6B662C723BBD42500105B7C /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				B7A47B1923B93680001D297B /* InputOptions.swift */,
 				B7A47B1B23B99E0C001D297B /* GoogleMapView.swift */,
 				B7F77A6D23B9C15D00C1E184 /* CustomMarker.swift */,
+				E65FDCBE240C477B00C536DD /* InRideViews */,
 			);
 			path = "Adding Ride";
 			sourceTree = "<group>";
@@ -353,6 +358,15 @@
 				B7E3FBBD23FA6814001A15A4 /* RidesViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E65FDCBE240C477B00C536DD /* InRideViews */ = {
+			isa = PBXGroup;
+			children = (
+				E65FDCBC240C473700C536DD /* InRideView.swift */,
+				E65FDCBF240C479D00C536DD /* PopupBanner.swift */,
+			);
+			path = InRideViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,6 +588,7 @@
 				B7A47B1A23B93680001D297B /* InputOptions.swift in Sources */,
 				E6B662C423BB058C00105B7C /* StartView.swift in Sources */,
 				B7E3FBBE23FA6814001A15A4 /* RidesViewModel.swift in Sources */,
+				E65FDCC0240C479D00C536DD /* PopupBanner.swift in Sources */,
 				B7E3FBBC23FA67AD001A15A4 /* UsersApi.swift in Sources */,
 				604881D223EBDA0C00B32BE5 /* JWTUtils.swift in Sources */,
 				B7358EAE23BA7D58003936E2 /* DrawerContent.swift in Sources */,
@@ -592,6 +607,7 @@
 				B7B81B0423F640B200A08E7A /* StripeView.swift in Sources */,
 				B7E3FBA823F71912001A15A4 /* ResponseModels.swift in Sources */,
 				B7A3FD5723BE16E50062F8F4 /* MessageView.swift in Sources */,
+				E65FDCBD240C473700C536DD /* InRideView.swift in Sources */,
 				B7E3FBA623F647B1001A15A4 /* Errors.swift in Sources */,
 				B77D1DEA23B5BE6200CAAEA5 /* Database.swift in Sources */,
 				B7E3FBB023F88846001A15A4 /* UserIDUtils.swift in Sources */,
