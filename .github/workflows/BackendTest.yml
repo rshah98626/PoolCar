@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.2
+      uses: cd backend && stefanoeb/jest-action@1.0.2
       with:
-        jestArgs: --runInBand backend/test
+        jestArgs: --runInBand ./test
