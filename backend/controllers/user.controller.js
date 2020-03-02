@@ -104,6 +104,10 @@ exports.user_create = async function (req, res, next) {
 
 exports.verify = function(req, res, next) {
 	User.findOne({email: req.body.email}, function (err, user) {
+		if(err || user == null) {
+			return res.status(401).end()
+		}
+
 		crypto.pbkdf2(req.body.password, user.salt, ITERATIONS, PASSWORD_LENGTH, DIGEST, function (err, result) {
 			if(result.toString() === user.password) {
 				const token = utilities.create_jwt_token(req.body.email)
