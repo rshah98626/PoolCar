@@ -14,7 +14,8 @@ class StripeAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         let relPath = "/users/ephemeralKey/" + UserIDUtils.getUserID()
         let params = ["version": apiVersion]
-        let baseURL = "http://localhost:5000/"
+        //let baseURL = "http://localhost:5000/"
+        let baseURL = "https://infinite-stream-52265.herokuapp.com/"
 
         var components = URLComponents(string: NSString.path(withComponents: [baseURL, relPath]))
         components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value) }

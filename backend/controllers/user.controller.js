@@ -102,86 +102,90 @@ exports.user_create = async function (req, res, next) {
 // 		})(req, res, next);
 // 	};
 
-	exports.verify = function(req, res, next) {
-		User.findOne({email: req.body.email}, function (err, user) {
-			crypto.pbkdf2(req.body.password, user.salt, ITERATIONS, PASSWORD_LENGTH, DIGEST, function (err, result) {
-				if(result.toString() === user.password) {
-					const token = utilities.create_jwt_token(req.body.email)
-					const id = user["id"]
-
-					res.send({"user_id": id, "token": token});
-				} else {
-					res.status(401).end();
-				}
-			});
-		});
-	};
-
-	exports.user_details = function (req, res, next) {
-		if(!utilities.check_authorization(req)) {
+exports.verify = function(req, res, next) {
+	User.findOne({email: req.body.email}, function (err, user) {
+		if(err || user == null) {
 			return res.status(401).end()
 		}
 
-		User.findById(req.params.id, function (err, user) {
-			if (err) return next(err);
-			res.send(user);
+		crypto.pbkdf2(req.body.password, user.salt, ITERATIONS, PASSWORD_LENGTH, DIGEST, function (err, result) {
+			if(result.toString() === user.password) {
+				const token = utilities.create_jwt_token(req.body.email)
+				const id = user["id"]
+
+				res.send({"user_id": id, "token": token});
+			} else {
+				res.status(401).end();
+			}
 		});
-	};
+	});
+};
 
-	exports.user_update = function (req, res, next) {
-		if(!utilities.check_authorization(req)) {
-			return res.status(401).end()
-		}
-
-		User.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, user) {
-			if (err) return next(err);
-			res.send('User Info udpated.');
-		});
-	};
-
-	exports.user_delete = function (req, res, next) {
-		if(!utilities.check_authorization(req)) {
-			return res.status(401).end()
-		}
-
-		User.findByIdAndRemove(req.params.id, function (err) {
-			if (err) return next(err);
-			res.send('Deleted!');
-		});
-	};
-
-	exports.user_ephemeral_key = function (req, res, next) {
-		User.findById(req.params.id, async function(err, user) {
-			if(err) return next(err)
-			let key = await stripe.ephemeralKeys.create(
-				{customer: user.stripe_customer_token},
-				{apiVersion: req.query["version"]} //req.query["version"]
-			)
-			.catch(function(err){
-				return next(err)
-			});
-
-			//console.log(key)
-			res.send(key);
-		})
+exports.user_details = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
 	}
 
-	exports.add_ride = function (req, res, next) {
-		if(!utilities.check_authorization(req)) {
-			return res.status(401).end()
-		}
-		User.findOneAndUpdate({_id: req.body.id}, {$push :{"activeRides": req.body.rideID}}, function(err,user){
-			if (err) return next(err);
-			res.send(user["activeRides"]);
-		});
-	};
+	User.findById(req.params.id, function (err, user) {
+		if (err) return next(err);
+		res.send(user);
+	});
+};
 
-	exports.get_rides = function (req, res, next) {
-		if(!utilities.check_authorization(req)) {
-			return res.status(401).end()
-		}
-		User.findOne({id: req.body.id}, function(err,user){
-			if (err) return next(err);
-			res.send(user["activeRides"]);
-		})
+exports.user_update = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
 	}
+
+	User.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, user) {
+		if (err) return next(err);
+		res.send('User Info udpated.');
+	});
+};
+
+exports.user_delete = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
+	}
+
+	User.findByIdAndRemove(req.params.id, function (err) {
+		if (err) return next(err);
+		res.send('Deleted!');
+	});
+};
+
+exports.user_ephemeral_key = function (req, res, next) {
+	User.findById(req.params.id, async function(err, user) {
+		if(err) return next(err)
+		let key = await stripe.ephemeralKeys.create(
+			{customer: user.stripe_customer_token},
+			{apiVersion: req.query["version"]} //req.query["version"]
+		)
+		.catch(function(err){
+			return next(err)
+		});
+
+		//console.log(key)
+		res.send(key);
+	})
+}
+
+exports.add_ride = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
+	}
+	User.findOneAndUpdate({_id: req.body.id}, {$push :{"activeRides": req.body.rideID}}, function(err,user){
+		if (err) return next(err);
+		res.send(user["activeRides"]);
+	});
+};
+
+exports.get_rides = function (req, res, next) {
+	if(!utilities.check_authorization(req)) {
+		return res.status(401).end()
+	}
+	User.findOne({id: req.body.id}, function(err,user){
+		if (err) return next(err);
+		res.send(user["activeRides"]);
+	})
+}

@@ -10,6 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.2
-      with:
-        jestArgs: --runInBand backend/test
+      run: cd backend; npm install; npm test

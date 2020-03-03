@@ -53,4 +53,13 @@ describe('User Tests', () => {
     const response = await request(app).post('/users/verify').send(pretendUserFailedLogin)
     expect(response.statusCode).toBe(401)
   })
+
+  it('Can be rejected if wrong email', async () => {
+    const pretendUserWrongEmail = {
+      email: 'hifake@gmail.com',
+      password: 'testtest'
+    }
+    const response = await request(app).post('/users/verify').send(pretendUserWrongEmail)
+    expect(response.statusCode).toBe(401)
+  })
 })
