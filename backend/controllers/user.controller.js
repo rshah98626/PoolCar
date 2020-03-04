@@ -28,17 +28,17 @@ exports.test = function (req, res) {
 
 /*
 exports.user_create = function (req, res, next) {
-	const hashedPassword =  await bcrypt.hash(req.body.password, 10);
-				let user = new User(
-					{
-						email: req.body.email,
-						name: req.body.name,
-						password: hashedPassword
-						//salt: salt_value
-						//DriverIndicator: req.body.di,
-						//email: req.body.email
-					}
-				);;*/
+const hashedPassword =  await bcrypt.hash(req.body.password, 10);
+let user = new User(
+{
+email: req.body.email,
+name: req.body.name,
+password: hashedPassword
+//salt: salt_value
+//DriverIndicator: req.body.di,
+//email: req.body.email
+}
+);;*/
 exports.user_create = async function (req, res, next) {
 	stripe.customers.create(
 		{
@@ -51,9 +51,9 @@ exports.user_create = async function (req, res, next) {
 			}
 			//console.log(customer)
 			var salt_value = crypto.randomBytes(SALT_LENGTH)
-												.toString(BYTE_TO_STRING_ENCODING);
+			.toString(BYTE_TO_STRING_ENCODING);
 			crypto.pbkdf2(req.body.password, salt_value, ITERATIONS, PASSWORD_LENGTH,
-										DIGEST,
+				DIGEST,
 				function(err, password_result) {
 					var starting = [];
 					let user = new User(
@@ -83,29 +83,31 @@ exports.user_create = async function (req, res, next) {
 	)
 };
 
-exports.user_login =  function(req, res, next){
-		passport.authenticate('local', function(err,user, info){
-			res.send(user);
-			if (err)
-              return next(err);
-        if(!user){
-				res.send("Wrong Credentials");}
-				else{
-        req.logIn(user, function(err) {
-                if (err)
-                    return next(err);
-                if (!err)
-                    res.send("Logged in!");
-		});
-	}
-	})(req, res, next);
-};
+// depreceated
+// exports.user_login =  function(req, res, next){
+// 	passport.authenticate('local', function(err,user, info){
+// 		res.send(user);
+// 		if (err)
+// 		return next(err);
+// 		if(!user){
+// 			res.send("Wrong Credentials");}
+// 			else{
+// 				req.logIn(user, function(err) {
+// 					if (err)
+// 					return next(err);
+// 					if (!err)
+// 					res.send("Logged in!");
+// 				});
+// 			}
+// 		})(req, res, next);
+// 	};
 
 exports.verify = function(req, res, next) {
 	User.findOne({email: req.body.email}, function (err, user) {
 		if(err || user == null) {
 			return res.status(401).end()
 		}
+
 		crypto.pbkdf2(req.body.password, user.salt, ITERATIONS, PASSWORD_LENGTH, DIGEST, function (err, result) {
 			if(result.toString() === user.password) {
 				const token = utilities.create_jwt_token(req.body.email)
