@@ -117,6 +117,29 @@ describe('Ride CRUD Tests', () => {
         expect(detailsResponse.body.latitudeDestination).toBe(fakeRide.latitudeDestination)
     })
 
+    it('Can get all', async() => {
+        const rideResponse1= await createRide()
+        const rideResponse2 = await createRide()
+
+        const allRidesResponse = await request(app).
+            get('/rides/' + "getAll").
+            set("Authorization", "Bearer " + token)
+
+        expect(allRidesResponse.statusCode).toBe(200)
+        expect(allRidesResponse.body).toEqual(expect.any(Array))
+
+        const firstRide = allRidesResponse.body[0]
+        expect(firstRide.id).toBe(fakeRide.id)
+        expect(firstRide["_id"]).toEqual(expect.any(String))
+
+        const secondRide = allRidesResponse.body[1]
+        expect(secondRide.id).toBe(fakeRide.id)
+        expect(secondRide["_id"]).toEqual(expect.any(String))
+
+        // Expect them to have different Mongo DB ID's
+        expect(firstRide["_id"]).not.toEqual(secondRide["_id"])
+    })
+
     it('Can be deleted', async() => {
         const response = await createRide()
 
